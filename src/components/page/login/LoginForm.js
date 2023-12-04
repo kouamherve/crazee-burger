@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function LoginForm() {
-  const [inputValue, setInputValue] = useStateF01("");
+  const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
