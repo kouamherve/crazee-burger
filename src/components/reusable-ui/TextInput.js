@@ -9,7 +9,7 @@ export default function TextInput({
 }) {
   return (
     <div className="relative text-gray-400 focus-within:text-gray-600 flex items-center gap-1">
-      {Icon}
+      {Icon && Icon}
       <input
         type="text"
         value={value}
