@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import TextInput from "../../reusable-ui/TextInput";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");
@@ -11,6 +12,8 @@ export default function LoginForm() {
   const inputClassName =
     "py-[18px] pl-12 pr-6 bg-white rounded-[5px] w-[400px] h-[55px] placeholder:text-gray-300 border-none focus:ring-2 focus:text-gray-500";
   const iconClassName = "absolute w-[15px] h-[15px] ml-5 pointer-events-none";
+  const buttonClassName =
+    "flex items-center justify-center gap-1 text-[15px] leading-[15px] font-bold bg-[#FF9F1B] h-[53px] border border-[#FF9F1B] rounded-[5px] w-[400px] mt-[18px]";
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -31,7 +34,7 @@ export default function LoginForm() {
       <h2 className="text-4xl font-amatic font-bold mt-10 mb-[18px] leading-[46px]">
         Connectez-vous
       </h2>
-      <form onSubmit={handleSubmit} className=" max-w-md">
+      <form onSubmit={handleSubmit}>
         <TextInput
           className={inputClassName}
           value={inputValue}
@@ -40,13 +43,11 @@ export default function LoginForm() {
           required
           Icon={<FaRegUserCircle className={iconClassName} />}
         />
-        <button
-          type="submit"
-          className="flex items-center justify-center gap-1 text-[15px] leading-[15px] font-bold bg-[#FF9F1B] h-[53px] border border-[#FF9F1B] rounded-[5px] w-[400px] mt-[18px]"
-        >
-          <span className="h-[17px]">Accédez à votre espace</span>
-          <MdNavigateNext className="w-5 h-5" />
-        </button>
+        <PrimaryButton
+          label={"Accédez à votre espace"}
+          className={buttonClassName}
+          Icon={<MdNavigateNext className="w-5 h-5" />}
+        />
       </form>
     </div>
   );
