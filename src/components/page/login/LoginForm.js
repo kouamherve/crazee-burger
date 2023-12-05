@@ -10,10 +10,10 @@ export default function LoginForm() {
   const navigate = useNavigate();
 
   const inputClassName =
-    "py-[18px] pl-12 pr-6 bg-white rounded-[5px] w-[400px] h-[55px] placeholder:text-gray-300 border-none focus:ring-2 focus:text-gray-500";
-  const iconClassName = "absolute w-[15px] h-[15px] ml-5 pointer-events-none";
+    "py-[18px] pl-12 pr-6 bg-white rounded-[5px] w-[400px] h-[55px] placeholder:text-greyLight border-none focus:ring-2 focus:text-greyMedium";
+  const iconClassName = "absolute w-md h-md ml-5 pointer-events-none";
   const buttonClassName =
-    "flex items-center justify-center gap-1 text-[15px] leading-[15px] font-bold bg-[#FF9F1B] h-[53px] border border-[#FF9F1B] rounded-[5px] w-[400px] mt-[18px]";
+    "flex items-center justify-center gap-xxs text-[15px] leading-[15px] font-bold bg-primary h-[53px] border border-primary rounded-round w-[400px] mt-[18px]";
 
   const handleChange = (e) => {
     setInputValue(e.target.value);

@@ -39,6 +39,7 @@ module.exports = {
       },
       spacing: {
         xxs: "4px",
+        round: "5px",
         xs: "8px",
         sm: "12px",
         md: "20px",
