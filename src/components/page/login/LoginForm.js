@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
+import { MdNavigateNext } from "react-icons/md";
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");
@@ -17,11 +18,11 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="text-white text-center mt-20 flex flex-col items-center justify-center max-w-[400px]">
+    <div className="text-white text-center mt-14 flex flex-col items-center justify-center max-w-[400px]">
       <h1 className=" text-[48px] leading-[61px] font-amatic font-bold">
         Bienvenue chez nous !
       </h1>
-      <hr className=" border-[#F56A2C] border bg-[#F56A2C] w-full h-1 mt-5 " />
+      <hr className=" border-[#F56A2C] border bg-[#F56A2C] w-full h-1 mt-8 " />
       <h2 className=" text-4xl font-amatic font-bold mt-10 mb-[18px] leading-[46px]">
         Connectez-vous
       </h2>
@@ -37,7 +38,13 @@ export default function LoginForm() {
             className=" py-[18px] pl-12 pr-6 bg-white rounded-[5px] w-[400px] h-[55px] placeholder:text-gray-300 border-none focus:ring-2 focus:text-gray-500"
           />
         </div>
-        <button type="submit">Accédez à votre espace</button>
+        <button
+          type="submit"
+          className="flex items-center justify-center gap-1 text-[15px] leading-[15px] font-bold bg-[#FF9F1B] h-[53px] border border-[#FF9F1B] rounded-[5px] w-full mt-[18px]"
+        >
+          <span className=" h-[17px]">Accédez à votre espace</span>
+          <MdNavigateNext className="w-5 h-5" />
+        </button>
       </form>
     </div>
   );
