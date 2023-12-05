@@ -16,10 +16,14 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="border bg-green-500">
-      <h1>Bienvenue chez nous !</h1>
-      <br />
-      <h2>Connectez-vous</h2>
+    <div className="text-white text-center pt-20">
+      <h1 className=" text-[48px] leading-[61px] font-amatic font-bold">
+        Bienvenue chez nous !
+      </h1>
+      <hr className=" border-[#F56A2C] border bg-[#F56A2C] w-[400px] h-1 mt-5 " />
+      <h2 className=" text-4xl font-amatic font-bold mt-10 mb-[18px] leading-[46px]">
+        Connectez-vous
+      </h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
