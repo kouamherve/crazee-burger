@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
-import Input from "../../reusable-ui/Input";
 import { FaRegUserCircle } from "react-icons/fa";
+import TextInput from "../../reusable-ui/TextInput";
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");
@@ -32,7 +32,7 @@ export default function LoginForm() {
         Connectez-vous
       </h2>
       <form onSubmit={handleSubmit} className=" max-w-md">
-        <Input
+        <TextInput
           className={inputClassName}
           value={inputValue}
           onChange={handleChange}
