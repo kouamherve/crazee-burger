@@ -12,7 +12,7 @@ export default function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setInputValue("");
-    navigate("order");
+    navigate(`order/${inputValue}`);
   };
 
   return (
