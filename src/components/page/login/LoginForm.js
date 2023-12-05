@@ -17,11 +17,11 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="text-white text-center pt-20 flex flex-col items-center justify-center">
+    <div className="text-white text-center mt-20 flex flex-col items-center justify-center max-w-[400px]">
       <h1 className=" text-[48px] leading-[61px] font-amatic font-bold">
         Bienvenue chez nous !
       </h1>
-      <hr className=" border-[#F56A2C] border bg-[#F56A2C] w-[400px] h-1 mt-5 " />
+      <hr className=" border-[#F56A2C] border bg-[#F56A2C] w-full h-1 mt-5 " />
       <h2 className=" text-4xl font-amatic font-bold mt-10 mb-[18px] leading-[46px]">
         Connectez-vous
       </h2>
