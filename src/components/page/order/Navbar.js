@@ -1,10 +1,16 @@
 import React from "react";
 import Logo from "../../reusable-ui/Logo";
 import NavbarRightSide from "./NavbarRightSide";
+import clsx from "clsx";
 
 export default function Navbar({ username, onClick }) {
+  const navClassName = clsx(
+    "px-5 h-[95px] w-full rounded-t-[15px]",
+    "bg-white flex items-center justify-between"
+  );
+
   return (
-    <nav className="px-5 bg-white w-full h-[95px] flex items-center justify-between rounded-t-[15px]">
+    <nav className={navClassName}>
       <button onClick={onClick}>
         <Logo />
       </button>

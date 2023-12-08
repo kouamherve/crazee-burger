@@ -4,16 +4,26 @@ import { MdNavigateNext } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
+import clsx from "clsx";
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
-  const inputClassName =
-    "py-[18px] pl-12 pr-6 bg-white rounded-[5px] w-[400px] h-[55px] text-greyDark placeholder:text-greyLight border-none focus:ring-2 focus:text-greyDark";
-  const iconClassName = "absolute w-md h-md ml-5 pointer-events-none";
-  const buttonClassName =
-    "flex items-center justify-center gap-xxs text-[15px] leading-[15px] font-bold bg-primary h-[53px] border border-primary rounded-round w-[400px] mt-[18px]";
+  const classes = {
+    inputClassName: clsx(
+      "py-[18px] pl-12 pr-6 rounded-[5px] w-[400px] h-[55px]",
+      "text-greyDark border-none",
+      "bg-white placeholder:text-greyLight  focus:ring-2 focus:text-greyDark"
+    ),
+    iconClassName: "absolute w-md h-md ml-5 pointer-events-none",
+    buttonClassName: clsx(
+      "flex items-center justify-center",
+      "text-[15px] leading-[15px] font-bold",
+      "gap-xxs h-[53px] w-[400px] mt-[18px]",
+      "bg-primary  border border-primary rounded-round "
+    ),
+  };
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -36,17 +46,17 @@ export default function LoginForm() {
       </h2>
       <form onSubmit={handleSubmit}>
         <TextInput
-          className={inputClassName}
+          className={classes.inputClassName}
           value={inputValue}
           onChange={handleChange}
           placeholder={"Entrez votre prénom..."}
           required
-          Icon={<BsPersonCircle className={iconClassName} />}
+          Icon={<BsPersonCircle className={classes.iconClassName} />}
         />
         <PrimaryButton
           label={"Accédez à votre espace"}
-          className={buttonClassName}
-          Icon={<MdNavigateNext className=" w-md h-md" />}
+          className={classes.buttonClassName}
+          Icon={<MdNavigateNext className="w-md h-md" />}
         />
       </form>
     </div>

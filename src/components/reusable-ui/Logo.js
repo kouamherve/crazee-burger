@@ -1,10 +1,13 @@
+import clsx from "clsx";
 import React from "react";
 
 export default function Logo({ size }) {
   const classes = {
     logo: `${size}  flex items-center justify-center gap-1`,
-    logoTitle:
-      "uppercase text-[36px] text-primary tracking-[1.5px] font-amatic leading-[46px] font-bold",
+    logoTitle: clsx(
+      "text-[36px] text-primary tracking-[1.5px] leading-[46px]",
+      "uppercase font-amatic  font-bold"
+    ),
   };
 
   return (
