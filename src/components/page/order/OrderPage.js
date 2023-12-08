@@ -4,20 +4,18 @@ import { Link, useParams } from "react-router-dom";
 export default function OrderPage() {
   const { username } = useParams();
   return (
-    <div className=" bg-primary h-screen p-5 flex flex-col items-center">
-      <div className="w-full h-[90%]">
-        <nav className=" bg-green w-full">
-          Navbar
+    <div className=" bg-primary h-screen flex flex-col items-center p-6">
+      <div className="w-full ">
+        <nav className=" bg-green w-full flex items-center justify-between">
           <div>LeftSide</div>
           <div>
-            RightSide
             <h1>Bonjour {username}</h1>
             <Link to="/">
               <button>Déconnexion</button>
             </Link>
           </div>
         </nav>
-        <div className=" bg-blue h-full">Main</div>
+        <div className=" bg-blue h-[90vh]">Main</div>
       </div>
     </div>
   );
