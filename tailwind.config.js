@@ -47,6 +47,9 @@ module.exports = {
         xl: "52px",
         xxl: "84px",
       },
+      scale: {
+        250: "2.5",
+      },
     },
   },
   plugins: [],

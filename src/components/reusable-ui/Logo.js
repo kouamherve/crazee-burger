@@ -1,15 +1,14 @@
 import React from "react";
 
-export default function Logo() {
+export default function Logo({ size }) {
+  const logo = `${size} uppercase flex items-center justify-center gap-1 text-[36px] text-primary tracking-[1.5px] font-amatic leading-[46px] font-bold;
+  `;
+
   return (
-    <div className=" uppercase text-white flex items-center justify-center gap-sm text-center">
-      <h1 className=" text-[110px] text-primary tracking-[1.5px] font-amatic leading-[115px] font-bold">
-        crazee
-      </h1>
-      <img src="./logo.png" alt="Logo" className="w-[200px] h-[150px]" />
-      <h1 className=" uppercase text-[110px] text-primary tracking-[1.5px] font-amatic leading-[115px] font-bold">
-        burger
-      </h1>
+    <div className={logo}>
+      <h1>crazee</h1>
+      <img src="./logo.png" alt="Logo" className="w-[80px] h-[60px]" />
+      <h1>burger</h1>
     </div>
   );
 }
