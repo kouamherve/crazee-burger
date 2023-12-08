@@ -47,6 +47,12 @@ module.exports = {
         xl: "52px",
         xxl: "84px",
       },
+      scale: {
+        250: "2.5",
+      },
+      boxShadow: {
+        xlInner: "0 8px 20px 8px rgba(0, 0, 0, 0.3) inset",
+      },
     },
   },
   plugins: [],

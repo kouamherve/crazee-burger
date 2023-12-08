@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 
 export default function TextInput({
@@ -7,8 +8,13 @@ export default function TextInput({
   className,
   ...extraProps
 }) {
+  const textInputClassName = clsx(
+    "relative text-gray-400 focus-within:text-gray-600",
+    "flex items-center gap-1"
+  );
+
   return (
-    <div className="relative text-gray-400 focus-within:text-gray-600 flex items-center gap-1">
+    <div className={textInputClassName}>
       {Icon && Icon}
       <input
         type="text"
