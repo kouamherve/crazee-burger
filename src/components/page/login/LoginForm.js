@@ -17,12 +17,20 @@ export default function LoginForm() {
       "bg-white placeholder:text-greyLight  focus:ring-2 focus:text-greyDark"
     ),
     iconClassName: "absolute w-md h-md ml-5 pointer-events-none",
-    buttonClassName: clsx(
+    btnClassName: clsx(
       "flex items-center justify-center",
       "text-[15px] leading-[15px] font-bold",
       "gap-xxs h-[53px] w-[400px] mt-[18px]",
       "bg-primary  border border-primary rounded-round "
     ),
+    loginFormClassName: clsx(
+      "text-white text-center",
+      "flex flex-col items-center justify-center",
+      "mt-xl  max-w-[400px]"
+    ),
+    h1: "text-P5 leading-[61px] font-amatic font-bold",
+    hr: "border-primary border bg-primary w-full h-xxs mt-lg",
+    h2: "text-P4 font-amatic font-bold mt-10 mb-md leading-[46px]",
   };
 
   const handleChange = (e) => {
@@ -36,14 +44,10 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="text-white text-center mt-xl flex flex-col items-center justify-center max-w-[400px]">
-      <h1 className=" text-P5 leading-[61px] font-amatic font-bold">
-        Bienvenue chez nous !
-      </h1>
-      <hr className="border-primary border bg-primary w-full h-xxs mt-lg " />
-      <h2 className="text-P4 font-amatic font-bold mt-10 mb-md leading-[46px]">
-        Connectez-vous
-      </h2>
+    <div className={classes.loginFormClassName}>
+      <h1 className={classes.h1}>Bienvenue chez nous !</h1>
+      <hr className={classes.hr} />
+      <h2 className={classes.h2}>Connectez-vous</h2>
       <form onSubmit={handleSubmit}>
         <TextInput
           className={classes.inputClassName}
@@ -55,7 +59,7 @@ export default function LoginForm() {
         />
         <PrimaryButton
           label={"Accédez à votre espace"}
-          className={classes.buttonClassName}
+          className={classes.btnClassName}
           Icon={<MdNavigateNext className="w-md h-md" />}
         />
       </form>
