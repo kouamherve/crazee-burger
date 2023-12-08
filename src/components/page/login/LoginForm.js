@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
-import { FaRegUserCircle } from "react-icons/fa";
+import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput";
 import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
@@ -41,7 +41,7 @@ export default function LoginForm() {
           onChange={handleChange}
           placeholder={"Entrez votre prénom..."}
           required
-          Icon={<FaRegUserCircle className={iconClassName} />}
+          Icon={<BsPersonCircle className={iconClassName} />}
         />
         <PrimaryButton
           label={"Accédez à votre espace"}
