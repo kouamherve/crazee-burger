@@ -10,7 +10,7 @@ export default function Logo({ size }) {
   return (
     <div className={classes.logo}>
       <h1 className={classes.logoTitle}>crazee</h1>
-      <img src="./logo.png" alt="Logo" className="w-[80px] h-[60px]" />
+      <img src="../logo.png" alt="Logo" className="w-[80px] h-[60px]" />
       <h1 className={classes.logoTitle}>burger</h1>
     </div>
   );
