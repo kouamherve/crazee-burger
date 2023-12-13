@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../reusable-ui/Logo";
+import Logo from "../../../reusable-ui/Logo";
 import NavbarRightSide from "./NavbarRightSide";
 import clsx from "clsx";
 
