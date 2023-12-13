@@ -2,8 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import Main from "./Main";
-import { refreshPage } from "../../../utils";
 import clsx from "clsx";
+import { refreshPage } from "../../../utils/utils";
 
 export default function OrderPage() {
   const orderPageClassName = clsx(
