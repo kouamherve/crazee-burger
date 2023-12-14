@@ -51,7 +51,9 @@ module.exports = {
         250: "2.5",
       },
       boxShadow: {
-        xlInner: "0 8px 20px 8px rgba(0, 0, 0, 0.3) inset",
+        xlInner: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
+        card: "-8px 8px 20px 0 rgba(0, 0, 0, 0.3)",
+
       },
     },
   },

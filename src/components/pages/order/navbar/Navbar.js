@@ -6,7 +6,7 @@ import clsx from "clsx";
 export default function Navbar({ username, onClick }) {
   const navClassName = clsx(
     "px-5 h-[95px] w-full rounded-t-[15px]",
-    "bg-white flex items-center justify-between"
+    "bg-white flex items-center justify-between border"
   );
 
   return (
