@@ -7,7 +7,7 @@ export default function Product({imageSource, title}) {
             <img src={imageSource} alt={title} className=" object-contain object-center w-full h-full"/>
           </div>
           <div className="w-[200px] h-[110px] flex flex-col space-y-5">
-            <div className='w-full h-[46px] border border-gray-900'>Title</div>
+            <div className='w-full h-[46px] border border-gray-900 text-[36px] text-dark leading-[45.4px] font-amatic font-bold'>{title}</div>
             <div className='border border-gray-900'>Description</div>
           </div>
         </div>
