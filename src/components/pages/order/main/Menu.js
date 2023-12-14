@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fakeMenu2 } from "../../../../fakeData/fakeMenu";
-import Card from "./Card";
 import clsx from "clsx";
+import Card from "../../../reusable-ui/Card";
 
 export default function Menu() {
   const menuClassName = clsx(
