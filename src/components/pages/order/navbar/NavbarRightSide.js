@@ -3,8 +3,9 @@ import { BsPersonCircle } from "react-icons/bs";
 import Profile from "./Profile";
 import clsx from "clsx";
 import ToggleButton from "./ToggleButton";
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ToastAdmin from "./ToastAdmin";
 
 export default function NavbarRightSide({ username }) {
   const rightSideClassName = clsx(
@@ -40,18 +41,7 @@ export default function NavbarRightSide({ username }) {
         labelIfChecked="désactiver le mode admin"
         labelIfUnchecked="activer le mode admin"
       />
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+      <ToastAdmin />
       <div className={rightSideClassName}>
         <Profile username={username} />
         <BsPersonCircle className=" w-9 h-9" />
