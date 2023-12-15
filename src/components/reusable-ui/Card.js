@@ -1,6 +1,6 @@
 import React from "react";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton";
-import { formatPrice } from "../../../../utils/maths";
+import PrimaryButton from "./PrimaryButton";
+import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
 
 export default function Card({ imageSource, title, price }) {

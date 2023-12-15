@@ -9,12 +9,12 @@ export default function Profile({ username }) {
   );
 
   return (
-    <div className=" ">
-      <h1 className=" text-[16px] leading-[22px]">
+    <div className=" flex flex-col ">
+      <h1 className="text-[16px] leading-[22px]">
         Hey, <b className=" text-primary">{username}</b>
       </h1>
-      <Link to="/">
-        <button className={btnClassName}>Déconnexion</button>
+      <Link to="/" className=" text-end">
+        <button className={btnClassName}>Se déconnecter</button>
       </Link>
     </div>
   );
