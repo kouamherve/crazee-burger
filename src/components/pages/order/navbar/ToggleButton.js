@@ -26,20 +26,20 @@ export default function ToggleButton() {
     <div className="mr-[10px] w-[200px] h-[40px]">
       <div
         onClick={handleClick}
-        className={`p-[5px] w-full h-full rounded-[30px] flex justify-between items-center cursor-pointer ease-in-out transition-colors duration-1000 transform ${
+        className={`toggle ${
           isChecked ? "border-2 border-primary" : "bg-background_dark"
         }`}
       >
         <span
-          className={`w-8 h-8 bg-primary rounded-full transition ease-in-out duration-500 pointer-events-none ${
+          className={`spanToggle ${
             isChecked ? "translate-x-[155px]" : "translate-x-0"
           }`}
         />
         <span
-          className={`text-[10px] uppercase font-openSans leading-[13.62px] transition ease-in-out duration-200 ${
+          className={`textToggle ${
             isChecked
-              ? "text-dark font-normal tracking-[0.5px] -translate-x-[34px]"
-              : "text-primary font-bold -translate-x-3 tracking-[0.5px]"
+              ? "text-dark font-normal -translate-x-[34px]"
+              : "text-primary font-bold -translate-x-3"
           }`}
         >
           {isChecked ? "désactiver le mode admin" : "activer le mode admin"}

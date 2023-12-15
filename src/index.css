@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .toggle {
+        @apply p-[5px] w-full h-full rounded-[30px] flex justify-between items-center cursor-pointer ease-in-out transition-colors duration-700 transform;
+    }
+
+    .spanToggle {
+        @apply w-8 h-8 bg-primary rounded-full transition ease-in-out duration-500 pointer-events-none;
+    }
+
+    .textToggle {
+        @apply text-[10px] uppercase font-openSans leading-[13.62px] tracking-[0.5px] transition ease-in-out duration-500;
+    }
+}
