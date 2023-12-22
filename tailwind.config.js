@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       transitionDuration: {
-        '2000': '2000ms',
-        '3000': '3000ms',
+        2000: "2000ms",
+        3000: "3000ms",
       },
       fontFamily: {
         amatic: ["Amatic SC", "sans-serif"],
@@ -57,7 +57,9 @@ module.exports = {
       boxShadow: {
         xlInner: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
         card: "-8px 8px 20px 0 rgba(0, 0, 0, 0.3)",
-
+      },
+      gridTemplateColumns: {
+        menu_container: "repeat(auto-fit, minmax(300px, 1fr))",
       },
     },
   },

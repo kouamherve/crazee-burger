@@ -5,9 +5,8 @@ import Card from "../../../reusable-ui/Card";
 
 export default function Menu() {
   const menuClassName = clsx(
-    "w-full h-full shadow-xlInner bg-background_white  p-[50px]",
-    "grid grid-cols-4 gap-x-[85px] gap-y-[60px] justify-items-center",
-    "overflow-auto"
+    "w-full shadow-xlInner bg-background_white p-[50px] overflow-y-auto",
+    "grid grid-cols-menu_container gap-x-[85px] gap-y-[60px] justify-items-center"
   );
   const [menu, setMenu] = useState(fakeMenu2);
 
