@@ -7,9 +7,8 @@ import Navbar from "./navbar/Navbar";
 
 export default function OrderPage() {
   const orderPageClassName = clsx(
-    "font-openSans",
     "flex flex-col items-center",
-    "bg-primary  h-screen  p-6"
+    "bg-primary h-screen p-6 font-openSans"
   );
   const { username } = useParams();
   return (
