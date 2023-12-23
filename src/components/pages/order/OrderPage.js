@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
 import Main from "./main/Main";
 import clsx from "clsx";
 import { refreshPage } from "../../../utils/utils";
@@ -10,7 +9,6 @@ export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(true);
 
   const orderContextValue = { isModeAdmin, setIsModeAdmin };
-  const { username } = useParams();
 
   const orderPageClassName = clsx(
     "flex flex-col items-center",
@@ -21,7 +19,7 @@ export default function OrderPage() {
     <OrderContext.Provider value={orderContextValue}>
       <div className={orderPageClassName}>
         <div className="w-full ">
-          <Navbar username={username} onClick={refreshPage} />
+          <Navbar onClick={refreshPage} />
           <Main />
         </div>
       </div>

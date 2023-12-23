@@ -8,7 +8,7 @@ import ToastAdmin from "./ToastAdmin";
 import { useContext } from "react";
 import OrderContext from "../../../../context/OrderContext";
 
-export default function NavbarRightSide({ username }) {
+export default function NavbarRightSide() {
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   const displayToastNotification = () => {
@@ -44,7 +44,7 @@ export default function NavbarRightSide({ username }) {
       />
       <ToastAdmin />
       <div className={rightSideClassName}>
-        <Profile username={username} />
+        <Profile />
         <BsPersonCircle className=" w-9 h-9" />
       </div>
     </div>

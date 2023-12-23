@@ -3,7 +3,7 @@ import Logo from "../../../reusable-ui/Logo";
 import NavbarRightSide from "./NavbarRightSide";
 import clsx from "clsx";
 
-export default function Navbar({ username, onClick }) {
+export default function Navbar({ onClick }) {
   const navClassName = clsx(
     "px-5 h-[95px] w-full rounded-t-[15px]",
     "bg-white flex items-center justify-between border"
@@ -14,7 +14,7 @@ export default function Navbar({ username, onClick }) {
       <button onClick={onClick}>
         <Logo />
       </button>
-      <NavbarRightSide username={username} />
+      <NavbarRightSide />
     </nav>
   );
 }

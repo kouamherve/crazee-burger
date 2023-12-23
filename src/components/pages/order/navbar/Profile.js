@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-export default function Profile({ username }) {
+export default function Profile() {
+  const { username } = useParams();
+
   const btnClassName = clsx(
     "text-[10px] leading-[14px] font-normal",
     "hover:underline hover:underline-offset-4"
