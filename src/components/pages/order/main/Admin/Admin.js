@@ -1,9 +1,12 @@
 import React from "react";
+import AdminTabs from "./AdminTabs";
+import AdminPanel from "./AdminPanel";
 
 export default function Admin() {
   return (
-    <div className="absolute h-[250px] bottom-0 left-0 right-0 bg-white border-greyLight shadow-subtle rounded-b-2xl">
-      Admin
+    <div className="absolute bottom-0 left-0 right-0 rounded-b-2xl">
+      <AdminTabs />
+      <AdminPanel />
     </div>
   );
 }
