@@ -3,7 +3,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import Profile from "./Profile";
 import clsx from "clsx";
 import ToggleButton from "./ToggleButton";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ToastAdmin from "./ToastAdmin";
 
@@ -14,10 +14,10 @@ export default function NavbarRightSide({ username }) {
     "flex items-center justify-center"
   );
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(true);
 
-  const handleClick = () => {
-    if (!isChecked) {
+  const displayToastNotification = () => {
+    if (!isModeAdmin) {
       toast.info("Mode admin activé", {
         // icon: <FaUserSecret size={30}/>,
         position: "bottom-right",
@@ -30,14 +30,14 @@ export default function NavbarRightSide({ username }) {
         theme: "dark",
       });
     }
-    setIsChecked(!isChecked);
+    setIsModeAdmin(!isModeAdmin);
   };
 
   return (
     <div className="flex items-center ">
       <ToggleButton
-        onClick={handleClick}
-        isChecked={isChecked}
+        isChecked={isModeAdmin}
+        onToggle={displayToastNotification}
         labelIfChecked="désactiver le mode admin"
         labelIfUnchecked="activer le mode admin"
       />

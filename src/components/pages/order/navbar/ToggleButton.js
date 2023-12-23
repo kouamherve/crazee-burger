@@ -2,14 +2,14 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function ToggleButton({
   isChecked,
-  onClick,
+  onToggle,
   labelIfChecked = "Fermer",
   labelIfUnchecked = "Ouvrir",
 }) {
   return (
     <div className="mr-[10px] w-[200px] h-[40px]">
       <div
-        onClick={onClick}
+        onChange={onToggle}
         className={`toggle ${
           isChecked ? "border-2 border-primary" : "bg-background_dark"
         }`}
