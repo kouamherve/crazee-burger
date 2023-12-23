@@ -57,6 +57,7 @@ module.exports = {
       boxShadow: {
         xlInner: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
         card: "-8px 8px 20px 0 rgba(0, 0, 0, 0.3)",
+        subtle: "0px -6px 8px -2px rgba(0, 0, 0, 0.2)",
       },
       gridTemplateColumns: {
         menu_container: "repeat(auto-fit, minmax(300px, 1fr))",
