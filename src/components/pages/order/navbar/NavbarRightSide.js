@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import Profile from "./Profile";
 import clsx from "clsx";
@@ -6,17 +5,14 @@ import ToggleButton from "./ToggleButton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ToastAdmin from "./ToastAdmin";
+import { useContext } from "react";
+import OrderContext from "../../../../context/OrderContext";
 
 export default function NavbarRightSide({ username }) {
-  const rightSideClassName = clsx(
-    "text-greyBlue",
-    "gap-[10px] mr-[50px] pl-[50px]",
-    "flex items-center justify-center"
-  );
-
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   const displayToastNotification = () => {
+    setIsModeAdmin(!isModeAdmin);
     if (!isModeAdmin) {
       toast.info("Mode admin activé", {
         // icon: <FaUserSecret size={30}/>,
@@ -30,14 +26,19 @@ export default function NavbarRightSide({ username }) {
         theme: "dark",
       });
     }
-    setIsModeAdmin(!isModeAdmin);
   };
+
+  const rightSideClassName = clsx(
+    "text-greyBlue",
+    "gap-[10px] mr-[50px] pl-[50px]",
+    "flex items-center justify-center"
+  );
 
   return (
     <div className="flex items-center ">
       <ToggleButton
         isChecked={isModeAdmin}
-        onToggle={displayToastNotification}
+        onClick={displayToastNotification}
         labelIfChecked="désactiver le mode admin"
         labelIfUnchecked="activer le mode admin"
       />
