@@ -8,7 +8,11 @@ export default function Tab({ label, onClick, Icon, btn_tab }) {
     >
       <div className="flex items-center justify-center gap-4">
         <span>{Icon}</span>
-        {label && <span>{label}</span>}
+        {label && (
+          <span className=" hover:underline hover:underline-offset-4">
+            {label}
+          </span>
+        )}
       </div>
     </button>
   );

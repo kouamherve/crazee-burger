@@ -3,62 +3,70 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import { useContext } from "react";
-import TabAddSelectedContext from "../../../../../context/TabAddSelectedContext";
-import TabEditSelectedContext from "../../../../../context/TabEditSelectedContext";
+import OrderContext from "../../../../../context/OrderContext";
 
-export default function AdminTabs({ isCollapse, setIsCollapse }) {
-  const handleClick = () => {
+export default function AdminTabs() {
+  const {
+    isCollapse,
+    setIsCollapse,
+    isAddSelected,
+    setIsAddSelected,
+    isEditSelected,
+    setIsEditSelected,
+  } = useContext(OrderContext);
+
+  const tabs = [
+    {
+      label: "",
+      Icon: isCollapse ? (
+        <FiChevronUp className="svg-size" />
+      ) : (
+        <FiChevronDown className="svg-size" />
+      ),
+      onClick: () => setIsCollapse(!isCollapse),
+      selected: isCollapse,
+    },
+    {
+      label: "Ajouter un produit",
+      Icon: <AiOutlinePlus className="svg-size" />,
+      onClick: () => selectTab("add"),
+      selected: isAddSelected,
+    },
+    {
+      label: "Modifier un produit",
+      Icon: <MdModeEditOutline className="svg-size" />,
+      onClick: () => selectTab("edit"),
+      selected: isEditSelected,
+    },
+  ];
+
+  const selectTab = (tabSelect) => {
     setIsCollapse(!isCollapse);
+    if (tabSelect === "add") {
+      setIsCollapse(false);
+      setIsAddSelected(true);
+      setIsEditSelected(false);
+    }
+    if (tabSelect === "edit") {
+      setIsCollapse(false);
+      setIsEditSelected(true);
+      setIsAddSelected(false);
+    }
   };
-  const handleAddProduct = () => {
-    setIsCollapse(false);
-    setIsAddSelected(true);
-    setIsEditSelected(false);
-  };
-  const handleEditProduct = () => {
-    setIsCollapse(false);
-    setIsEditSelected(true);
-    setIsAddSelected(false);
-  };
-
-  const { isAddSelected, setIsAddSelected } = useContext(TabAddSelectedContext);
-  const { isEditSelected, setIsEditSelected } = useContext(
-    TabEditSelectedContext
-  );
 
   return (
     <div className="flex gap-px">
-      <Tab
-        label=""
-        Icon={isCollapse ? <FiChevronUp /> : <FiChevronDown />}
-        onClick={handleClick}
-        btn_tab={
-          isCollapse
-            ? "text-white bg-background_dark border border-background_dark"
-            : "bg-white text-greySemiDark border border-greyLight"
-        }
-      />
-
-      <Tab
-        label="Ajouter un produit"
-        Icon={<AiOutlinePlus />}
-        onClick={handleAddProduct}
-        btn_tab={
-          isAddSelected
-            ? "text-white bg-background_dark border border-background_dark"
-            : "bg-white text-greySemiDark border border-greyLight"
-        }
-      />
-      <Tab
-        label="Modifier un produit"
-        Icon={<MdModeEditOutline />}
-        onClick={handleEditProduct}
-        btn_tab={
-          isEditSelected
-            ? "text-white bg-background_dark border border-background_dark"
-            : "bg-white text-greySemiDark border border-greyLight"
-        }
-      />
+      {tabs.map((tab, index) => {
+        return (
+          <Tab
+            key={index}
+            label={tab.label}
+            Icon={tab.Icon}
+            onClick={tab.onClick}
+            btn_tab={tab.selected ? "active-tab" : "default-tab"}
+          />
+        );
+      })}
     </div>
   );
 }

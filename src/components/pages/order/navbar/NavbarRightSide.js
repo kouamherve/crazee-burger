@@ -12,7 +12,6 @@ export default function NavbarRightSide() {
   const { isModeAdmin, setIsModeAdmin } = useContext(OrderContext);
 
   const displayToastNotification = () => {
-    setIsModeAdmin(!isModeAdmin);
     if (!isModeAdmin) {
       toast.info("Mode admin activé", {
         // icon: <FaUserSecret size={30}/>,
@@ -26,6 +25,7 @@ export default function NavbarRightSide() {
         theme: "dark",
       });
     }
+    setIsModeAdmin(!isModeAdmin);
   };
 
   const rightSideClassName = clsx(

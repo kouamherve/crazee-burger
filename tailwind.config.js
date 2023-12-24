@@ -60,7 +60,7 @@ module.exports = {
         subtle: "0px -6px 8px -2px rgba(0, 0, 0, 0.2)",
       },
       gridTemplateColumns: {
-        menu_container: "repeat(auto-fit, minmax(300px, 1fr))",
+        menu_container: "repeat(auto-fit, minmax(250px, 1fr))",
       },
     },
   },
