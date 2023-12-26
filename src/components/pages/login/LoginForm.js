@@ -12,25 +12,25 @@ export default function LoginForm() {
 
   const classes = {
     inputClassName: clsx(
-      "py-[18px] pl-12 pr-6 rounded-[5px] w-[400px] h-[55px]",
+      "py-[18px] pl-12 pr-6 rounded-md w-[400px] h-[55px]",
       "text-greyDark border-none",
-      "bg-white placeholder:text-greyLight  focus:ring-2 focus:text-greyDark"
+      "bg-white placeholder:text-greyLight focus:ring-2 focus:text-greyDark"
     ),
-    iconClassName: "absolute w-md h-md ml-5 pointer-events-none",
+    iconClassName: "absolute w-5 h-5 ml-5 pointer-events-none",
     btnClassName: clsx(
       "flex items-center justify-center",
-      "text-[15px] leading-[15px] font-bold",
-      "gap-xxs h-[53px] w-[400px] mt-[18px]",
-      "bg-primary  border border-primary rounded-round "
+      "text-base leading-4 font-bold",
+      "gap-1 h-[53px] w-[400px] mt-[18px]",
+      "bg-primary  border border-primary rounded-md "
     ),
     loginFormClassName: clsx(
       "text-white text-center",
       "flex flex-col items-center justify-center",
-      "mt-xl  max-w-[400px]"
+      "mt-[52px] max-w-[400px]"
     ),
-    h1: "text-P5 leading-[61px] font-amatic font-bold",
-    hr: "border-primary border bg-primary w-full h-xxs mt-lg",
-    h2: "text-P4 font-amatic font-bold mt-10 mb-md leading-[46px]",
+    h1: "text-6xl leading-[61px] font-amatic font-bold",
+    hr: "border-primary border bg-primary w-full h-1 mt-lg",
+    h2: "text-5xl font-amatic font-bold mt-10 mb-4 leading-11",
   };
 
   const handleChange = (e) => {
