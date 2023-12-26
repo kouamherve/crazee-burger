@@ -2,6 +2,7 @@ import Tab from "../../../../reusable-ui/Tab";
 import { useContext } from "react";
 import OrderContext from "../../../../../context/OrderContext";
 import { getTabsConfig } from "./getTabsConfig";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 export default function AdminTabs() {
   const {
@@ -15,22 +16,31 @@ export default function AdminTabs() {
     setIsCollapse(false);
     setCurrentTabSelected(tabSelect);
   };
-  const tabs = getTabsConfig(isCollapse, currentTabSelected);
+  const tabs = getTabsConfig;
 
   return (
     <div className="flex gap-px">
+      <Tab
+        onClick={() => setIsCollapse(!isCollapse)}
+        className={isCollapse ? "active-tab" : "default-tab"}
+        Icon={
+          isCollapse ? (
+            <FiChevronUp className="svg-size" />
+          ) : (
+            <FiChevronDown className="svg-size" />
+          )
+        }
+      />
       {tabs.map((tab) => {
         return (
           <Tab
             key={tab.label}
             label={tab.label}
             Icon={tab.Icon}
-            className={tab.className}
-            onClick={() => {
-              tab.label === ""
-                ? setIsCollapse(!isCollapse)
-                : handleTabSelect(tab.label);
-            }}
+            onClick={() => handleTabSelect(tab.label)}
+            className={
+              currentTabSelected === tab.label ? "active-tab" : "default-tab"
+            }
           />
         );
       })}
