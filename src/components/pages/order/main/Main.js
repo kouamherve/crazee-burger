@@ -10,7 +10,7 @@ export default function Main() {
     <div className="flex flex-col rounded-b-2xl overflow-y-hidden">
       <div className="flex h-[84vh] w-full">
         {/* <div className=" bg-sky-500 w-1/4">Basket-menu</div> */}
-        <div className="w-full relative grid">
+        <div className="relative w-full grid">
           <Menu />
           {isModeAdmin && <Admin />}
         </div>

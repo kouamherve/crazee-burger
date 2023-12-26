@@ -7,7 +7,7 @@ export default function ToggleButton({
   labelIfUnchecked = "Ouvrir",
 }) {
   return (
-    <div className="mr-[10px] w-[200px] h-[40px]">
+    <div className="mr-2.5 w-50 h-10">
       <div
         onClick={onClick}
         className={`toggle ${

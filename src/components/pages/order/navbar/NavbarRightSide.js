@@ -30,7 +30,7 @@ export default function NavbarRightSide() {
 
   const rightSideClassName = clsx(
     "text-greyBlue",
-    "gap-[10px] mr-[50px] pl-[50px]",
+    "gap-2.5 mr-13 pl-13",
     "flex items-center justify-center"
   );
 
@@ -45,7 +45,7 @@ export default function NavbarRightSide() {
       <ToastAdmin />
       <div className={rightSideClassName}>
         <Profile />
-        <BsPersonCircle className=" w-9 h-9" />
+        <BsPersonCircle className="w-9 h-9" />
       </div>
     </div>
   );

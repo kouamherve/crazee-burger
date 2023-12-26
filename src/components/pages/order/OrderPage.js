@@ -4,10 +4,14 @@ import clsx from "clsx";
 import { refreshPage } from "../../../utils/utils";
 import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
+import { useParams } from "react-router-dom";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapse, setIsCollapse] = useState(false);
+
+  const { username } = useParams();
+
   const [currentTabSelected, setCurrentTabSelected] =
     useState("Ajouter un produit");
 
@@ -18,6 +22,7 @@ export default function OrderPage() {
     setIsCollapse,
     currentTabSelected,
     setCurrentTabSelected,
+    username,
   };
 
   const orderPageClassName = clsx(

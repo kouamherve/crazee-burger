@@ -7,4 +7,5 @@ export default createContext({
   setIsCollapse: () => {},
   currentTabSelected: "",
   setCurrentTabSelected: () => {},
+  username: "",
 });
