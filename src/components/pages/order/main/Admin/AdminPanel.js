@@ -7,7 +7,7 @@ export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
 
   return (
-    <div className="h-64 pl-5 pt-4 bg-white font-openSans text-base font-normal border border-greyLight shadow-subtle">
+    <div className="h-64 pl-[70px] pt-4 bg-white font-openSans text-base font-normal border border-greyLight shadow-subtle">
       {currentTabSelected === "" ? (
         ""
       ) : currentTabSelected === "Ajouter un produit" ? (
