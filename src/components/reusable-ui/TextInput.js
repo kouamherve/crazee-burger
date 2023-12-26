@@ -9,7 +9,7 @@ export default function TextInput({
   ...extraProps
 }) {
   const textInputClassName = clsx(
-    "relative text-gray-400 focus-within:text-gray-600",
+    "relative text-greySemiDark focus-within:text-gray-600",
     "flex items-center gap-1"
   );
 

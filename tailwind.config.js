@@ -3,13 +3,50 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      transitionDuration: {
-        '2000': '2000ms',
-        '3000': '3000ms',
-      },
       fontFamily: {
         amatic: ["Amatic SC", "sans-serif"],
         openSans: ["Open Sans", "sans-serif"],
+      },
+      padding: {
+        13: "50px",
+        50: "200px",
+      },
+      margin: {
+        13: "50px",
+        50: "200px",
+      },
+      width: {
+        50: "200px",
+      },
+      height: {
+        11.5: "46px",
+        15: "60px",
+        50: "200px",
+        85: "330px",
+      },
+      lineHeight: {
+        5.5: "1.375",
+        11: "2.875", //46px
+        12: "3rem", //50px
+      },
+      gap: {
+        15: "3.75rem",
+        21: "5.313rem",
+      },
+      scale: {
+        250: "2.5",
+      },
+      transitionDuration: {
+        2000: "2000ms",
+        3000: "3000ms",
+      },
+      boxShadow: {
+        medium: "-8px 8px 20px 0 rgba(0, 0, 0, 0.3)",
+        subtle: "0px -6px 8px -2px rgba(0, 0, 0, 0.2)",
+        strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
+      },
+      gridTemplateColumns: {
+        container: "repeat(auto-fit, minmax(250px, 1fr))",
       },
       colors: {
         dark: "#17161a",
@@ -28,36 +65,6 @@ module.exports = {
         greySemiDark: "#93a2b1",
         greyDark: "#6f737e",
         greyBlue: "#747b91",
-      },
-      fontSize: {
-        XXXS: "8px",
-        XXS: "10px",
-        XS: "12px",
-        P0: "15px",
-        P1: "18px",
-        P2: "20px",
-        P3: "24px",
-        P4: "36px",
-        P5: "48px",
-        P6: "60px",
-      },
-      spacing: {
-        xxs: "4px",
-        round: "5px",
-        xs: "8px",
-        sm: "12px",
-        md: "20px",
-        lg: "32px",
-        xl: "52px",
-        xxl: "84px",
-      },
-      scale: {
-        250: "2.5",
-      },
-      boxShadow: {
-        xlInner: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
-        card: "-8px 8px 20px 0 rgba(0, 0, 0, 0.3)",
-
       },
     },
   },
