@@ -1,7 +1,7 @@
-import Tab from "../../../../reusable-ui/Tab";
+import Tab from "../../../../../reusable-ui/Tab";
 import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext";
-import { getTabsConfig } from "./getTabsConfig";
+import OrderContext from "../../../../../../context/OrderContext";
+import { getTabsConfig } from "../getTabsConfig";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 export default function AdminTabs() {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import AdminTabs from "./AdminTabs";
-import AdminPanel from "./AdminPanel";
+import AdminTabs from "./adminTabs/AdminTabs";
+import AdminPanel from "./adminPanel/AdminPanel";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function Admin() {

@@ -5,7 +5,7 @@ import { refreshPage } from "../../../utils/utils";
 import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
-import { fakeMenu2 } from "../../../fakeData/fakeMenu";
+import { fakeMenu } from "../../../fakeData/fakeMenu";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
@@ -13,7 +13,7 @@ export default function OrderPage() {
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] =
     useState("Ajouter un produit");
-  const [menu, setMenu] = useState(fakeMenu2);
+  const [menu, setMenu] = useState(fakeMenu.LARGE);
 
   const orderContextValue = {
     isModeAdmin,
