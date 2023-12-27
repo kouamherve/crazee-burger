@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import PrimaryButton from "./PrimaryButton";
 import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
+import { TiDelete } from "react-icons/ti";
+import OrderContext from "../../context/OrderContext";
 
-export default function Card({ imageSource, title, price }) {
+export default function Card({ imageSource, title, price, onClick }) {
+  const { isModeAdmin } = useContext(OrderContext);
+
   const classes = {
     cardClassName: clsx(
-      "w-60 h-85 bg-white",
+      "relative w-60 h-85 bg-white",
       "flex flex-col items-center",
       "rounded-2xl shadow-medium"
     ),
@@ -32,6 +36,14 @@ export default function Card({ imageSource, title, price }) {
 
   return (
     <div className={classes.cardClassName}>
+      {isModeAdmin && (
+        <div className="absolute top-0 right-0 mr-[15px] mt-[15px] ">
+          <TiDelete
+            onClick={onClick}
+            className="w-8 h-8 text-primary fill-current cursor-pointer hover:text-red"
+          />
+        </div>
+      )}
       <div className={classes.imageContainer}>
         <img src={imageSource} alt={title} className={classes.image} />
       </div>
