@@ -8,4 +8,6 @@ export default createContext({
   currentTabSelected: "",
   setCurrentTabSelected: () => {},
   username: "",
+  menu: {},
+  setMenu: () => {},
 });
