@@ -8,8 +8,13 @@ export default function AddAdminPanel() {
   const [nameValue, setNameValue] = useState("");
   const [imageValue, setImageValue] = useState("");
   const [priceValue, setPriceValue] = useState("");
+  const [showToast, setShowToast] = useState(false);
 
   const { menu, setMenu } = useContext(OrderContext);
+
+  setTimeout(() => {
+    setShowToast(false);
+  }, 5000);
 
   const handleAddProduct = (event) => {
     event.preventDefault();
@@ -25,6 +30,7 @@ export default function AddAdminPanel() {
     setNameValue("");
     setImageValue("");
     setPriceValue("");
+    setShowToast(true);
   };
 
   return (
@@ -39,6 +45,8 @@ export default function AddAdminPanel() {
           priceValue={priceValue}
           setPriceValue={setPriceValue}
           handleAddProduct={handleAddProduct}
+          showToast={showToast}
+          setShowToast={setShowToast}
         />
       </div>
     </div>

@@ -19,7 +19,11 @@ export default function Menu() {
     <div className={menuClassName}>
       {menu.map((product) => (
         <Card
-          imageSource={product.imageSource}
+          imageSource={
+            product.imageSource
+              ? product.imageSource
+              : "/images/coming-soon.png"
+          }
           title={product.title}
           price={product.price}
           onClick={() => handleDelete(product.id)}

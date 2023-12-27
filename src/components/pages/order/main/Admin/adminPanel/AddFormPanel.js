@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../../../../../reusable-ui/Input";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
+import ToastAddSuccess from "./ToastAddSuccess";
 
 export default function AddFormPanel({
   nameValue,
@@ -13,6 +14,7 @@ export default function AddFormPanel({
   priceValue,
   setPriceValue,
   handleAddProduct,
+  showToast,
 }) {
   return (
     <div className=" h-[120px] w-[73%]">
@@ -46,12 +48,13 @@ export default function AddFormPanel({
             <MdOutlineEuro className="absolute w-4 h-4 ml-6 pointer-events-none" />
           }
         />
-        <div>
+        <div className="w-full flex items-center">
           <PrimaryButton
             type="submit"
             label={"Ajouter un nouveau produit au menu"}
             className="border border-success bg-success active:bg-white active:text-success rounded-md text-xs font-bold text-white px-[30px] py-3"
           />
+          {showToast && <ToastAddSuccess />}
         </div>
       </form>
     </div>
