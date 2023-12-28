@@ -14,7 +14,7 @@ export default function LoginForm() {
     inputClassName: clsx(
       "py-[18px] pl-12 pr-6 rounded-md w-[400px] h-[55px]",
       "text-greyDark border-none",
-      "bg-white placeholder:text-greyLight focus:ring-2 focus:text-greyDark"
+      "bg-white placeholder:text-greyLight focus:ring focus:ring-primary focus:outline-none"
     ),
     iconClassName: "absolute w-5 h-5 ml-5 pointer-events-none",
     btnClassName: clsx(
@@ -28,9 +28,9 @@ export default function LoginForm() {
       "flex flex-col items-center justify-center",
       "mt-[52px] max-w-[400px]"
     ),
-    h1: "text-6xl leading-[61px] font-amatic font-bold",
-    hr: "border-primary border bg-primary w-full h-1 mt-lg",
-    h2: "text-5xl font-amatic font-bold mt-10 mb-4 leading-11",
+    h1: "text-5xl leading-[61px] font-amatic font-bold mb-8",
+    hr: "border-primary border bg-primary w-full h-1",
+    h2: "text-4xl font-amatic font-bold mt-10 leading-11",
   };
 
   const handleChange = (e) => {

@@ -14,7 +14,7 @@ export default function AddAdminPanel() {
 
   setTimeout(() => {
     setShowToast(false);
-  }, 5000);
+  }, 3000);
 
   const handleAddProduct = (event) => {
     event.preventDefault();
