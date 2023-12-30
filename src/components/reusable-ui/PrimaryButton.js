@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function PrimaryButton({ label, Icon, className }) {
+export default function PrimaryButton({ label, Icon, className, onClick }) {
   return (
-    <button className={className}>
+    <button onClick={onClick} className={className}>
       <span className="h-[17px]">{label}</span>
       {Icon && Icon}
     </button>

@@ -3,7 +3,7 @@ import OrderContext from "../../../../../../context/OrderContext";
 import AddImagePanel from "./AddImagePanel";
 import AddFormPanel from "./AddFormPanel";
 
-let nextId = 10;
+let nextId = 11;
 export default function AddAdminPanel() {
   const [nameValue, setNameValue] = useState("");
   const [imageValue, setImageValue] = useState("");

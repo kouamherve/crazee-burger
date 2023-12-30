@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import clsx from "clsx";
 import Card from "../../../reusable-ui/Card";
 import OrderContext from "../../../../context/OrderContext";
-import PrimaryButton from "../../../reusable-ui/PrimaryButton";
-import { refreshPage } from "../../../../utils/utils";
+import EmptyMenuAdmin from "./Admin/EmptyMenuAdmin";
+import EmptyMenu from "./EmptyMenu";
 
 export default function Menu() {
   const { menu, setMenu, isModeAdmin } = useContext(OrderContext);
@@ -35,27 +35,9 @@ export default function Menu() {
           />
         ))
       ) : isModeAdmin ? (
-        <div className="flex flex-col items-center justify-center gap-8">
-          <div className="flex flex-col items-center justify-center gap-[21px] text-4xl font-amatic text-greyBlue">
-            <span>
-              <b>Le menu est vide ?</b>
-            </span>
-            <span>Cliquez ci-dessous pour le réinitialiser</span>
-          </div>
-          <PrimaryButton
-            onClick={refreshPage}
-            label={"Générer de nouveaux produits"}
-            className="h-[50px] border border-primary bg-primary active:bg-white active:text-primary rounded-md text-xs font-bold text-white px-5 py-3"
-          />
-        </div>
+        <EmptyMenuAdmin />
       ) : (
-        <div className="flex flex-col items-center justify-center gap-[21px] text-4xl font-amatic text-greyBlue">
-          <span>
-            <b>Victime de notre succès ! :D</b>
-          </span>
-          <span>De nouvelles recettes sont en cours de préparation.</span>
-          <span>À très vite !</span>
-        </div>
+        <EmptyMenu />
       )}
     </div>
   );

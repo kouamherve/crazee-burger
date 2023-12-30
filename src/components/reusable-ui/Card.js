@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import PrimaryButton from "./PrimaryButton";
 import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
-import { TiDelete } from "react-icons/ti";
 import OrderContext from "../../context/OrderContext";
+import DeleteButton from "../pages/order/main/Admin/adminPanel/DeleteButton";
 
 export default function Card({ imageSource, title, price, onClick }) {
   const { isModeAdmin } = useContext(OrderContext);
@@ -36,14 +36,7 @@ export default function Card({ imageSource, title, price, onClick }) {
 
   return (
     <div className={classes.cardClassName}>
-      {isModeAdmin && (
-        <div className="absolute top-0 right-0 mr-[15px] mt-[15px] ">
-          <TiDelete
-            onClick={onClick}
-            className="w-8 h-8 text-primary fill-current cursor-pointer hover:text-red"
-          />
-        </div>
-      )}
+      {isModeAdmin && <DeleteButton onClick={onClick} />}
       <div className={classes.imageContainer}>
         <img src={imageSource} alt={title} className={classes.image} />
       </div>
