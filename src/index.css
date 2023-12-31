@@ -25,4 +25,7 @@
   .default-tab {
     @apply bg-white text-greySemiDark border border-greyLight;
   }
+  .icon-input-panel {
+    @apply absolute w-4 h-4 ml-6 pointer-events-none;
+  }
 }

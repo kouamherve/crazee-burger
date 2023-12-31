@@ -27,9 +27,7 @@ export default function AddForm() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder={"Nom du produit (ex: Super Burger)"}
-          Icon={
-            <FaHamburger className="absolute w-4 h-4 ml-6 pointer-events-none" />
-          }
+          Icon={<FaHamburger className="icon-input-panel" />}
         />
         <TextInputPanel
           type={"url"}
@@ -38,18 +36,14 @@ export default function AddForm() {
           placeholder={
             "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           }
-          Icon={
-            <BsFillCameraFill className="absolute w-4 h-4 ml-6 pointer-events-none" />
-          }
+          Icon={<BsFillCameraFill className="icon-input-panel" />}
         />
         <TextInputPanel
           type={"number"}
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           placeholder={"Prix"}
-          Icon={
-            <MdOutlineEuro className="absolute w-4 h-4 ml-6 pointer-events-none" />
-          }
+          Icon={<MdOutlineEuro className="icon-input-panel" />}
         />
         <div className="w-full flex items-center">
           <PrimaryButton

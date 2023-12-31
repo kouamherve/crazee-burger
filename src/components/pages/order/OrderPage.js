@@ -35,6 +35,10 @@ export default function OrderPage() {
     setShowToast(true);
   };
 
+  setTimeout(() => {
+    setShowToast(false);
+  }, 3000);
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -55,10 +59,6 @@ export default function OrderPage() {
     showToast,
     setShowToast,
   };
-
-  setTimeout(() => {
-    setShowToast(false);
-  }, 3000);
 
   const orderPageClassName = clsx(
     "flex flex-col items-center ",
