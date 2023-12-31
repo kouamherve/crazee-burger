@@ -10,9 +10,30 @@ import { fakeMenu } from "../../../fakeData/fakeMenu";
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapse, setIsCollapse] = useState(false);
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.LARGE);
+
+  const handleAdd = (event) => {
+    event.preventDefault();
+    setMenu([
+      {
+        id: new Date().getTime(),
+        title: title,
+        imageSource: image,
+        price: price,
+      },
+      ...menu,
+    ]);
+    setTitle("");
+    setImage("");
+    setPrice("");
+    setShowToast(true);
+  };
 
   const orderContextValue = {
     isModeAdmin,
@@ -24,7 +45,20 @@ export default function OrderPage() {
     username,
     menu,
     setMenu,
+    handleAdd,
+    title,
+    setTitle,
+    image,
+    setImage,
+    price,
+    setPrice,
+    showToast,
+    setShowToast,
   };
+
+  setTimeout(() => {
+    setShowToast(false);
+  }, 3000);
 
   const orderPageClassName = clsx(
     "flex flex-col items-center ",

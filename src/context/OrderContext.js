@@ -10,4 +10,13 @@ export default createContext({
   username: "",
   menu: {},
   setMenu: () => {},
+  handleAdd: () => {},
+  title: "",
+  setTitle: () => {},
+  image: "",
+  setImage: () => {},
+  price: "",
+  setPrice: () => {},
+  showToast: false,
+  setShowToast: () => {},
 });
