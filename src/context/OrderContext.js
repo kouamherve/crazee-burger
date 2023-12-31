@@ -11,6 +11,7 @@ export default createContext({
   menu: {},
   setMenu: () => {},
   handleAdd: () => {},
+  handleDelete: () => {},
   title: "",
   setTitle: () => {},
   image: "",

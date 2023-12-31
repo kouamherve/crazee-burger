@@ -6,11 +6,7 @@ import EmptyMenuAdmin from "./Admin/EmptyMenuAdmin";
 import EmptyMenu from "./EmptyMenu";
 
 export default function Menu() {
-  const { menu, setMenu, isModeAdmin } = useContext(OrderContext);
-
-  const handleDelete = (productId) => {
-    setMenu(menu.filter((p) => p.id !== productId));
-  };
+  const { menu, handleDelete, isModeAdmin } = useContext(OrderContext);
 
   const menuClassName = clsx(
     "w-full p-13 gap-x-21 gap-y-15",

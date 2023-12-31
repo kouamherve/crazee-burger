@@ -35,6 +35,10 @@ export default function OrderPage() {
     setShowToast(true);
   };
 
+  const handleDelete = (productId) => {
+    setMenu(menu.filter((p) => p.id !== productId));
+  };
+
   setTimeout(() => {
     setShowToast(false);
   }, 3000);
@@ -50,6 +54,7 @@ export default function OrderPage() {
     menu,
     setMenu,
     handleAdd,
+    handleDelete,
     title,
     setTitle,
     image,
