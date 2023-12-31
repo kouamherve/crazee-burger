@@ -3,7 +3,7 @@ import OrderContext from "../../../../../../context/OrderContext";
 import AddForm from "./AddForm";
 import ImagePreview from "./ImagePreview";
 
-let nextId = 11;
+// let nextId = 11;
 export default function AddPanel() {
   const [nameValue, setNameValue] = useState("");
   const [imageValue, setImageValue] = useState("");
@@ -16,7 +16,7 @@ export default function AddPanel() {
     event.preventDefault();
     setMenu([
       {
-        id: nextId++,
+        id: new Date().getTime(),
         title: nameValue,
         imageSource: imageValue,
         price: priceValue,

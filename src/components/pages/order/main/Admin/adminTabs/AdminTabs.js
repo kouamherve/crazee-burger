@@ -34,12 +34,12 @@ export default function AdminTabs() {
       {tabs.map((tab) => {
         return (
           <Tab
-            key={tab.label}
+            key={tab.index}
             label={tab.label}
             Icon={tab.Icon}
-            onClick={() => handleTabSelect(tab.label)}
+            onClick={() => handleTabSelect(tab.index)}
             className={
-              currentTabSelected === tab.label ? "active-tab" : "default-tab"
+              currentTabSelected === tab.index ? "active-tab" : "default-tab"
             }
           />
         );

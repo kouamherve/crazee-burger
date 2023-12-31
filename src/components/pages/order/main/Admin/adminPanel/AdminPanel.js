@@ -6,17 +6,14 @@ import EditPanel from "./EditPanel";
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
 
+  const tabComponents = {
+    add: <AddPanel />,
+    edit: <EditPanel />,
+  };
+
   return (
     <div className="h-64 pl-[70px] pt-4 bg-white font-openSans text-base font-normal border border-greyLight shadow-subtle">
-      {currentTabSelected === "" ? (
-        ""
-      ) : currentTabSelected === "Ajouter un produit" ? (
-        <AddPanel />
-      ) : currentTabSelected === "Modifier un produit" ? (
-        <EditPanel />
-      ) : (
-        ""
-      )}
+      {currentTabSelected && tabComponents[currentTabSelected]}
     </div>
   );
 }

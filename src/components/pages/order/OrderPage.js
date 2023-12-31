@@ -11,8 +11,7 @@ export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapse, setIsCollapse] = useState(false);
   const { username } = useParams();
-  const [currentTabSelected, setCurrentTabSelected] =
-    useState("Ajouter un produit");
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.LARGE);
 
   const orderContextValue = {
