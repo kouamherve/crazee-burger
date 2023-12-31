@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
-import AddAdminPanel from "./AddAdminPanel";
-import EditAdminPanel from "./EditAdminPanel";
+import AddPanel from "./AddPanel";
+import EditPanel from "./EditPanel";
 
 export default function AdminPanel() {
   const { currentTabSelected } = useContext(OrderContext);
@@ -11,9 +11,9 @@ export default function AdminPanel() {
       {currentTabSelected === "" ? (
         ""
       ) : currentTabSelected === "Ajouter un produit" ? (
-        <AddAdminPanel />
+        <AddPanel />
       ) : currentTabSelected === "Modifier un produit" ? (
-        <EditAdminPanel />
+        <EditPanel />
       ) : (
         ""
       )}

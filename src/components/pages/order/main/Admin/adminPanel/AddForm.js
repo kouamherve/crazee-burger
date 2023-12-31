@@ -6,7 +6,7 @@ import { MdOutlineEuro } from "react-icons/md";
 import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 import ToastAddSuccess from "./ToastAddSuccess";
 
-export default function AddFormPanel({
+export default function AddForm({
   nameValue,
   setNameValue,
   imageValue,

@@ -1,20 +1,16 @@
 import React, { useContext, useState } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
-import AddImagePanel from "./AddImagePanel";
-import AddFormPanel from "./AddFormPanel";
+import AddForm from "./AddForm";
+import ImagePreview from "./ImagePreview";
 
 let nextId = 11;
-export default function AddAdminPanel() {
+export default function AddPanel() {
   const [nameValue, setNameValue] = useState("");
   const [imageValue, setImageValue] = useState("");
   const [priceValue, setPriceValue] = useState("");
   const [showToast, setShowToast] = useState(false);
 
   const { menu, setMenu } = useContext(OrderContext);
-
-  setTimeout(() => {
-    setShowToast(false);
-  }, 3000);
 
   const handleAddProduct = (event) => {
     event.preventDefault();
@@ -33,11 +29,15 @@ export default function AddAdminPanel() {
     setShowToast(true);
   };
 
+  setTimeout(() => {
+    setShowToast(false);
+  }, 3000);
+
   return (
     <div className="h-[160px] w-[880px]">
       <div className="mt-[30px] flex space-x-5 w-full h-full mb-13">
-        <AddImagePanel imageValue={imageValue} nameValue={nameValue} />
-        <AddFormPanel
+        <ImagePreview imageValue={imageValue} nameValue={nameValue} />
+        <AddForm
           nameValue={nameValue}
           setNameValue={setNameValue}
           imageValue={imageValue}

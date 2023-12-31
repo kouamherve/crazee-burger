@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AddImagePanel({ imageValue, nameValue }) {
+export default function ImagePreview({ imageValue, nameValue }) {
   return (
     <div
       className={`w-[27%] h-[120px] rounded-md font-openSans text-base font-normal ${

@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function EditAdminPanel() {
+export default function EditPanel() {
   return <div>Edit</div>;
 }
