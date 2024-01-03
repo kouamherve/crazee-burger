@@ -6,6 +6,7 @@ export default function TextInputPanel({
   Icon,
   value,
   onChange,
+  step,
 }) {
   return (
     <label className="relative text-greyMedium text-base font-normal flex items-center">
@@ -16,6 +17,7 @@ export default function TextInputPanel({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        step={step}
       />
     </label>
   );

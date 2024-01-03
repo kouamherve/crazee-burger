@@ -22,7 +22,7 @@ export default function OrderPage() {
     event.preventDefault();
     setMenu([
       {
-        id: new Date().getTime(),
+        id: crypto.randomUUID(),
         title: title,
         imageSource: image,
         price: price,

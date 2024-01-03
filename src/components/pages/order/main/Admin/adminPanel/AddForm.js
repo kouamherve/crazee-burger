@@ -40,6 +40,7 @@ export default function AddForm() {
         />
         <TextInputPanel
           type={"number"}
+          step={"0.01"}
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           placeholder={"Prix"}
