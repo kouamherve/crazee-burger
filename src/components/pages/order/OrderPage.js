@@ -35,6 +35,17 @@ export default function OrderPage() {
     setShowToast(true);
   };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "title") {
+      setTitle(value);
+    } else if (name === "image") {
+      setImage(value);
+    } else if (name === "price") {
+      setPrice(value);
+    }
+  };
+
   const handleDelete = (productId) => {
     setMenu(menu.filter((p) => p.id !== productId));
   };
@@ -54,6 +65,7 @@ export default function OrderPage() {
     menu,
     setMenu,
     handleAdd,
+    handleChange,
     handleDelete,
     title,
     setTitle,

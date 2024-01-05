@@ -4,6 +4,9 @@ import Card from "../../../reusable-ui/Card";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenuAdmin from "./Admin/EmptyMenuAdmin";
 import EmptyMenu from "./EmptyMenu";
+import { formatPrice } from "../../../../utils/maths";
+
+const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
   const { menu, handleDelete, isModeAdmin } = useContext(OrderContext);
@@ -17,17 +20,13 @@ export default function Menu() {
   return (
     <div className={menuClassName}>
       {menu.length !== 0 ? (
-        menu.map((product) => (
+        menu.map(({ id, title, imageSource, price }) => (
           <Card
-            key={product.id}
-            imageSource={
-              product.imageSource
-                ? product.imageSource
-                : "/images/coming-soon.png"
-            }
-            title={product.title}
-            price={product.price}
-            onClick={() => handleDelete(product.id)}
+            key={id}
+            imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
+            title={title}
+            price={formatPrice(price)}
+            onClick={() => handleDelete(id)}
           />
         ))
       ) : isModeAdmin ? (

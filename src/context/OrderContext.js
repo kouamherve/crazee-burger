@@ -20,4 +20,5 @@ export default createContext({
   setPrice: () => {},
   showToast: false,
   setShowToast: () => {},
+  handleChange: () => {},
 });
