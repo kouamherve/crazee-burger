@@ -11,9 +11,14 @@ export default function AddForm() {
   const { handleAdd, title, image, price, showToast } =
     useContext(OrderContext);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAdd(title);
+  };
+
   return (
     <div className=" h-[120px] w-[73%]">
-      <form className="flex flex-col gap-2" onSubmit={handleAdd}>
+      <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
         <TextInputPanel
           type={"text"}
           name={"title"}

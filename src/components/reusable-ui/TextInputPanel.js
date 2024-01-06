@@ -6,7 +6,6 @@ export default function TextInputPanel({
   placeholder,
   Icon,
   value,
-  onChange,
   step,
   name,
 }) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import Main from "./main/Main";
 import clsx from "clsx";
 import { refreshPage } from "../../../utils/utils";
@@ -6,6 +6,7 @@ import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
+import { menuReducer } from "./main/Admin/menuReducer";
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
@@ -16,22 +17,23 @@ export default function OrderPage() {
   const [showToast, setShowToast] = useState(false);
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
+  const [menu, dispatch] = useReducer(menuReducer, fakeMenu.LARGE);
 
-  const handleAdd = (event) => {
-    event.preventDefault();
-    setMenu([
-      {
-        id: crypto.randomUUID(),
-        title: title,
-        imageSource: image,
-        price: price,
-      },
-      ...menu,
-    ]);
+  const resetForm = () => {
     setTitle("");
     setImage("");
     setPrice("");
+  };
+
+  const handleAdd = (title) => {
+    dispatch({
+      type: "added",
+      id: crypto.randomUUID(),
+      title: title,
+      image: image,
+      price: price,
+    });
+    resetForm();
     setShowToast(true);
   };
 
@@ -47,7 +49,10 @@ export default function OrderPage() {
   };
 
   const handleDelete = (productId) => {
-    setMenu(menu.filter((p) => p.id !== productId));
+    dispatch({
+      type: "deleted",
+      id: productId,
+    });
   };
 
   setTimeout(() => {
@@ -63,7 +68,6 @@ export default function OrderPage() {
     setCurrentTabSelected,
     username,
     menu,
-    setMenu,
     handleAdd,
     handleChange,
     handleDelete,
