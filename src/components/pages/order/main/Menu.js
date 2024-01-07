@@ -9,7 +9,8 @@ import { formatPrice } from "../../../../utils/maths";
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, handleDelete, isModeAdmin } = useContext(OrderContext);
+  const { menu, handleDelete, isModeAdmin, handleReset } =
+    useContext(OrderContext);
 
   const menuClassName = clsx(
     "w-full p-13 gap-x-21 gap-y-15",
@@ -31,7 +32,7 @@ export default function Menu() {
           />
         ))
       ) : isModeAdmin ? (
-        <EmptyMenuAdmin />
+        <EmptyMenuAdmin onReset={handleReset} />
       ) : (
         <EmptyMenu />
       )}

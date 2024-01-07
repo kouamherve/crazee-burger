@@ -33,7 +33,7 @@ export default function OrderPage() {
       image: newProduct.image,
       price: newProduct.price,
     });
-    handleReset();
+    handleFieldReset();
     setShowToast(true);
   };
 
@@ -50,6 +50,10 @@ export default function OrderPage() {
   };
 
   const handleReset = () => {
+    dispatchMenu({ type: "reset" });
+  };
+
+  const handleFieldReset = () => {
     dispatchField({ type: "reset" });
   };
 
@@ -72,6 +76,7 @@ export default function OrderPage() {
     showToast,
     setShowToast,
     newProduct,
+    handleReset,
   };
 
   const orderPageClassName = clsx(

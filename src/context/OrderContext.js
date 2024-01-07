@@ -22,4 +22,5 @@ export default createContext({
   setShowToast: () => {},
   handleChange: () => {},
   newProduct: "",
+  handleReset: () => {},
 });
