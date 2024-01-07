@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import PrimaryButton from "./PrimaryButton";
 import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
-import OrderContext from "../../context/OrderContext";
 import DeleteButton from "../pages/order/main/Admin/adminPanel/DeleteButton";
 
-export default function Card({ imageSource, title, price, onClick }) {
-  const { isModeAdmin } = useContext(OrderContext);
-
+export default function Card({
+  imageSource,
+  title,
+  price,
+  onDelete,
+  hasDeleted,
+}) {
   const classes = {
     cardClassName: clsx(
       "relative w-60 h-85 bg-white",
@@ -36,7 +39,7 @@ export default function Card({ imageSource, title, price, onClick }) {
 
   return (
     <div className={classes.cardClassName}>
-      {isModeAdmin && <DeleteButton onClick={onClick} />}
+      {hasDeleted && <DeleteButton onDelete={onDelete} />}
       <div className={classes.imageContainer}>
         <img src={imageSource} alt={title} className={classes.image} />
       </div>

@@ -15,6 +15,7 @@ export default function AddForm() {
     event.preventDefault();
     const newProductToAdd = {
       ...newProduct,
+      id: crypto.randomUUID(),
     };
     handleAdd(newProductToAdd);
   };

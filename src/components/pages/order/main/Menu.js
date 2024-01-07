@@ -26,7 +26,8 @@ export default function Menu() {
             imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
             title={title}
             price={formatPrice(price)}
-            onClick={() => handleDelete(id)}
+            onDelete={() => handleDelete(id)}
+            hasDeleted={isModeAdmin}
           />
         ))
       ) : isModeAdmin ? (

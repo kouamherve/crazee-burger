@@ -28,7 +28,7 @@ export default function OrderPage() {
   const handleAdd = (newProduct) => {
     dispatchMenu({
       type: "added",
-      id: crypto.randomUUID(),
+      id: newProduct.id,
       title: newProduct.title,
       image: newProduct.image,
       price: newProduct.price,
