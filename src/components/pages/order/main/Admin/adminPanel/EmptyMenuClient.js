@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function EmptyMenu() {
+export default function EmptyMenuClient() {
   return (
     <div className="flex flex-col items-center justify-center gap-[21px] text-4xl font-amatic text-greyBlue">
       <span>

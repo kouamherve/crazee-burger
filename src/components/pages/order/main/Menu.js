@@ -3,8 +3,8 @@ import clsx from "clsx";
 import Card from "../../../reusable-ui/Card";
 import OrderContext from "../../../../context/OrderContext";
 import EmptyMenuAdmin from "./Admin/adminPanel/EmptyMenuAdmin";
-import EmptyMenu from "./Admin/adminPanel/EmptyMenu";
 import { formatPrice } from "../../../../utils/maths";
+import EmptyMenuClient from "./Admin/adminPanel/EmptyMenuClient";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
@@ -32,9 +32,9 @@ export default function Menu() {
           />
         ))
       ) : isModeAdmin ? (
-        <EmptyMenuAdmin onReset={handleReset} />
+        <EmptyMenuAdmin handleReset={handleReset} />
       ) : (
-        <EmptyMenu />
+        <EmptyMenuClient />
       )}
     </div>
   );
