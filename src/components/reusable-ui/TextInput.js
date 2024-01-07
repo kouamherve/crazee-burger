@@ -1,27 +1,27 @@
-import clsx from "clsx";
 import React from "react";
 
 export default function TextInput({
+  type,
   value,
   onChange,
   Icon,
   className,
-  ...extraProps
+  divClassName,
+  name,
+  placeholder,
+  step,
 }) {
-  const textInputClassName = clsx(
-    "relative text-greySemiDark focus-within:text-gray-600",
-    "flex items-center gap-1"
-  );
-
   return (
-    <div className={textInputClassName}>
+    <div className={divClassName}>
       {Icon && Icon}
       <input
-        type="text"
+        type={type}
+        name={name}
         value={value}
         onChange={onChange}
         className={className}
-        {...extraProps}
+        placeholder={placeholder}
+        step={step}
       />
     </div>
   );

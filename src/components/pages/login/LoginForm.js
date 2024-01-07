@@ -10,20 +10,24 @@ export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
-  const classes = {
-    inputClassName: clsx(
-      "py-[18px] pl-12 pr-6 rounded-md w-[400px] h-[55px]",
+  const classNames = {
+    input: clsx(
+      "py-[18px] pl-20 pr-6 rounded-md w-[400px] h-[55px]",
       "text-greyDark border-none",
-      "bg-white placeholder:text-greyLight focus:ring focus:ring-primary focus:outline-none"
+      "bg-white placeholder:text-greyMedium focus:outline-none"
     ),
-    iconClassName: "absolute w-5 h-5 ml-5 pointer-events-none",
-    btnClassName: clsx(
+    div: clsx(
+      "relative text-greySemiDark focus-within:text-gray-600",
+      "flex items-center gap-1"
+    ),
+    icon: "absolute w-5 h-5 ml-9 pointer-events-none",
+    btn: clsx(
       "flex items-center justify-center",
       "text-base leading-4 font-bold",
       "gap-1 h-[53px] w-[400px] mt-[18px]",
       "bg-primary  border border-primary rounded-md "
     ),
-    loginFormClassName: clsx(
+    loginForm: clsx(
       "text-white text-center",
       "flex flex-col items-center justify-center",
       "mt-[52px] max-w-[400px]"
@@ -44,22 +48,23 @@ export default function LoginForm() {
   };
 
   return (
-    <div className={classes.loginFormClassName}>
-      <h1 className={classes.h1}>Bienvenue chez nous !</h1>
-      <hr className={classes.hr} />
-      <h2 className={classes.h2}>Connectez-vous</h2>
+    <div className={classNames.loginForm}>
+      <h1 className={classNames.h1}>Bienvenue chez nous !</h1>
+      <hr className={classNames.hr} />
+      <h2 className={classNames.h2}>Connectez-vous</h2>
       <form onSubmit={handleSubmit}>
         <TextInput
-          className={classes.inputClassName}
+          divClassName={classNames.div}
+          className={classNames.input}
           value={inputValue}
           onChange={handleChange}
           placeholder={"Entrez votre prénom..."}
           required
-          Icon={<BsPersonCircle className={classes.iconClassName} />}
+          Icon={<BsPersonCircle className={classNames.icon} />}
         />
         <PrimaryButton
           label={"Accédez à votre espace"}
-          className={classes.btnClassName}
+          className={classNames.btn}
           Icon={<MdNavigateNext className="w-md h-md" />}
         />
       </form>

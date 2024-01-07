@@ -59,7 +59,7 @@ export default function OrderPage() {
 
   setTimeout(() => {
     setShowToast(false);
-  }, 3000);
+  }, 2000);
 
   const orderContextValue = {
     isModeAdmin,

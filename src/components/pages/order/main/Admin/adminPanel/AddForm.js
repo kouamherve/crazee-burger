@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import TextInputPanel from "../../../../../reusable-ui/TextInputPanel";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 import ToastAddSuccess from "./ToastAddSuccess";
 import OrderContext from "../../../../../../context/OrderContext";
+import TextInput from "../../../../../reusable-ui/TextInput";
 
 export default function AddForm() {
   const { handleAdd, handleChange, showToast, newProduct } =
@@ -23,15 +23,17 @@ export default function AddForm() {
   return (
     <div className=" h-[120px] w-[73%]">
       <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-        <TextInputPanel
+        <TextInput
           type={"text"}
           name="title"
           value={newProduct.title}
           onChange={handleChange}
           placeholder={"Nom du produit (ex: Super Burger)"}
           Icon={<FaHamburger className="icon-input-panel" />}
+          className="text-input"
+          divClassName="div-text-input"
         />
-        <TextInputPanel
+        <TextInput
           type={"url"}
           name="image"
           value={newProduct.image}
@@ -40,8 +42,10 @@ export default function AddForm() {
             "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           }
           Icon={<BsFillCameraFill className="icon-input-panel" />}
+          className="text-input"
+          divClassName="div-text-input"
         />
-        <TextInputPanel
+        <TextInput
           type={"number"}
           name="price"
           step={"0.001"}
@@ -49,6 +53,8 @@ export default function AddForm() {
           onChange={handleChange}
           placeholder={"Prix"}
           Icon={<MdOutlineEuro className="icon-input-panel" />}
+          className="text-input"
+          divClassName="div-text-input"
         />
         <div className="w-full flex items-center">
           <PrimaryButton
