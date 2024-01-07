@@ -1,6 +1,6 @@
 import React from "react";
-import { refreshPage } from "../../../../../utils/utils";
-import PrimaryButton from "../../../../reusable-ui/PrimaryButton";
+import { refreshPage } from "../../../../../../utils/utils";
+import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 
 export default function EmptyMenuAdmin() {
   return (

@@ -1,4 +1,4 @@
-export const menuReducer = (menu, action) => {
+export const menuReducer = (state, action) => {
   switch (action.type) {
     case "added": {
       return [
@@ -8,11 +8,11 @@ export const menuReducer = (menu, action) => {
           imageSource: action.image,
           price: action.price,
         },
-        ...menu,
+        ...state,
       ];
     }
     case "deleted": {
-      return menu.filter((p) => p.id !== action.id);
+      return state.filter((p) => p.id !== action.id);
     }
     default: {
       throw Error("Action inconnue : " + action.type);

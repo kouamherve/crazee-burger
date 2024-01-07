@@ -8,12 +8,15 @@ import ToastAddSuccess from "./ToastAddSuccess";
 import OrderContext from "../../../../../../context/OrderContext";
 
 export default function AddForm() {
-  const { handleAdd, title, image, price, showToast } =
+  const { handleAdd, handleChange, showToast, newProduct } =
     useContext(OrderContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleAdd(title);
+    const newProductToAdd = {
+      ...newProduct,
+    };
+    handleAdd(newProductToAdd);
   };
 
   return (
@@ -21,15 +24,17 @@ export default function AddForm() {
       <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
         <TextInputPanel
           type={"text"}
-          name={"title"}
-          value={title}
+          name="title"
+          value={newProduct.title}
+          onChange={handleChange}
           placeholder={"Nom du produit (ex: Super Burger)"}
           Icon={<FaHamburger className="icon-input-panel" />}
         />
         <TextInputPanel
           type={"url"}
-          name={"image"}
-          value={image}
+          name="image"
+          value={newProduct.image}
+          onChange={handleChange}
           placeholder={
             "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           }
@@ -37,9 +42,10 @@ export default function AddForm() {
         />
         <TextInputPanel
           type={"number"}
-          step={"0.01"}
-          name={"price"}
-          value={price}
+          name="price"
+          step={"0.001"}
+          value={newProduct.price ? newProduct.price : ""}
+          onChange={handleChange}
           placeholder={"Prix"}
           Icon={<MdOutlineEuro className="icon-input-panel" />}
         />

@@ -1,16 +1,14 @@
-import React, { useContext } from "react";
-import OrderContext from "../../context/OrderContext";
+import React from "react";
 
 export default function TextInputPanel({
   type,
   placeholder,
   Icon,
   value,
-  step,
   name,
+  onChange,
+  step,
 }) {
-  const { handleChange } = useContext(OrderContext);
-
   return (
     <label className="relative text-greyMedium text-base font-normal flex items-center">
       {Icon && Icon}
@@ -20,7 +18,7 @@ export default function TextInputPanel({
         name={name}
         placeholder={placeholder}
         value={value}
-        onChange={handleChange}
+        onChange={onChange}
         step={step}
       />
     </label>

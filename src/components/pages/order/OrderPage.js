@@ -6,53 +6,51 @@ import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { menuReducer } from "./main/Admin/menuReducer";
+import { menuReducer } from "../../../reducer/menuReducer";
+import { fieldReducer } from "../../../reducer/fieldReducer";
+
+const DEFAULT_PRODUCT = {
+  id: "",
+  title: "",
+  image: "",
+  price: 0,
+};
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapse, setIsCollapse] = useState(false);
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [price, setPrice] = useState("");
   const [showToast, setShowToast] = useState(false);
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  const [menu, dispatch] = useReducer(menuReducer, fakeMenu.LARGE);
+  const [menu, dispatchMenu] = useReducer(menuReducer, fakeMenu.LARGE);
+  const [newProduct, dispatchField] = useReducer(fieldReducer, DEFAULT_PRODUCT);
 
-  const resetForm = () => {
-    setTitle("");
-    setImage("");
-    setPrice("");
-  };
-
-  const handleAdd = (title) => {
-    dispatch({
+  const handleAdd = (newProduct) => {
+    dispatchMenu({
       type: "added",
       id: crypto.randomUUID(),
-      title: title,
-      image: image,
-      price: price,
+      title: newProduct.title,
+      image: newProduct.image,
+      price: newProduct.price,
     });
-    resetForm();
+    handleReset();
     setShowToast(true);
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    if (name === "title") {
-      setTitle(value);
-    } else if (name === "image") {
-      setImage(value);
-    } else if (name === "price") {
-      setPrice(value);
-    }
+    dispatchField({ type: "update", field: name, value });
   };
 
   const handleDelete = (productId) => {
-    dispatch({
+    dispatchMenu({
       type: "deleted",
       id: productId,
     });
+  };
+
+  const handleReset = () => {
+    dispatchField({ type: "reset" });
   };
 
   setTimeout(() => {
@@ -71,14 +69,9 @@ export default function OrderPage() {
     handleAdd,
     handleChange,
     handleDelete,
-    title,
-    setTitle,
-    image,
-    setImage,
-    price,
-    setPrice,
     showToast,
     setShowToast,
+    newProduct,
   };
 
   const orderPageClassName = clsx(

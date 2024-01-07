@@ -8,7 +8,7 @@ export default createContext({
   currentTabSelected: "",
   setCurrentTabSelected: () => {},
   username: "",
-  menu: {},
+  menu: [],
   setMenu: () => {},
   handleAdd: () => {},
   handleDelete: () => {},
@@ -21,4 +21,5 @@ export default createContext({
   showToast: false,
   setShowToast: () => {},
   handleChange: () => {},
+  newProduct: "",
 });
