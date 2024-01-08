@@ -87,7 +87,7 @@ export default function OrderPage() {
   return (
     <OrderContext.Provider value={orderContextValue}>
       <div className={orderPageClassName}>
-        <div className="w-full ">
+        <div className="min-w-[1400px] ">
           <Navbar onClick={refreshPage} />
           <Main />
         </div>

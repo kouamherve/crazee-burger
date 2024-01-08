@@ -6,7 +6,8 @@ export default function LoginPage() {
   const loginPageClassName = clsx(
     "flex flex-col items-center justify-center",
     "space-y-24 h-screen",
-    "bg-[url('/src/background-image/burger-with-fries-background.jpg')] bg-center bg-cover bg-no-repeat bg-blend-overlay bg-black/50"
+    "bg-[url('/src/background-image/burger-with-fries-background.jpg')]",
+    "bg-center bg-cover bg-no-repeat bg-blend-overlay bg-black/50"
   );
 
   return (

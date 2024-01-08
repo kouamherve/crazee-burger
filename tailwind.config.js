@@ -46,7 +46,7 @@ module.exports = {
         strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
       },
       gridTemplateColumns: {
-        container: "repeat(auto-fit, minmax(250px, 1fr))",
+        container: "repeat(auto-fit, minmax(300px, 1fr))",
       },
       colors: {
         dark: "#17161a",

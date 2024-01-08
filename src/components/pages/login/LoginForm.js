@@ -11,15 +11,6 @@ export default function LoginForm() {
   const navigate = useNavigate();
 
   const classNames = {
-    input: clsx(
-      "py-[18px] pl-20 pr-6 rounded-md w-[400px] h-[55px]",
-      "text-greyDark border-none",
-      "bg-white placeholder:text-greyMedium focus:outline-none"
-    ),
-    div: clsx(
-      "relative text-greySemiDark focus-within:text-gray-600",
-      "flex items-center gap-1"
-    ),
     icon: "absolute w-5 h-5 ml-9 pointer-events-none",
     btn: clsx(
       "flex items-center justify-center",
@@ -54,18 +45,17 @@ export default function LoginForm() {
       <h2 className={classNames.h2}>Connectez-vous</h2>
       <form onSubmit={handleSubmit}>
         <TextInput
-          divClassName={classNames.div}
-          className={classNames.input}
           value={inputValue}
           onChange={handleChange}
           placeholder={"Entrez votre prénom..."}
           required
           Icon={<BsPersonCircle className={classNames.icon} />}
+          version="normal"
         />
         <PrimaryButton
           label={"Accédez à votre espace"}
           className={classNames.btn}
-          Icon={<MdNavigateNext className="w-md h-md" />}
+          Icon={<MdNavigateNext className="w-1.5 h-1.5" />}
         />
       </form>
     </div>

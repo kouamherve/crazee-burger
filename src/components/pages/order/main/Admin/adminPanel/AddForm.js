@@ -24,42 +24,37 @@ export default function AddForm() {
     <div className=" h-[120px] w-[73%]">
       <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
         <TextInput
-          type={"text"}
+          type="text"
           name="title"
           value={newProduct.title}
           onChange={handleChange}
-          placeholder={"Nom du produit (ex: Super Burger)"}
+          placeholder="Nom du produit (ex: Super Burger)"
           Icon={<FaHamburger className="icon-input-panel" />}
-          className="text-input"
-          divClassName="div-text-input"
+          version="minimalist"
         />
         <TextInput
-          type={"url"}
+          type="url"
           name="image"
           value={newProduct.image}
           onChange={handleChange}
-          placeholder={
-            "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
-          }
+          placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           Icon={<BsFillCameraFill className="icon-input-panel" />}
-          className="text-input"
-          divClassName="div-text-input"
+          version="minimalist"
         />
         <TextInput
-          type={"number"}
+          type="number"
           name="price"
-          step={"0.001"}
+          step="0.001"
           value={newProduct.price ? newProduct.price : ""}
           onChange={handleChange}
-          placeholder={"Prix"}
+          placeholder="Prix"
           Icon={<MdOutlineEuro className="icon-input-panel" />}
-          className="text-input"
-          divClassName="div-text-input"
+          version="minimalist"
         />
         <div className="w-full flex items-center">
           <PrimaryButton
             type="submit"
-            label={"Ajouter un nouveau produit au menu"}
+            label="Ajouter un nouveau produit au menu"
             className="border border-success bg-success active:bg-white active:text-success rounded-md text-xs font-bold text-white px-[30px] py-3"
           />
           {showToast && <ToastAddSuccess />}
