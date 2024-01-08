@@ -1,33 +1,26 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
-import ToastAddSuccess from "./ToastAddSuccess";
-import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
-import Button from "../../../../../reusable-ui/Button";
+import AddProductButton from "./AddProductButton";
 
-export default function AddForm() {
-  const { handleAdd, handleChange, showToast, newProduct } =
-    useContext(OrderContext);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newProductToAdd = {
-      ...newProduct,
-      id: crypto.randomUUID(),
-    };
-    handleAdd(newProductToAdd);
-  };
-
+export default function AddForm({
+  title,
+  image,
+  price,
+  onChange,
+  onSubmit,
+  toast,
+}) {
   return (
     <div className=" h-[120px] w-[73%]">
-      <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-2" onSubmit={onSubmit}>
         <TextInput
           type="text"
           name="title"
-          value={newProduct.title}
-          onChange={handleChange}
+          value={title}
+          onChange={onChange}
           placeholder="Nom du produit (ex: Super Burger)"
           Icon={<FaHamburger className="icon-input-panel" />}
           version="minimalist"
@@ -35,8 +28,8 @@ export default function AddForm() {
         <TextInput
           type="url"
           name="image"
-          value={newProduct.image}
-          onChange={handleChange}
+          value={image}
+          onChange={onChange}
           placeholder="Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)"
           Icon={<BsFillCameraFill className="icon-input-panel" />}
           version="minimalist"
@@ -45,20 +38,13 @@ export default function AddForm() {
           type="number"
           name="price"
           step="0.001"
-          value={newProduct.price ? newProduct.price : ""}
-          onChange={handleChange}
+          value={price ? price : ""}
+          onChange={onChange}
           placeholder="Prix"
           Icon={<MdOutlineEuro className="icon-input-panel" />}
           version="minimalist"
         />
-        <div className="w-full flex items-center">
-          <Button
-            type="submit"
-            label="Ajouter un nouveau produit au menu"
-            version="success"
-          />
-          {showToast && <ToastAddSuccess />}
-        </div>
+        <AddProductButton toast={toast} />
       </form>
     </div>
   );
