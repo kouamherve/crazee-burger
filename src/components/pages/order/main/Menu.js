@@ -32,7 +32,7 @@ export default function Menu() {
           />
         ))
       ) : isModeAdmin ? (
-        <EmptyMenuAdmin handleReset={handleReset} />
+        <EmptyMenuAdmin onReset={handleReset} />
       ) : (
         <EmptyMenuClient />
       )}

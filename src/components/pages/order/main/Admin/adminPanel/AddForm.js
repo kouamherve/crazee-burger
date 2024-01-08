@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
-import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
 import ToastAddSuccess from "./ToastAddSuccess";
 import OrderContext from "../../../../../../context/OrderContext";
 import TextInput from "../../../../../reusable-ui/TextInput";
+import Button from "../../../../../reusable-ui/Button";
 
 export default function AddForm() {
   const { handleAdd, handleChange, showToast, newProduct } =
@@ -52,10 +52,10 @@ export default function AddForm() {
           version="minimalist"
         />
         <div className="w-full flex items-center">
-          <PrimaryButton
+          <Button
             type="submit"
             label="Ajouter un nouveau produit au menu"
-            className="border border-success bg-success active:bg-white active:text-success rounded-md text-xs font-bold text-white px-[30px] py-3"
+            version="success"
           />
           {showToast && <ToastAddSuccess />}
         </div>

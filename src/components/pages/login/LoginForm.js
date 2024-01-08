@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput";
-import PrimaryButton from "../../reusable-ui/PrimaryButton";
 import clsx from "clsx";
+import Button from "../../reusable-ui/Button";
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");
@@ -12,18 +12,12 @@ export default function LoginForm() {
 
   const classNames = {
     icon: "absolute w-5 h-5 ml-9 pointer-events-none",
-    btn: clsx(
-      "flex items-center justify-center",
-      "text-base leading-4 font-bold",
-      "gap-1 h-[53px] w-[400px] mt-[18px]",
-      "bg-primary  border border-primary rounded-md "
-    ),
     loginForm: clsx(
       "text-white text-center",
       "flex flex-col items-center justify-center",
       "mt-[52px] max-w-[400px]"
     ),
-    h1: "text-5xl leading-[61px] font-amatic font-bold mb-8",
+    h1: "text-5xl leading-[61px] font-amatic font-bold mb-6",
     hr: "border-primary border bg-primary w-full h-1",
     h2: "text-4xl font-amatic font-bold mt-10 leading-11",
   };
@@ -52,10 +46,10 @@ export default function LoginForm() {
           Icon={<BsPersonCircle className={classNames.icon} />}
           version="normal"
         />
-        <PrimaryButton
+        <Button
           label={"Accédez à votre espace"}
-          className={classNames.btn}
           Icon={<MdNavigateNext className="w-1.5 h-1.5" />}
+          version="normal"
         />
       </form>
     </div>

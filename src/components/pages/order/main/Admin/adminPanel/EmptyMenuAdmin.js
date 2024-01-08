@@ -1,7 +1,7 @@
 import React from "react";
-import PrimaryButton from "../../../../../reusable-ui/PrimaryButton";
+import Button from "../../../../../reusable-ui/Button";
 
-export default function EmptyMenuAdmin({ handleReset }) {
+export default function EmptyMenuAdmin({ onReset }) {
   return (
     <div className="flex flex-col items-center justify-center gap-8">
       <div className="flex flex-col items-center justify-center gap-[21px] text-4xl font-amatic text-greyBlue">
@@ -10,11 +10,13 @@ export default function EmptyMenuAdmin({ handleReset }) {
         </span>
         <span>Cliquez ci-dessous pour le réinitialiser</span>
       </div>
-      <PrimaryButton
-        onClick={handleReset}
-        label={"Générer de nouveaux produits"}
-        className="h-[50px] border border-primary bg-primary active:bg-white active:text-primary rounded-md text-xs font-bold text-white px-5 py-3"
-      />
+      <div className="w-[225px] h-[50px]">
+        <Button
+          onClick={onReset}
+          label="Générer de nouveaux produits"
+          version="normal"
+        />
+      </div>
     </div>
   );
 }

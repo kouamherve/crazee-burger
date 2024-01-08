@@ -10,9 +10,11 @@ export default function ImagePreview() {
       } text-greySemiDark flex items-center justify-center`}
     >
       {newProduct.image ? (
-        <div className=" w-[100px] h-[100px]">
-          <img src={newProduct.image} alt={newProduct.title} />
-        </div>
+        <img
+          src={newProduct.image}
+          alt={newProduct.title}
+          className="w-full h-full object-contain object-center"
+        />
       ) : (
         <span>Aucune image</span>
       )}
