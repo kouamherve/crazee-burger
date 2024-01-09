@@ -1,12 +1,19 @@
 import React from "react";
-import PrimaryButton from "./PrimaryButton";
 import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
+import DeleteButton from "../pages/order/main/Admin/adminPanel/DeleteButton";
+import Button from "./Button";
 
-export default function Card({ imageSource, title, price }) {
-  const classes = {
-    cardClassName: clsx(
-      "w-60 h-85 bg-white",
+export default function Card({
+  imageSource,
+  title,
+  price,
+  onDelete,
+  hasDeleted,
+}) {
+  const classNames = {
+    card: clsx(
+      "relative w-60 h-85 bg-white",
       "flex flex-col items-center",
       "rounded-2xl shadow-medium"
     ),
@@ -22,24 +29,20 @@ export default function Card({ imageSource, title, price }) {
       "flex items-center justify-between",
       "px-1.5 pb-1.5"
     ),
-    priceClassName: "text-[16px] text-primary leading-5.5 font-normal",
-    btnClassName: clsx(
-      "w-24 h-9 text-xs leading-3 text-white font-bold",
-      "border border-primary bg-primary hover:bg-primary/75 rounded-md",
-      "active:bg-white active:text-primary"
-    ),
+    price: "text-[16px] text-primary leading-5.5 font-normal",
   };
 
   return (
-    <div className={classes.cardClassName}>
-      <div className={classes.imageContainer}>
-        <img src={imageSource} alt={title} className={classes.image} />
+    <div className={classNames.card}>
+      {hasDeleted && <DeleteButton onDelete={onDelete} />}
+      <div className={classNames.imageContainer}>
+        <img src={imageSource} alt={title} className={classNames.image} />
       </div>
-      <div className={classes.infoTextContainer}>
-        <div className={classes.infoTextTitle}>{title}</div>
-        <div className={classes.descriptionContainer}>
-          <span className={classes.priceClassName}>{formatPrice(price)}</span>
-          <PrimaryButton label={"Ajouter"} className={classes.btnClassName} />
+      <div className={classNames.infoTextContainer}>
+        <div className={classNames.infoTextTitle}>{title}</div>
+        <div className={classNames.descriptionContainer}>
+          <span className={classNames.price}>{formatPrice(price)}</span>
+          <Button label={"Ajouter"} version="card" />
         </div>
       </div>
     </div>

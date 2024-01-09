@@ -5,22 +5,42 @@ export default function TextInput({
   value,
   onChange,
   Icon,
-  className,
+  version = "normal",
   ...extraProps
 }) {
-  const textInputClassName = clsx(
-    "relative text-greySemiDark focus-within:text-gray-600",
-    "flex items-center gap-1"
-  );
+  const extraStyleNormal = {
+    div: clsx(
+      "relative text-greySemiDark focus-within:text-gray-600",
+      "flex items-center gap-1"
+    ),
+    input: clsx(
+      "py-[18px] pl-20 pr-6 rounded-md w-[400px] h-[55px]",
+      "text-greyDark border-none",
+      "bg-white placeholder:text-greyMedium focus:outline-none"
+    ),
+  };
+
+  const extraStyleMinimal = {
+    div: "div-text-input",
+    input: "text-input",
+  };
 
   return (
-    <div className={textInputClassName}>
+    <div
+      version={version}
+      className={
+        version === "normal" ? extraStyleNormal.div : extraStyleMinimal.div
+      }
+    >
       {Icon && Icon}
       <input
-        type="text"
         value={value}
         onChange={onChange}
-        className={className}
+        className={
+          version === "normal"
+            ? extraStyleNormal.input
+            : extraStyleMinimal.input
+        }
         {...extraProps}
       />
     </div>

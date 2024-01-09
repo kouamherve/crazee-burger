@@ -1,7 +1,7 @@
-import Tab from "../../../../reusable-ui/Tab";
+import Tab from "../../../../../reusable-ui/Tab";
 import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext";
-import { getTabsConfig } from "./getTabsConfig";
+import OrderContext from "../../../../../../context/OrderContext";
+import { getTabsConfig } from "../getTabsConfig";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 export default function AdminTabs() {
@@ -34,12 +34,12 @@ export default function AdminTabs() {
       {tabs.map((tab) => {
         return (
           <Tab
-            key={tab.label}
+            key={tab.index}
             label={tab.label}
             Icon={tab.Icon}
-            onClick={() => handleTabSelect(tab.label)}
+            onClick={() => handleTabSelect(tab.index)}
             className={
-              currentTabSelected === tab.label ? "active-tab" : "default-tab"
+              currentTabSelected === tab.index ? "active-tab" : "default-tab"
             }
           />
         );
