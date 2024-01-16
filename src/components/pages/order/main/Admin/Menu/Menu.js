@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import clsx from "clsx";
-import Card from "../../../reusable-ui/Card";
-import OrderContext from "../../../../context/OrderContext";
-import EmptyMenuAdmin from "./Admin/adminPanel/EmptyMenuAdmin";
-import { formatPrice } from "../../../../utils/maths";
-import EmptyMenuClient from "./Admin/adminPanel/EmptyMenuClient";
+import Card from "../../../../../reusable-ui/Card";
+import OrderContext from "../../../../../../context/OrderContext";
+import { formatPrice } from "../../../../../../utils/maths";
+import EmptyMenuAdmin from "./EmptyMenuAdmin";
+import EmptyMenuClient from "./EmptyMenuClient";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
