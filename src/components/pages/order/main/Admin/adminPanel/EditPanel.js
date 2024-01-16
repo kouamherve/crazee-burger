@@ -1,5 +1,6 @@
 import React from "react";
+import HintMessage from "./HintMessage";
 
 export default function EditPanel() {
-  return <div>Edit</div>;
+  return <HintMessage />;
 }
