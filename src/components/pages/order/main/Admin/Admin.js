@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import AdminTabs from "./adminTabs/AdminTabs";
-import AdminPanel from "./adminPanel/AdminPanel";
 import OrderContext from "../../../../../context/OrderContext";
+import AdminPanel from "./AdminPanel/AdminPanel";
+import AdminTabs from "./AdminPanel/AdminTabs";
 
 export default function Admin() {
   const { isCollapse, setIsCollapse } = useContext(OrderContext);

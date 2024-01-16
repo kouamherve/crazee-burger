@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import Main from "./main/Main";
+import Main from "./Main/Main";
 import clsx from "clsx";
 import { refreshPage } from "../../../utils/utils";
 import Navbar from "./navbar/Navbar";

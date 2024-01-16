@@ -1,7 +1,7 @@
 import React from "react";
 import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
-import DeleteButton from "../pages/order/main/Admin/adminPanel/DeleteButton";
+import DeleteButton from "../pages/order/Main/Admin/AdminPanel/DeleteButton";
 import Button from "./Button";
 
 export default function Card({
