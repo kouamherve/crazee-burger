@@ -1,11 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AddForm from "./AddForm";
 import ImagePreview from "./ImagePreview";
 import OrderContext from "../../../../../../context/OrderContext";
 
+const DEFAULT_PRODUCT = {
+  id: "",
+  title: "",
+  image: "",
+  price: 0,
+};
 export default function AddPanel() {
-  const { newProduct, handleAdd, handleChange, showToast } =
-    useContext(OrderContext);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const { newProduct, setNewProduct, handleAdd } = useContext(OrderContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,6 +21,19 @@ export default function AddPanel() {
       id: crypto.randomUUID(),
     };
     handleAdd(newProductToAdd);
+    setNewProduct(DEFAULT_PRODUCT);
+    displaySuccessMessage();
+  };
+
+  const handleChange = (event) => {
+    setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
+  };
+
+  const displaySuccessMessage = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
   };
 
   return (
@@ -26,7 +46,7 @@ export default function AddPanel() {
           price={newProduct.price}
           onChange={handleChange}
           onSubmit={handleSubmit}
-          toast={showToast}
+          isSubmitted={isSubmitted}
         />
       </div>
     </div>

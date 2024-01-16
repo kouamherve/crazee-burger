@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../../../../reusable-ui/Button";
 import ToastAddSuccess from "./ToastAddSuccess";
 
-export default function AddProductButton({ toast }) {
+export default function AddProductButton({ isSubmitted }) {
   return (
     <div className="w-full flex items-center">
       <Button
@@ -10,7 +10,7 @@ export default function AddProductButton({ toast }) {
         label="Ajouter un nouveau produit au menu"
         version="success"
       />
-      {toast && <ToastAddSuccess />}
+      {isSubmitted && <ToastAddSuccess />}
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default function AddForm({
   price,
   onChange,
   onSubmit,
-  toast,
+  isSubmitted,
 }) {
   const textInputs = getTextInputsConfig(title, image, price);
 
@@ -26,7 +26,7 @@ export default function AddForm({
             />
           );
         })}
-        <AddProductButton toast={toast} />
+        <AddProductButton isSubmitted={isSubmitted} />
       </form>
     </div>
   );

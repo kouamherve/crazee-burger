@@ -18,9 +18,7 @@ export default createContext({
   setImage: () => {},
   price: "",
   setPrice: () => {},
-  showToast: false,
-  setShowToast: () => {},
-  handleChange: () => {},
   newProduct: "",
+  setNewProduct: () => {},
   handleReset: () => {},
 });
