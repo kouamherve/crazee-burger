@@ -14,7 +14,7 @@ export const getTextInputsConfig = (title, image, price) => [
   {
     id: "1",
     type: "url",
-    name: "image",
+    name: "imageSource",
     value: image,
     placeholder:
       "Lien URL d'une image (ex: https://la-photo-de-mon-produit.png)",

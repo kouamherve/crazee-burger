@@ -39,10 +39,10 @@ export default function AddPanel() {
   return (
     <div className="h-[160px] w-[880px]">
       <div className="mt-[30px] flex space-x-5 w-full h-full mb-13">
-        <ImagePreview title={newProduct.title} image={newProduct.image} />
+        <ImagePreview title={newProduct.title} image={newProduct.imageSource} />
         <AddForm
           title={newProduct.title}
-          image={newProduct.image}
+          image={newProduct.imageSource}
           price={newProduct.price}
           onChange={handleChange}
           onSubmit={handleSubmit}

@@ -10,6 +10,7 @@ export default function Card({
   price,
   onDelete,
   hasDeleted,
+  onClick,
 }) {
   const classNames = {
     card: clsx(
@@ -33,7 +34,7 @@ export default function Card({
   };
 
   return (
-    <div className={classNames.card}>
+    <div className={classNames.card} onClick={onClick}>
       {hasDeleted && <DeleteButton onDelete={onDelete} />}
       <div className={classNames.imageContainer}>
         <img src={imageSource} alt={title} className={classNames.image} />

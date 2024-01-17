@@ -1,7 +1,7 @@
 import React from "react";
-import TextInput from "../../../../../reusable-ui/TextInput";
 import AddProductButton from "./AddProductButton";
 import { getTextInputsConfig } from "./textInputsConfig";
+import TextInput from "../../../../../reusable-ui/TextInput";
 
 export default function AddForm({
   title,

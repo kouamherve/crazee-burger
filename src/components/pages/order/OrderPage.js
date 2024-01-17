@@ -15,17 +15,28 @@ const DEFAULT_PRODUCT = {
 };
 
 export default function OrderPage() {
+  // state
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapse, setIsCollapse] = useState(false);
+  const [productSelected, setProductSelected] = useState(false);
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.LARGE);
   const [newProduct, setNewProduct] = useState(DEFAULT_PRODUCT);
 
+  // state handlers
   const handleAdd = (newProduct) => {
     const menuCopy = [...menu];
     const menuUpdated = [newProduct, ...menuCopy];
     setMenu(menuUpdated);
+  };
+
+  const handleEdit = (updatedProduct) => {
+    setMenu(
+      menu.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      )
+    );
   };
 
   const handleDelete = (productId) => {
@@ -46,12 +57,16 @@ export default function OrderPage() {
     username,
     menu,
     handleAdd,
+    handleEdit,
     handleDelete,
     newProduct,
     setNewProduct,
     handleReset,
+    productSelected,
+    setProductSelected,
   };
 
+  // css
   const orderPageClassName = clsx(
     "flex flex-col items-center ",
     "h-screen p-6 font-openSans"

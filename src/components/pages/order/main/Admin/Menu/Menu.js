@@ -9,9 +9,16 @@ import EmptyMenuClient from "./EmptyMenuClient";
 const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
-  const { menu, handleDelete, isModeAdmin, handleReset } =
+  // state
+  const { menu, handleDelete, isModeAdmin, handleReset, setProductSelected } =
     useContext(OrderContext);
 
+  // event handler
+  const handleClick = (product) => {
+    setProductSelected(product);
+  };
+
+  // css
   const menuClassName = clsx(
     "w-full p-13 gap-x-21 gap-y-15",
     "shadow-strong bg-background_white overflow-y-auto",
@@ -21,14 +28,17 @@ export default function Menu() {
   return (
     <div className={menuClassName}>
       {menu.length !== 0 ? (
-        menu.map(({ id, title, imageSource, price }) => (
+        menu.map((product) => (
           <Card
-            key={id}
-            imageSource={imageSource ? imageSource : DEFAULT_IMAGE}
-            title={title}
-            price={formatPrice(price)}
-            onDelete={() => handleDelete(id)}
+            key={product.id}
+            imageSource={
+              product.imageSource ? product.imageSource : DEFAULT_IMAGE
+            }
+            title={product.title}
+            price={formatPrice(product.price)}
+            onDelete={() => handleDelete(product.id)}
             hasDeleted={isModeAdmin}
+            onClick={() => handleClick(product)}
           />
         ))
       ) : isModeAdmin ? (
