@@ -17,10 +17,10 @@ export default function EditPanel() {
   );
 
   // event handler
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     const productBeingUpdated = {
       ...productSelected,
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     };
     setProductSelected(productBeingUpdated);
     handleEdit(productBeingUpdated);

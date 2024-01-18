@@ -35,6 +35,9 @@ export default function Menu() {
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
     handleDelete(idProductToEdit);
+    if (productSelected.id === idProductToEdit) {
+      setProductSelected(false);
+    }
   };
 
   // css
