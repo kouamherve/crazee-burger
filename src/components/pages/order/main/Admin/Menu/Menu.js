@@ -32,6 +32,11 @@ export default function Menu() {
     titleInputRef.current.focus();
   };
 
+  const handleCardDeleted = (event, idProductToEdit) => {
+    event.stopPropagation();
+    handleDelete(idProductToEdit);
+  };
+
   // css
   const menuClassName = clsx(
     "w-full p-13 gap-x-21 gap-y-15",
@@ -50,7 +55,7 @@ export default function Menu() {
             }
             title={product.title}
             price={formatPrice(product.price)}
-            onDelete={() => handleDelete(product.id)}
+            onDelete={(event) => handleCardDeleted(event, product.id)}
             hasDeleted={isModeAdmin}
             onClick={() => handleClick(product)}
             isHoverable={isModeAdmin}
