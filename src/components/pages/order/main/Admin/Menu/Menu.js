@@ -18,12 +18,16 @@ export default function Menu() {
     productSelected,
     setProductSelected,
     currentTabSelected,
+    setCurrentTabSelected,
+    setIsCollapse,
   } = useContext(OrderContext);
 
   // event handler
   const handleClick = (product) => {
     if (!isModeAdmin) return;
     setProductSelected(product);
+    setCurrentTabSelected("edit");
+    setIsCollapse(false);
   };
 
   // css
