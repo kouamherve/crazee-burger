@@ -11,12 +11,21 @@ export default function Card({
   onDelete,
   hasDeleted,
   onClick,
+  isHoverable,
+  isSelected,
 }) {
+  // css
   const classNames = {
     card: clsx(
-      "relative w-60 h-85 bg-white",
+      "relative w-60 h-85",
       "flex flex-col items-center",
-      "rounded-2xl shadow-medium"
+      "rounded-2xl shadow-medium",
+      `${
+        isHoverable
+          ? "hover:shadow-orangeHightLight hover:scale-105 hover:cursor-pointer transform transition-all duration-400 hover:ease-out"
+          : ""
+      }`,
+      `${isSelected ? "bg-primary" : "bg-white"}`
     ),
     imageContainer: "w-50 h-[145px] mx-5 mt-13 mb-4",
     image: "object-contain object-center w-full h-full",
@@ -30,12 +39,16 @@ export default function Card({
       "flex items-center justify-between",
       "px-1.5 pb-1.5"
     ),
-    price: "text-[16px] text-primary leading-5.5 font-normal",
+    price: `text-[16px] text-primary leading-5.5 font-normal ${
+      isSelected && "text-white"
+    }`,
   };
 
   return (
-    <div className={classNames.card} onClick={onClick}>
-      {hasDeleted && <DeleteButton onDelete={onDelete} />}
+    <div className={classNames.card} onClick={onClick} isSelected={isSelected}>
+      {hasDeleted && (
+        <DeleteButton onDelete={onDelete} isSelected={isSelected} />
+      )}
       <div className={classNames.imageContainer}>
         <img src={imageSource} alt={title} className={classNames.image} />
       </div>
@@ -43,7 +56,12 @@ export default function Card({
         <div className={classNames.infoTextTitle}>{title}</div>
         <div className={classNames.descriptionContainer}>
           <span className={classNames.price}>{formatPrice(price)}</span>
-          <Button label={"Ajouter"} version="card" />
+          <Button
+            label={"Ajouter"}
+            version="card"
+            isSelected={isSelected}
+            onClick={(event) => event.stopPropagation()}
+          />
         </div>
       </div>
     </div>

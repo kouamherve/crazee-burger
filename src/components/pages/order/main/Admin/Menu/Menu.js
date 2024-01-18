@@ -10,8 +10,14 @@ const DEFAULT_IMAGE = "/images/coming-soon.png";
 
 export default function Menu() {
   // state
-  const { menu, handleDelete, isModeAdmin, handleReset, setProductSelected } =
-    useContext(OrderContext);
+  const {
+    menu,
+    handleDelete,
+    isModeAdmin,
+    handleReset,
+    productSelected,
+    setProductSelected,
+  } = useContext(OrderContext);
 
   // event handler
   const handleClick = (product) => {
@@ -39,6 +45,8 @@ export default function Menu() {
             onDelete={() => handleDelete(product.id)}
             hasDeleted={isModeAdmin}
             onClick={() => handleClick(product)}
+            isHoverable={isModeAdmin}
+            isSelected={productSelected.id === product.id}
           />
         ))
       ) : isModeAdmin ? (
