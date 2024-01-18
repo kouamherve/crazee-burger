@@ -17,10 +17,12 @@ export default function Menu() {
     handleReset,
     productSelected,
     setProductSelected,
+    currentTabSelected,
   } = useContext(OrderContext);
 
   // event handler
   const handleClick = (product) => {
+    if (!isModeAdmin) return;
     setProductSelected(product);
   };
 
@@ -46,7 +48,11 @@ export default function Menu() {
             hasDeleted={isModeAdmin}
             onClick={() => handleClick(product)}
             isHoverable={isModeAdmin}
-            isSelected={productSelected.id === product.id}
+            isSelected={
+              isModeAdmin &&
+              currentTabSelected === "edit" &&
+              productSelected.id === product.id
+            }
           />
         ))
       ) : isModeAdmin ? (
