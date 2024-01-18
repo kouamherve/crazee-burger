@@ -11,6 +11,7 @@ export default createContext({
   setCurrentTabSelected: () => {},
 
   username: "",
+  titleInputRef: {},
 
   menu: [],
   setMenu: () => {},

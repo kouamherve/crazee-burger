@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Main from "./Main/Main";
 import clsx from "clsx";
 import { refreshPage } from "../../../utils/utils";
@@ -23,6 +23,8 @@ export default function OrderPage() {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.LARGE);
   const [newProduct, setNewProduct] = useState(DEFAULT_PRODUCT);
+
+  const titleInputRef = useRef();
 
   // state handlers
   const handleAdd = (newProduct) => {
@@ -64,6 +66,7 @@ export default function OrderPage() {
     handleReset,
     productSelected,
     setProductSelected,
+    titleInputRef,
   };
 
   // css

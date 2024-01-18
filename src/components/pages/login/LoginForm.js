@@ -4,7 +4,7 @@ import { MdNavigateNext } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
 import clsx from "clsx";
 import Button from "../../reusable-ui/Button";
-import TextInput from "../../reusable-ui/TextInput";
+import { TextInput } from "../../reusable-ui/TextInput";
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");

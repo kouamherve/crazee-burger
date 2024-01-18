@@ -45,7 +45,7 @@ export default function Card({
   };
 
   return (
-    <div className={classNames.card} onClick={onClick} isSelected={isSelected}>
+    <div className={classNames.card} onClick={onClick}>
       {hasDeleted && (
         <DeleteButton onDelete={onDelete} isSelected={isSelected} />
       )}

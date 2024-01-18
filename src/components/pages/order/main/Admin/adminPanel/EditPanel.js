@@ -3,11 +3,11 @@ import HintMessage from "./HintMessage";
 import OrderContext from "../../../../../../context/OrderContext";
 import { getTextInputsConfig } from "./textInputsConfig";
 import ImagePreview from "./ImagePreview";
-import TextInput from "../../../../../reusable-ui/TextInput";
+import { TextInput } from "../../../../../reusable-ui/TextInput";
 
 export default function EditPanel() {
   // state
-  const { productSelected, setProductSelected, handleEdit } =
+  const { productSelected, setProductSelected, handleEdit, titleInputRef } =
     useContext(OrderContext);
 
   const textInputs = getTextInputsConfig(
@@ -44,6 +44,7 @@ export default function EditPanel() {
                       onChange={handleChange}
                       version="minimalist"
                       key={input.id}
+                      ref={input.name === "title" ? titleInputRef : null}
                     />
                   );
                 })}

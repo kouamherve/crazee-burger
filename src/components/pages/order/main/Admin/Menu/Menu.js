@@ -20,14 +20,16 @@ export default function Menu() {
     currentTabSelected,
     setCurrentTabSelected,
     setIsCollapse,
+    titleInputRef,
   } = useContext(OrderContext);
 
   // event handler
-  const handleClick = (product) => {
+  const handleClick = async (product) => {
     if (!isModeAdmin) return;
-    setProductSelected(product);
-    setCurrentTabSelected("edit");
-    setIsCollapse(false);
+    await setProductSelected(product);
+    await setCurrentTabSelected("edit");
+    await setIsCollapse(false);
+    titleInputRef.current.focus();
   };
 
   // css
@@ -55,7 +57,7 @@ export default function Menu() {
             isSelected={
               isModeAdmin &&
               currentTabSelected === "edit" &&
-              productSelected.id === product.id
+              productSelected === product
             }
           />
         ))
