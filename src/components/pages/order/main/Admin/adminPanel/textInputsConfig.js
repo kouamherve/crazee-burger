@@ -13,7 +13,7 @@ export const getTextInputsConfig = (title, image, price) => [
   },
   {
     id: "1",
-    type: "url",
+    type: "text",
     name: "imageSource",
     value: image,
     placeholder:
@@ -22,7 +22,7 @@ export const getTextInputsConfig = (title, image, price) => [
   },
   {
     id: "2",
-    type: "number",
+    type: "text",
     name: "price",
     value: price ? price : "",
     placeholder: "Prix",

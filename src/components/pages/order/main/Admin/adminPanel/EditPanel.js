@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import HintMessage from "./HintMessage";
 import OrderContext from "../../../../../../context/OrderContext";
 import { getTextInputsConfig } from "./textInputsConfig";
-import ImagePreview from "./ImagePreview";
-import { TextInput } from "../../../../../reusable-ui/TextInput";
+import Form from "./Form";
 
 export default function EditPanel() {
   // state
@@ -29,33 +28,18 @@ export default function EditPanel() {
   return (
     <div>
       {productSelected ? (
-        <div className="h-[160px] w-[880px]">
-          <div className="mt-[30px] flex space-x-5 w-full h-full mb-13">
-            <ImagePreview
-              title={productSelected.title}
-              image={productSelected.imageSource}
-            />
-            <div className=" h-[120px] w-[73%]">
-              <form className="flex flex-col gap-2">
-                {textInputs.map((input) => {
-                  return (
-                    <TextInput
-                      {...input}
-                      onChange={handleChange}
-                      version="minimalist"
-                      key={input.id}
-                      ref={input.name === "title" ? titleInputRef : null}
-                    />
-                  );
-                })}
-                <span className=" font-openSans font-normal text-sm text-primary">
-                  Cliquer sur un produit du menu pour le modifier{" "}
-                  <span className="underline">en temps réel</span>
-                </span>
-              </form>
-            </div>
-          </div>
-        </div>
+        <Form
+          onChange={handleChange}
+          imagePreviewTitle={productSelected.title}
+          imagePreviewimageSource={productSelected.imageSource}
+          textInputs={textInputs}
+          ref={titleInputRef}
+        >
+          <span className=" font-openSans font-normal text-sm text-primary">
+            Cliquer sur un produit du menu pour le modifier{" "}
+            <span className="underline">en temps réel</span>
+          </span>
+        </Form>
       ) : (
         <HintMessage />
       )}
