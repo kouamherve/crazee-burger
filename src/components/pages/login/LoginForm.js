@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
-import TextInput from "../../reusable-ui/TextInput";
 import clsx from "clsx";
 import Button from "../../reusable-ui/Button";
+import { TextInput } from "../../reusable-ui/TextInput";
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");

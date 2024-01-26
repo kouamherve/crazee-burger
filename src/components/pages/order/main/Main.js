@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Menu from "./Menu";
+import Menu from "./Admin/Menu/Menu";
 import Admin from "./Admin/Admin";
 import OrderContext from "../../../../context/OrderContext";
 

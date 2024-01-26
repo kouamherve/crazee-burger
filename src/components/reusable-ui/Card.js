@@ -1,7 +1,7 @@
 import React from "react";
 import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
-import DeleteButton from "../pages/order/main/Admin/adminPanel/DeleteButton";
+import DeleteButton from "../pages/order/Main/Admin/AdminPanel/DeleteButton";
 import Button from "./Button";
 
 export default function Card({
@@ -10,12 +10,22 @@ export default function Card({
   price,
   onDelete,
   hasDeleted,
+  onClick,
+  isHoverable,
+  isSelected,
 }) {
+  // css
   const classNames = {
     card: clsx(
-      "relative w-60 h-85 bg-white",
+      "relative w-60 h-85",
       "flex flex-col items-center",
-      "rounded-2xl shadow-medium"
+      "rounded-2xl shadow-medium",
+      `${
+        isHoverable
+          ? "hover:shadow-orangeHightLight hover:scale-105 hover:cursor-pointer transition duration-150 ease-out"
+          : ""
+      }`,
+      `${isSelected ? "bg-primary" : "bg-white"}`
     ),
     imageContainer: "w-50 h-[145px] mx-5 mt-13 mb-4",
     image: "object-contain object-center w-full h-full",
@@ -29,12 +39,16 @@ export default function Card({
       "flex items-center justify-between",
       "px-1.5 pb-1.5"
     ),
-    price: "text-[16px] text-primary leading-5.5 font-normal",
+    price: `text-[16px] text-primary leading-5.5 font-normal ${
+      isSelected && "text-white"
+    }`,
   };
 
   return (
-    <div className={classNames.card}>
-      {hasDeleted && <DeleteButton onDelete={onDelete} />}
+    <div className={classNames.card} onClick={onClick}>
+      {hasDeleted && (
+        <DeleteButton onDelete={onDelete} isSelected={isSelected} />
+      )}
       <div className={classNames.imageContainer}>
         <img src={imageSource} alt={title} className={classNames.image} />
       </div>
@@ -42,7 +56,12 @@ export default function Card({
         <div className={classNames.infoTextTitle}>{title}</div>
         <div className={classNames.descriptionContainer}>
           <span className={classNames.price}>{formatPrice(price)}</span>
-          <Button label={"Ajouter"} version="card" />
+          <Button
+            label={"Ajouter"}
+            version="card"
+            isSelected={isSelected}
+            onClick={(event) => event.stopPropagation()}
+          />
         </div>
       </div>
     </div>

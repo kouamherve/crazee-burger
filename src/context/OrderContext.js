@@ -3,24 +3,27 @@ import { createContext } from "react";
 export default createContext({
   isModeAdmin: false,
   setIsModeAdmin: () => {},
+
   isCollapse: false,
   setIsCollapse: () => {},
+
   currentTabSelected: "",
   setCurrentTabSelected: () => {},
+
   username: "",
+  titleInputRef: {},
+
   menu: [],
   setMenu: () => {},
+
   handleAdd: () => {},
+  handleEdit: () => {},
   handleDelete: () => {},
-  title: "",
-  setTitle: () => {},
-  image: "",
-  setImage: () => {},
-  price: "",
-  setPrice: () => {},
-  showToast: false,
-  setShowToast: () => {},
-  handleChange: () => {},
-  newProduct: "",
   handleReset: () => {},
+
+  newProduct: {},
+  setNewProduct: () => {},
+
+  productSelected: {},
+  setProductSelected: () => {},
 });

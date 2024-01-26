@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
-import AddForm from "./AddForm";
-import ImagePreview from "./ImagePreview";
+import React, { useContext, useState } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
+import AddProductButton from "./AddProductButton";
+import Form from "./Form";
+import { DEFAULT_PRODUCT } from "../../../../../../enum/product";
 
 export default function AddPanel() {
-  const { newProduct, handleAdd, handleChange, showToast } =
-    useContext(OrderContext);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const { newProduct, setNewProduct, handleAdd } = useContext(OrderContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,21 +16,25 @@ export default function AddPanel() {
       id: crypto.randomUUID(),
     };
     handleAdd(newProductToAdd);
+    setNewProduct(DEFAULT_PRODUCT);
+    displaySuccessMessage();
+  };
+
+  const handleChange = (event) => {
+    const product = { ...newProduct, [event.target.name]: event.target.value };
+    setNewProduct(product);
+  };
+
+  const displaySuccessMessage = () => {
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 2000);
   };
 
   return (
-    <div className="h-[160px] w-[880px]">
-      <div className="mt-[30px] flex space-x-5 w-full h-full mb-13">
-        <ImagePreview title={newProduct.title} image={newProduct.image} />
-        <AddForm
-          title={newProduct.title}
-          image={newProduct.image}
-          price={newProduct.price}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-          toast={showToast}
-        />
-      </div>
-    </div>
+    <Form product={newProduct} onSubmit={handleSubmit} onChange={handleChange}>
+      <AddProductButton isSubmitted={isSubmitted} />
+    </Form>
   );
 }
