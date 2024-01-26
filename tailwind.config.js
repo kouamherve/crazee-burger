@@ -47,7 +47,7 @@ module.exports = {
         orangeHightLight: "0px 0px 8px 0px rgba(255, 154, 35, 1)",
       },
       gridTemplateColumns: {
-        container: "repeat(auto-fit, minmax(300px, 1fr))",
+        container: "repeat(auto-fit, minmax(200px, 1fr))",
       },
       colors: {
         dark: "#17161a",

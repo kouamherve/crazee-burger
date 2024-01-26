@@ -72,14 +72,14 @@ export default function OrderPage() {
 
   // css
   const orderPageClassName = clsx(
-    "flex flex-col items-center ",
+    "flex flex-col items-center",
     "h-screen p-6 font-openSans"
   );
 
   return (
     <OrderContext.Provider value={orderContextValue}>
       <div className={orderPageClassName}>
-        <div className="min-w-[1400px] ">
+        <div className="w-full">
           <Navbar onClick={refreshPage} />
           <Main />
         </div>
