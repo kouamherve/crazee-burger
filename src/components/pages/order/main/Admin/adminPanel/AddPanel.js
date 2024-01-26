@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
-import Form from "./Form";
-import { DEFAULT_PRODUCT } from "../../../../../../enum/enum";
-import { getTextInputsConfig } from "./textInputsConfig";
 import AddProductButton from "./AddProductButton";
+import Form from "./Form";
+import { DEFAULT_PRODUCT } from "../../../../../../enum/product";
 
 export default function AddPanel() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -22,7 +21,8 @@ export default function AddPanel() {
   };
 
   const handleChange = (event) => {
-    setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
+    const product = { ...newProduct, [event.target.name]: event.target.value };
+    setNewProduct(product);
   };
 
   const displaySuccessMessage = () => {
@@ -32,21 +32,8 @@ export default function AddPanel() {
     }, 2000);
   };
 
-  const textInputs = getTextInputsConfig(
-    newProduct.title,
-    newProduct.imageSource,
-    newProduct.price
-  );
-
   return (
-    <Form
-      textInputs={textInputs}
-      imagePreviewTitle={newProduct.title}
-      imagePreviewimageSource={newProduct.imageSource}
-      onSubmit={handleSubmit}
-      onChange={handleChange}
-      isSubmitted={isSubmitted}
-    >
+    <Form product={newProduct} onSubmit={handleSubmit} onChange={handleChange}>
       <AddProductButton isSubmitted={isSubmitted} />
     </Form>
   );

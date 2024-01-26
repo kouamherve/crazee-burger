@@ -6,6 +6,7 @@ import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
+import { deepClone } from "../../../utils/array";
 
 const DEFAULT_PRODUCT = {
   id: "",
@@ -28,7 +29,7 @@ export default function OrderPage() {
 
   // state handlers
   const handleAdd = (newProduct) => {
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
     const menuUpdated = [newProduct, ...menuCopy];
     setMenu(menuUpdated);
   };

@@ -1,19 +1,12 @@
 import React, { useContext } from "react";
 import HintMessage from "./HintMessage";
 import OrderContext from "../../../../../../context/OrderContext";
-import { getTextInputsConfig } from "./textInputsConfig";
 import Form from "./Form";
 
 export default function EditPanel() {
   // state
   const { productSelected, setProductSelected, handleEdit, titleInputRef } =
     useContext(OrderContext);
-
-  const textInputs = getTextInputsConfig(
-    productSelected.title,
-    productSelected.imageSource,
-    productSelected.price
-  );
 
   // event handler
   const handleChange = (event) => {
@@ -29,10 +22,8 @@ export default function EditPanel() {
     <div>
       {productSelected ? (
         <Form
+          product={productSelected}
           onChange={handleChange}
-          imagePreviewTitle={productSelected.title}
-          imagePreviewimageSource={productSelected.imageSource}
-          textInputs={textInputs}
           ref={titleInputRef}
         >
           <span className=" font-openSans font-normal text-sm text-primary">
