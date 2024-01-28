@@ -1,7 +1,7 @@
 export default function ImagePreview({ title, image }) {
   return (
     <div
-      className={`w-[27%] h-[120px] rounded-md font-openSans text-base font-normal ${
+      className={`w-[18.5%] h-[133.5px] rounded-md font-openSans text-sm font-normal ${
         image ? "" : "border border-greyLight"
       } text-greySemiDark flex items-center justify-center`}
     >

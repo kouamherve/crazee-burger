@@ -48,7 +48,7 @@ module.exports = {
         basket: "0px 0px 20px 0px rgba(0, 0, 0, 0.2) inset",
       },
       gridTemplateColumns: {
-        container: "repeat(auto-fit, minmax(200px, 1fr))",
+        container: "repeat(auto-fit, minmax(200px, 1fr))", // Sans Basket
       },
       colors: {
         dark: "#17161a",
