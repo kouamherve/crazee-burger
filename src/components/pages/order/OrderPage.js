@@ -30,7 +30,9 @@ export default function OrderPage() {
 
   const handleEdit = (updatedProduct) => {
     setMenu(
-      menu.map((product) => product.id === updatedProduct.id && updatedProduct)
+      menu.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      )
     );
   };
 
