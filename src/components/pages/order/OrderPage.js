@@ -7,13 +7,7 @@ import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
 import { fakeMenu } from "../../../fakeData/fakeMenu";
 import { deepClone } from "../../../utils/array";
-
-const DEFAULT_PRODUCT = {
-  id: "",
-  title: "",
-  image: "",
-  price: 0,
-};
+import { DEFAULT_PRODUCT } from "../../../enum/product";
 
 export default function OrderPage() {
   // state
@@ -36,9 +30,7 @@ export default function OrderPage() {
 
   const handleEdit = (updatedProduct) => {
     setMenu(
-      menu.map((product) =>
-        product.id === updatedProduct.id ? updatedProduct : product
-      )
+      menu.map((product) => product.id === updatedProduct.id && updatedProduct)
     );
   };
 

@@ -4,7 +4,7 @@ import { MdOutlineEuro } from "react-icons/md";
 
 export const getTextInputsConfig = (newProduct) => [
   {
-    id: "0",
+    id: 0,
     type: "text",
     name: "title",
     value: newProduct.title,
@@ -12,7 +12,7 @@ export const getTextInputsConfig = (newProduct) => [
     Icon: <FaHamburger className="icon-input-panel" />,
   },
   {
-    id: "1",
+    id: 1,
     type: "text",
     name: "imageSource",
     value: newProduct.imageSource,
@@ -21,7 +21,7 @@ export const getTextInputsConfig = (newProduct) => [
     Icon: <BsFillCameraFill className="icon-input-panel" />,
   },
   {
-    id: "2",
+    id: 2,
     type: "text",
     name: "price",
     value: newProduct.price ? newProduct.price : "",
