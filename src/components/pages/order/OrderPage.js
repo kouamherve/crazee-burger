@@ -5,9 +5,8 @@ import { refreshPage } from "../../../utils/utils";
 import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
-import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { deepClone } from "../../../utils/array";
 import { DEFAULT_PRODUCT } from "../../../enum/product";
+import { useMenu } from "../../../hooks/useMenu";
 
 export default function OrderPage() {
   // state
@@ -16,33 +15,10 @@ export default function OrderPage() {
   const [productSelected, setProductSelected] = useState(false);
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
   const [newProduct, setNewProduct] = useState(DEFAULT_PRODUCT);
 
   const titleInputRef = useRef();
-
-  // state handlers
-  const handleAdd = (newProduct) => {
-    const menuCopy = deepClone(menu);
-    const menuUpdated = [newProduct, ...menuCopy];
-    setMenu(menuUpdated);
-  };
-
-  const handleEdit = (updatedProduct) => {
-    setMenu(
-      menu.map((product) =>
-        product.id === updatedProduct.id ? updatedProduct : product
-      )
-    );
-  };
-
-  const handleDelete = (productId) => {
-    setMenu(menu.filter((p) => p.id !== productId));
-  };
-
-  const handleReset = () => {
-    setMenu(fakeMenu.LARGE);
-  };
+  const { menu, handleAdd, handleEdit, handleDelete, handleReset } = useMenu();
 
   const orderContextValue = {
     isModeAdmin,
