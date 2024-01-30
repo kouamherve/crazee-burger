@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext";
 import AddProductButton from "./AddProductButton";
 import Form from "./Form";
 import { DEFAULT_PRODUCT } from "../../../../../../enum/product";
+import { useSuccessMessage } from "../../../../../../hooks/useSuccessMessage";
 
 export default function AddPanel() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const { isSubmitted, displaySuccessMessage } = useSuccessMessage();
   const { newProduct, setNewProduct, handleAdd } = useContext(OrderContext);
 
   const handleSubmit = (event) => {
@@ -23,13 +23,6 @@ export default function AddPanel() {
   const handleChange = (event) => {
     const product = { ...newProduct, [event.target.name]: event.target.value };
     setNewProduct(product);
-  };
-
-  const displaySuccessMessage = () => {
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 2000);
   };
 
   return (
