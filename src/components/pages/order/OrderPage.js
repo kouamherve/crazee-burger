@@ -16,6 +16,7 @@ export default function OrderPage() {
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [newProduct, setNewProduct] = useState(DEFAULT_PRODUCT);
+  const [basketMenu, setBasketMenu] = useState([]);
 
   const titleInputRef = useRef();
   const { menu, handleAdd, handleEdit, handleDelete, handleReset } = useMenu();
@@ -38,6 +39,8 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     titleInputRef,
+    basketMenu,
+    setBasketMenu,
   };
 
   // css

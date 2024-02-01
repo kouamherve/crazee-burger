@@ -7,6 +7,7 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
+let nextId = 0;
 
 export default function Menu() {
   // state
@@ -21,6 +22,8 @@ export default function Menu() {
     setCurrentTabSelected,
     setIsCollapse,
     titleInputRef,
+    basketMenu,
+    setBasketMenu,
   } = useContext(OrderContext);
 
   // event handler
@@ -67,6 +70,18 @@ export default function Menu() {
               currentTabSelected === "edit" &&
               productSelected === product
             }
+            onAdded={(event) => {
+              event.stopPropagation();
+              setBasketMenu([
+                ...basketMenu,
+                {
+                  id: nextId,
+                  title: product.title,
+                  imageSource: product.imageSource,
+                  price: product.price,
+                },
+              ]);
+            }}
           />
         ))
       ) : isModeAdmin ? (
