@@ -1,6 +1,6 @@
 @tailwind base;
 .body {
-  @apply max-w-[1400px] mx-auto bg-primary;
+  @apply min-w-[1400px] mx-auto bg-primary;
 }
 @tailwind components;
 @tailwind utilities;
@@ -34,9 +34,9 @@
     @apply absolute w-4 h-4 ml-6 pointer-events-none text-greyBlue;
   }
   .text-input {
-    @apply h-[35px] w-full text-dark bg-background_white rounded-md py-2 pl-[52px] pr-4 focus:outline-none;
+    @apply h-[39px] w-full text-dark bg-background_white rounded-md py-2 pl-[52px] pr-4 focus:outline-none;
   }
   .div-text-input {
-    @apply relative text-greyMedium text-base font-normal flex items-center;
+    @apply relative text-greyMedium text-sm font-normal flex items-center w-[580px];
   }
 }

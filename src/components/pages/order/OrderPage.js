@@ -5,15 +5,8 @@ import { refreshPage } from "../../../utils/utils";
 import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
-import { fakeMenu } from "../../../fakeData/fakeMenu";
-import { deepClone } from "../../../utils/array";
-
-const DEFAULT_PRODUCT = {
-  id: "",
-  title: "",
-  image: "",
-  price: 0,
-};
+import { DEFAULT_PRODUCT } from "../../../enum/product";
+import { useMenu } from "../../../hooks/useMenu";
 
 export default function OrderPage() {
   // state
@@ -22,33 +15,10 @@ export default function OrderPage() {
   const [productSelected, setProductSelected] = useState(false);
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
   const [newProduct, setNewProduct] = useState(DEFAULT_PRODUCT);
 
   const titleInputRef = useRef();
-
-  // state handlers
-  const handleAdd = (newProduct) => {
-    const menuCopy = deepClone(menu);
-    const menuUpdated = [newProduct, ...menuCopy];
-    setMenu(menuUpdated);
-  };
-
-  const handleEdit = (updatedProduct) => {
-    setMenu(
-      menu.map((product) =>
-        product.id === updatedProduct.id ? updatedProduct : product
-      )
-    );
-  };
-
-  const handleDelete = (productId) => {
-    setMenu(menu.filter((p) => p.id !== productId));
-  };
-
-  const handleReset = () => {
-    setMenu(fakeMenu.LARGE);
-  };
+  const { menu, handleAdd, handleEdit, handleDelete, handleReset } = useMenu();
 
   const orderContextValue = {
     isModeAdmin,
@@ -72,14 +42,14 @@ export default function OrderPage() {
 
   // css
   const orderPageClassName = clsx(
-    "flex flex-col items-center ",
-    "h-screen p-6 font-openSans"
+    "flex flex-col items-center",
+    "h-screen p-6 mx-14 font-openSans"
   );
 
   return (
     <OrderContext.Provider value={orderContextValue}>
       <div className={orderPageClassName}>
-        <div className="min-w-[1400px] ">
+        <div className="w-full">
           <Navbar onClick={refreshPage} />
           <Main />
         </div>
