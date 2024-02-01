@@ -48,7 +48,7 @@ module.exports = {
         basket: "0px 0px 20px 0px rgba(0, 0, 0, 0.2) inset",
       },
       gridTemplateColumns: {
-        container: "repeat(auto-fit, minmax(200px, 1fr))", // Sans Basket
+        container: "repeat(auto-fit, minmax(250px, 1fr))", // Sans Basket
       },
       colors: {
         dark: "#17161a",
@@ -67,6 +67,9 @@ module.exports = {
         greySemiDark: "#93a2b1",
         greyDark: "#6f737e",
         greyBlue: "#747b91",
+      },
+      backgroundImage: {
+        loginPage: "url('./assets/images/burger-with-fries-background.jpg')",
       },
     },
   },

@@ -43,7 +43,7 @@ export default function OrderPage() {
   // css
   const orderPageClassName = clsx(
     "flex flex-col items-center",
-    "h-screen p-6 font-openSans"
+    "h-screen p-6 mx-14 font-openSans"
   );
 
   return (
