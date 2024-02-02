@@ -73,13 +73,13 @@ export default function Menu() {
             onAdded={(event) => {
               event.stopPropagation();
               setBasketMenu([
-                ...basketMenu,
                 {
                   id: nextId,
                   title: product.title,
                   imageSource: product.imageSource,
                   price: product.price,
                 },
+                ...basketMenu,
               ]);
             }}
           />
