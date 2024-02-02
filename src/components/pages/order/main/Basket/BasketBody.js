@@ -12,7 +12,9 @@ export default function BasketBody({ basketMenu }) {
       {basketMenu.length === 0 ? (
         <span>Votre commande est vide.</span>
       ) : (
-        basketMenu.map((product) => <BasketCard product={product} />)
+        basketMenu.map((product) => (
+          <BasketCard product={product} key={product.id} />
+        ))
       )}
     </div>
   );

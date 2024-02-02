@@ -8,10 +8,17 @@ import OrderContext from "../../../../../context/OrderContext";
 export default function Basket() {
   const { basketMenu } = useContext(OrderContext);
 
+  const findTotal = () => {
+    let t = 0;
+    basketMenu.map(({ price }) => (t = t + price));
+    return formatPrice(t);
+  };
+  const total = findTotal();
+
   return (
     <div className="w-1/4 shadow-strong">
       <div className=" text-background_white flex flex-col h-[100%] font-amatic ">
-        <Total amountToPay={formatPrice(0)} />
+        <Total amountToPay={total} />
         <BasketBody basketMenu={basketMenu} />
         <Footer />
       </div>

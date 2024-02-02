@@ -7,7 +7,6 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 
 const DEFAULT_IMAGE = "/images/coming-soon.png";
-let nextId = 0;
 
 export default function Menu() {
   // state
@@ -74,7 +73,7 @@ export default function Menu() {
               event.stopPropagation();
               setBasketMenu([
                 {
-                  id: nextId,
+                  id: product.id,
                   title: product.title,
                   imageSource: product.imageSource,
                   price: product.price,
