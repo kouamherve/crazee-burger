@@ -42,6 +42,19 @@ export default function Menu() {
     }
   };
 
+  const handleBasketCardAdd = (event, product) => {
+    event.stopPropagation();
+    setBasketMenu([
+      {
+        id: product.id,
+        title: product.title,
+        imageSource: product.imageSource,
+        price: product.price,
+      },
+      ...basketMenu,
+    ]);
+  };
+
   // css
   const menuClassName = clsx(
     "w-full p-13 gap-x-21 gap-y-15",
@@ -69,18 +82,7 @@ export default function Menu() {
               currentTabSelected === "edit" &&
               productSelected === product
             }
-            onAdded={(event) => {
-              event.stopPropagation();
-              setBasketMenu([
-                {
-                  id: product.id,
-                  title: product.title,
-                  imageSource: product.imageSource,
-                  price: product.price,
-                },
-                ...basketMenu,
-              ]);
-            }}
+            onAdded={(event) => handleBasketCardAdd(event, product)}
           />
         ))
       ) : isModeAdmin ? (
