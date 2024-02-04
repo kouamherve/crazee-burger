@@ -1,18 +1,13 @@
 import React, { useContext } from "react";
 import Total from "./Total";
 import Footer from "./Footer";
-import { formatPrice } from "../../../../../utils/maths";
 import BasketBody from "./BasketBody";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function Basket() {
-  const { basketMenu, handleBasketCardDeleted } = useContext(OrderContext);
+  const { basketMenu, handleBasketCardDeleted, findTotal } =
+    useContext(OrderContext);
 
-  const findTotal = () => {
-    let t = 0;
-    basketMenu.map(({ price, quantity }) => (t = t + price * quantity));
-    return formatPrice(t);
-  };
   const total = findTotal();
 
   return (

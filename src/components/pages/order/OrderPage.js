@@ -7,6 +7,7 @@ import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
 import { DEFAULT_PRODUCT } from "../../../enum/product";
 import { useMenu } from "../../../hooks/useMenu";
+import { formatPrice } from "../../../utils/maths";
 
 export default function OrderPage() {
   // state
@@ -20,6 +21,30 @@ export default function OrderPage() {
 
   const titleInputRef = useRef();
   const { menu, handleAdd, handleEdit, handleDelete, handleReset } = useMenu();
+
+  const findTotal = () => {
+    let t = 0;
+    basketMenu.map(({ price, quantity }) => (t = t + price * quantity));
+    return formatPrice(t);
+  };
+
+  const handleBasketCardSubmit = (event, product) => {
+    event.stopPropagation();
+    const existingProductIndex = basketMenu.findIndex(
+      (item) => item.id === product.id
+    );
+    if (existingProductIndex !== -1) {
+      const nextBasketMenu = [...basketMenu];
+      nextBasketMenu[existingProductIndex].quantity += 1;
+      setBasketMenu(nextBasketMenu);
+    } else {
+      const newProductToAdd = {
+        ...product,
+        quantity: 1,
+      };
+      setBasketMenu([newProductToAdd, ...basketMenu]);
+    }
+  };
 
   const handleBasketCardDeleted = (productId) => {
     setBasketMenu(basketMenu.filter((prod) => prod.id !== productId));
@@ -45,6 +70,8 @@ export default function OrderPage() {
     titleInputRef,
     basketMenu,
     setBasketMenu,
+    findTotal,
+    handleBasketCardSubmit,
     handleBasketCardDeleted,
   };
 

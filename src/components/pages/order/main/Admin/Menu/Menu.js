@@ -5,8 +5,7 @@ import OrderContext from "../../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../../utils/maths";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
-
-const DEFAULT_IMAGE = "/images/coming-soon.png";
+import { DEFAULT_IMAGE } from "../../../../../../utils/utils";
 
 export default function Menu() {
   // state
@@ -21,8 +20,7 @@ export default function Menu() {
     setCurrentTabSelected,
     setIsCollapse,
     titleInputRef,
-    basketMenu,
-    setBasketMenu,
+    handleBasketCardSubmit,
     handleBasketCardDeleted,
   } = useContext(OrderContext);
 
@@ -41,24 +39,6 @@ export default function Menu() {
     handleBasketCardDeleted(idProductToEdit);
     if (productSelected.id === idProductToEdit) {
       setProductSelected(false);
-    }
-  };
-
-  const handleBasketCardSubmit = (event, product) => {
-    event.stopPropagation();
-    const existingProductIndex = basketMenu.findIndex(
-      (item) => item.id === product.id
-    );
-    if (existingProductIndex !== -1) {
-      const nextBasketMenu = [...basketMenu];
-      nextBasketMenu[existingProductIndex].quantity += 1;
-      setBasketMenu(nextBasketMenu);
-    } else {
-      const newProductToAdd = {
-        ...product,
-        quantity: 1,
-      };
-      setBasketMenu([newProductToAdd, ...basketMenu]);
     }
   };
 

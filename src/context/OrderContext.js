@@ -31,4 +31,7 @@ export default createContext({
   setBasketMenu: () => {},
 
   handleBasketCardDeleted: () => {},
+  handleBasketCardSubmit: () => {},
+
+  findTotal: () => {},
 });
