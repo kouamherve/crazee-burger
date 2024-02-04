@@ -6,7 +6,7 @@ import BasketBody from "./BasketBody";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function Basket() {
-  const { basketMenu, setBasketMenu } = useContext(OrderContext);
+  const { basketMenu, handleBasketCardDeleted } = useContext(OrderContext);
 
   const findTotal = () => {
     let t = 0;
@@ -19,7 +19,10 @@ export default function Basket() {
     <div className="w-1/4 shadow-strong">
       <div className=" text-background_white flex flex-col h-[100%] font-amatic ">
         <Total amountToPay={total} />
-        <BasketBody basketMenu={basketMenu} setBasketMenu={setBasketMenu} />
+        <BasketBody
+          basketMenu={basketMenu}
+          handleBasketCardDeleted={handleBasketCardDeleted}
+        />
         <Footer />
       </div>
     </div>

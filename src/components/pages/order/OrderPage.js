@@ -21,6 +21,10 @@ export default function OrderPage() {
   const titleInputRef = useRef();
   const { menu, handleAdd, handleEdit, handleDelete, handleReset } = useMenu();
 
+  const handleBasketCardDeleted = (productId) => {
+    setBasketMenu(basketMenu.filter((prod) => prod.id !== productId));
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -41,6 +45,7 @@ export default function OrderPage() {
     titleInputRef,
     basketMenu,
     setBasketMenu,
+    handleBasketCardDeleted,
   };
 
   // css

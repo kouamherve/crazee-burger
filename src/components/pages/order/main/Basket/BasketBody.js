@@ -1,10 +1,10 @@
 import React from "react";
 import BasketCard from "../../../../reusable-ui/BasketCard";
 
-export default function BasketBody({ basketMenu, setBasketMenu }) {
-  const handleBasketCardDeleted = (productId) => {
-    setBasketMenu(basketMenu.filter((prod) => prod.id !== productId));
-  };
+export default function BasketBody({ basketMenu, handleBasketCardDeleted }) {
+  // const handleBasketCardDeleted = (productId) => {
+  //   setBasketMenu(basketMenu.filter((prod) => prod.id !== productId));
+  // };
   return (
     <div
       className={`h-[84%]  bg-background_white text-greyBlue shadow-basket overflow-y-auto ${

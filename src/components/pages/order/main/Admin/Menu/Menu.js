@@ -23,6 +23,7 @@ export default function Menu() {
     titleInputRef,
     basketMenu,
     setBasketMenu,
+    handleBasketCardDeleted,
   } = useContext(OrderContext);
 
   // event handler
@@ -37,6 +38,7 @@ export default function Menu() {
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
     handleDelete(idProductToEdit);
+    handleBasketCardDeleted(idProductToEdit);
     if (productSelected.id === idProductToEdit) {
       setProductSelected(false);
     }
