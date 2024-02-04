@@ -15,7 +15,7 @@ export default function BasketCard({ product, onDeleted }) {
         <div className="w-full">
           <div className="mx-4 h-full flex items-center justify-between">
             <div className="flex flex-col w-[120px]">
-              <span>{product.title}</span>
+              <span className="truncate">{product.title}</span>
               <span>{formatPrice(product.price)}</span>
             </div>
             <div className="flex items-center justify-center">
