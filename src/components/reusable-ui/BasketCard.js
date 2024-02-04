@@ -1,13 +1,15 @@
 import React from "react";
 import { formatPrice } from "../../utils/maths";
 
+const DEFAULT_IMAGE = "/images/coming-soon.png";
+
 export default function BasketCard({ product, onDeleted }) {
   return (
     <div className="h-[86px] mx-4 my-5 shadow-basketCard bg-white flex items-center justify-center group">
       <div className="mx-4 mt-2 h-[70px] flex items-center justify-center">
         <div className="w-[86px] h-full ">
           <img
-            src={product.imageSource}
+            src={product.imageSource ? product.imageSource : DEFAULT_IMAGE}
             alt={product.title}
             className="object-contain h-full w-full"
           />
