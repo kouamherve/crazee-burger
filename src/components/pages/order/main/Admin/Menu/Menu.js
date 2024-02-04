@@ -42,17 +42,22 @@ export default function Menu() {
     }
   };
 
-  const handleBasketCardAdd = (event, product) => {
+  const handleBasketCardSubmit = (event, product) => {
     event.stopPropagation();
-    setBasketMenu([
-      {
-        id: product.id,
-        title: product.title,
-        imageSource: product.imageSource,
-        price: product.price,
-      },
-      ...basketMenu,
-    ]);
+    const existingProductIndex = basketMenu.findIndex(
+      (item) => item.id === product.id
+    );
+    if (existingProductIndex !== -1) {
+      const nextBasketMenu = [...basketMenu];
+      nextBasketMenu[existingProductIndex].quantity += 1;
+      setBasketMenu(nextBasketMenu);
+    } else {
+      const newProductToAdd = {
+        ...product,
+        quantity: 1,
+      };
+      setBasketMenu([newProductToAdd, ...basketMenu]);
+    }
   };
 
   // css
@@ -82,7 +87,7 @@ export default function Menu() {
               currentTabSelected === "edit" &&
               productSelected === product
             }
-            onAdded={(event) => handleBasketCardAdd(event, product)}
+            onAdded={(event) => handleBasketCardSubmit(event, product)}
           />
         ))
       ) : isModeAdmin ? (

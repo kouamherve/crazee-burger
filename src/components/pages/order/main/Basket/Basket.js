@@ -10,7 +10,7 @@ export default function Basket() {
 
   const findTotal = () => {
     let t = 0;
-    basketMenu.map(({ price }) => (t = t + price));
+    basketMenu.map(({ price, quantity }) => (t = t + price * quantity));
     return formatPrice(t);
   };
   const total = findTotal();

@@ -19,7 +19,9 @@ export default function BasketCard({ product, onDeleted }) {
               <span>{formatPrice(product.price)}</span>
             </div>
             <div className="flex items-center justify-center">
-              <span className="w-[30px] group-hover:hidden">compt</span>
+              <span className="w-[30px] group-hover:hidden">
+                {product.quantity}
+              </span>
               <button
                 onClick={onDeleted}
                 className="w-[76px] h-[86px] bg-red invisible group-hover:visible hover:text-white"
