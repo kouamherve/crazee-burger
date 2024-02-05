@@ -5,7 +5,7 @@ import { DEFAULT_IMAGE } from "../../utils/utils";
 
 export default function BasketCard({ product, onDeleted }) {
   return (
-    <div className="h-[86px] mx-4 my-5 shadow-basketCard bg-white flex items-center group overflow-hidden rounded-md">
+    <div className="h-[86px] mx-5 my-5 shadow-basketCard bg-white flex items-center group overflow-hidden rounded-md">
       <div className="w-1/3 h-[70px] my-2 ml-5 flex items-center justify-center">
         <img
           src={product.imageSource ? product.imageSource : DEFAULT_IMAGE}
@@ -16,8 +16,8 @@ export default function BasketCard({ product, onDeleted }) {
       <div className="h-full w-2/3">
         <div className="ml-4 h-full w-full flex items-center justify-center ">
           <div className="h-[70px] flex flex-col w-[130px] pt-1 pr-5 pb-2">
-            <div className="w-[98px] h-full">
-              <span className="truncate font-amatic font-bold text-2xl leading-8 text-dark">
+            <div className="w-[98px] h-full truncate">
+              <span className="font-amatic font-bold text-2xl leading-8 text-dark">
                 {product.title}
               </span>
             </div>
@@ -32,9 +32,9 @@ export default function BasketCard({ product, onDeleted }) {
             </span>
             <button
               onClick={onDeleted}
-              className="w-full h-full bg-red invisible group-hover:visible hover:text-white flex items-center justify-center"
+              className="w-full h-full bg-red text-white active:text-white hover:text-black invisible group-hover:visible flex items-center justify-center"
             >
-              <MdDeleteForever className="text-black w-8 h-6 font-bold active:text-white" />
+              <MdDeleteForever className=" w-8 h-6 font-bold fill-current" />
             </button>
           </div>
         </div>
