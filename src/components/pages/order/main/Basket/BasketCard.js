@@ -3,11 +3,11 @@ import { formatPrice } from "../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
 import { DEFAULT_IMAGE } from "../../../../../enum/product";
 
-export default function BasketCard({ product, onDeleted, isHovarable }) {
+export default function BasketCard({ product, onDeleted, isHoverable }) {
   return (
     <div
       className={`${
-        isHovarable ? "cursor-pointer" : "cursor-default"
+        isHoverable ? "cursor-pointer" : "cursor-default"
       } h-[86px] mx-5 my-5 shadow-basketCard bg-white flex items-center group overflow-hidden rounded-md`}
     >
       <div className="w-1/3 h-[70px] my-2 ml-5 flex items-center justify-center">
@@ -30,9 +30,11 @@ export default function BasketCard({ product, onDeleted, isHovarable }) {
             </span>
           </div>
           <div className="w-[70px] h-full flex items-center justify-center">
-            <span className="group-hover:hidden ml-5 font-openSans text-sm text-primary/70 leading-5 space-x-1">
+            <span className="group-hover:hidden ml-2 font-openSans text-sm text-primary/70 leading-5 grid grid-cols-2 space-x-[5px]">
               <span>x</span>
-              <span>{product.quantity}</span>
+              <span className="flex items-center justify-center">
+                {product.quantity}
+              </span>
             </span>
             <button
               onClick={onDeleted}

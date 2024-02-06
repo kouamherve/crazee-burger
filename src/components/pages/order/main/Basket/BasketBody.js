@@ -5,7 +5,7 @@ import BasketProducts from "./BasketProducts";
 export default function BasketBody({
   basketMenu,
   handleDeletedBasketCard,
-  isHovarable,
+  isHoverable,
 }) {
   const isEmptyBasket = basketMenu.length === 0;
   return (
@@ -21,7 +21,7 @@ export default function BasketBody({
         <BasketProducts
           basketMenu={basketMenu}
           handleDeletedBasketCard={handleDeletedBasketCard}
-          isHovarable={isHovarable}
+          isHoverable={isHoverable}
         />
       )}
     </div>

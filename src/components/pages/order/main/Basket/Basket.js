@@ -15,7 +15,7 @@ export default function Basket() {
         <BasketBody
           basketMenu={basketMenu}
           handleDeletedBasketCard={handleDeletedBasketCard}
-          isHovarable={isModeAdmin}
+          isHoverable={isModeAdmin}
         />
         <Footer />
       </div>
