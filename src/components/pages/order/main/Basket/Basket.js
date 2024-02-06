@@ -5,10 +5,8 @@ import BasketBody from "./BasketBody";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function Basket() {
-  const { basketMenu, handleDeletedBasketCard, findTotal } =
+  const { basketMenu, handleDeletedBasketCard, total } =
     useContext(OrderContext);
-
-  const total = findTotal();
 
   return (
     <div className="w-1/4 shadow-strong">

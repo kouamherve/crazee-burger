@@ -7,8 +7,8 @@ import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
 import { DEFAULT_PRODUCT } from "../../../enum/product";
 import { useMenu } from "../../../hooks/useMenu";
-import { formatPrice } from "../../../utils/maths";
 import { useBasketMenu } from "../../../hooks/useBasketMenu";
+import { findTotal } from "../../../utils/array";
 
 export default function OrderPage() {
   // state
@@ -18,45 +18,13 @@ export default function OrderPage() {
   const { username } = useParams();
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [newProduct, setNewProduct] = useState(DEFAULT_PRODUCT);
-  // const [basketMenu, setBasketMenu] = useState([]);
 
   const titleInputRef = useRef();
   const { menu, handleAdd, handleEdit, handleDelete, handleReset } = useMenu();
   const { basketMenu, handleAddToBasket, handleDeletedBasketCard } =
     useBasketMenu();
 
-  const findTotal = () => {
-    let t = 0;
-    // eslint-disable-next-line array-callback-return
-    basketMenu.map(({ price, quantity }) => {
-      if (!isNaN(price)) {
-        t = t + price * quantity;
-      }
-    });
-    return formatPrice(t);
-  };
-
-  // const handleBasketCardSubmit = (event, product) => {
-  //   event.stopPropagation();
-  //   const existingProductIndex = basketMenu.findIndex(
-  //     (item) => item.id === product.id
-  //   );
-  //   if (existingProductIndex !== -1) {
-  //     const nextBasketMenu = [...basketMenu];
-  //     nextBasketMenu[existingProductIndex].quantity += 1;
-  //     setBasketMenu(nextBasketMenu);
-  //   } else {
-  //     const newProductToAdd = {
-  //       ...product,
-  //       quantity: 1,
-  //     };
-  //     setBasketMenu([newProductToAdd, ...basketMenu]);
-  //   }
-  // };
-
-  // const handleBasketCardDeleted = (productId) => {
-  //   setBasketMenu(basketMenu.filter((prod) => prod.id !== productId));
-  // };
+  const total = findTotal(basketMenu);
 
   const orderContextValue = {
     isModeAdmin,
@@ -77,7 +45,7 @@ export default function OrderPage() {
     setProductSelected,
     titleInputRef,
     basketMenu,
-    findTotal,
+    total,
     handleAddToBasket,
     handleDeletedBasketCard,
   };
