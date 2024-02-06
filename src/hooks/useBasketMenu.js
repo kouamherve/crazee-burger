@@ -3,8 +3,7 @@ import { useState } from "react";
 export const useBasketMenu = () => {
   const [basketMenu, setBasketMenu] = useState([]);
 
-  const handleAddToBasket = (event, product) => {
-    event.stopPropagation();
+  const handleAddToBasket = (product) => {
     const existingProductIndex = basketMenu.findIndex(
       (item) => item.id === product.id
     );

@@ -42,6 +42,11 @@ export default function Menu() {
     }
   };
 
+  const handleAddButton = (event, product) => {
+    event.stopPropagation();
+    handleAddToBasket(product);
+  };
+
   // css
   const menuClassName = clsx(
     "w-full p-13 gap-x-21 gap-y-15",
@@ -69,7 +74,7 @@ export default function Menu() {
               currentTabSelected === "edit" &&
               productSelected === product
             }
-            onAdded={(event) => handleAddToBasket(event, product)}
+            onAdded={(event) => handleAddButton(event, product)}
           />
         ))
       ) : isModeAdmin ? (
