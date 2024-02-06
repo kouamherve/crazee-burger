@@ -24,7 +24,12 @@ export default function OrderPage() {
 
   const findTotal = () => {
     let t = 0;
-    basketMenu.map(({ price, quantity }) => (t = t + price * quantity));
+    // eslint-disable-next-line array-callback-return
+    basketMenu.map(({ price, quantity }) => {
+      if (!isNaN(price)) {
+        t = t + price * quantity;
+      }
+    });
     return formatPrice(t);
   };
 
