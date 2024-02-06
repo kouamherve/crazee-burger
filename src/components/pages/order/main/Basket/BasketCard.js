@@ -3,9 +3,13 @@ import { formatPrice } from "../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
 import { DEFAULT_IMAGE } from "../../../../../enum/product";
 
-export default function BasketCard({ product, onDeleted }) {
+export default function BasketCard({ product, onDeleted, isHovarable }) {
   return (
-    <div className="h-[86px] mx-5 my-5 shadow-basketCard bg-white flex items-center group overflow-hidden rounded-md">
+    <div
+      className={`${
+        isHovarable ? "cursor-pointer" : "cursor-default"
+      } h-[86px] mx-5 my-5 shadow-basketCard bg-white flex items-center group overflow-hidden rounded-md`}
+    >
       <div className="w-1/3 h-[70px] my-2 ml-5 flex items-center justify-center">
         <img
           src={product.imageSource ? product.imageSource : DEFAULT_IMAGE}

@@ -14,3 +14,11 @@ export const findTotal = (array) => {
   });
   return formatPrice(t);
 };
+
+export const findIndex = (array, productId) => {
+  return array.findIndex((item) => item.id === productId);
+};
+
+export const filter = (array, productId) => {
+  return array.filter((prod) => prod.id !== productId);
+};

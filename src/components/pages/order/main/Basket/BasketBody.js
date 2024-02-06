@@ -2,7 +2,11 @@ import React from "react";
 import EmptyBasket from "./EmptyBasket";
 import BasketProducts from "./BasketProducts";
 
-export default function BasketBody({ basketMenu, handleDeletedBasketCard }) {
+export default function BasketBody({
+  basketMenu,
+  handleDeletedBasketCard,
+  isHovarable,
+}) {
   const isEmptyBasket = basketMenu.length === 0;
   return (
     <div
@@ -17,6 +21,7 @@ export default function BasketBody({ basketMenu, handleDeletedBasketCard }) {
         <BasketProducts
           basketMenu={basketMenu}
           handleDeletedBasketCard={handleDeletedBasketCard}
+          isHovarable={isHovarable}
         />
       )}
     </div>

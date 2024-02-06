@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { filter, findIndex } from "../utils/array";
 
 export const useBasketMenu = () => {
   const [basketMenu, setBasketMenu] = useState([]);
 
   const handleAddToBasket = (product) => {
-    const existingProductIndex = basketMenu.findIndex(
-      (item) => item.id === product.id
-    );
+    const existingProductIndex = findIndex(basketMenu, product.id);
     if (existingProductIndex !== -1) {
       const nextBasketMenu = [...basketMenu];
       nextBasketMenu[existingProductIndex].quantity += 1;
@@ -21,7 +20,8 @@ export const useBasketMenu = () => {
   };
 
   const handleDeletedBasketCard = (productId) => {
-    setBasketMenu(basketMenu.filter((prod) => prod.id !== productId));
+    const nextBasketMenu = filter(basketMenu, productId);
+    setBasketMenu(nextBasketMenu);
   };
 
   return { basketMenu, handleAddToBasket, handleDeletedBasketCard };
