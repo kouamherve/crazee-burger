@@ -5,7 +5,7 @@ import OrderContext from "../../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../../utils/maths";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
-import { DEFAULT_IMAGE } from "../../../../../../utils/utils";
+import { DEFAULT_IMAGE } from "../../../../../../enum/product";
 
 export default function Menu() {
   // state
