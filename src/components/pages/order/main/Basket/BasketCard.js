@@ -1,7 +1,7 @@
 import React from "react";
-import { formatPrice } from "../../utils/maths";
+import { formatPrice } from "../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
-import { DEFAULT_IMAGE } from "../../utils/utils";
+import { DEFAULT_IMAGE } from "../../../../../utils/utils";
 
 export default function BasketCard({ product, onDeleted }) {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import BasketCard from "../../../../reusable-ui/BasketCard";
+import BasketCard from "./BasketCard";
 
 export default function BasketBody({ basketMenu, handleBasketCardDeleted }) {
   return (
