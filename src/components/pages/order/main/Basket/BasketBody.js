@@ -1,24 +1,23 @@
 import React from "react";
-import BasketCard from "./BasketCard";
+import EmptyBasket from "./EmptyBasket";
+import BasketProducts from "./BasketProducts";
 
 export default function BasketBody({ basketMenu, handleDeletedBasketCard }) {
+  const isEmptyBasket = basketMenu.length === 0;
   return (
     <div
       className={`h-[84%]  bg-background_white text-greyBlue shadow-basket overflow-y-auto ${
-        basketMenu.length === 0 &&
+        isEmptyBasket &&
         "flex items-center justify-center text-4xl leading-[72px]"
       }`}
     >
-      {basketMenu.length === 0 ? (
-        <span>Votre commande est vide.</span>
+      {isEmptyBasket ? (
+        <EmptyBasket />
       ) : (
-        basketMenu.map((product) => (
-          <BasketCard
-            product={product}
-            key={product.id}
-            onDeleted={() => handleDeletedBasketCard(product.id)}
-          />
-        ))
+        <BasketProducts
+          basketMenu={basketMenu}
+          handleDeletedBasketCard={handleDeletedBasketCard}
+        />
       )}
     </div>
   );
