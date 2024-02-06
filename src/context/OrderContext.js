@@ -30,8 +30,8 @@ export default createContext({
   basketMenu: [],
   setBasketMenu: () => {},
 
-  handleBasketCardDeleted: () => {},
-  handleBasketCardSubmit: () => {},
+  handleAddToBasket: () => {},
+  handleDeletedBasketCard: () => {},
 
   findTotal: () => {},
 });

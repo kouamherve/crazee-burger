@@ -1,7 +1,7 @@
 import React from "react";
 import BasketCard from "./BasketCard";
 
-export default function BasketBody({ basketMenu, handleBasketCardDeleted }) {
+export default function BasketBody({ basketMenu, handleDeletedBasketCard }) {
   return (
     <div
       className={`h-[84%]  bg-background_white text-greyBlue shadow-basket overflow-y-auto ${
@@ -16,7 +16,7 @@ export default function BasketBody({ basketMenu, handleBasketCardDeleted }) {
           <BasketCard
             product={product}
             key={product.id}
-            onDeleted={() => handleBasketCardDeleted(product.id)}
+            onDeleted={() => handleDeletedBasketCard(product.id)}
           />
         ))
       )}

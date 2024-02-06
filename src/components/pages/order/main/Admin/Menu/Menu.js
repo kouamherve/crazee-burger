@@ -20,8 +20,8 @@ export default function Menu() {
     setCurrentTabSelected,
     setIsCollapse,
     titleInputRef,
-    handleBasketCardSubmit,
-    handleBasketCardDeleted,
+    handleAddToBasket,
+    handleDeletedBasketCard,
   } = useContext(OrderContext);
 
   // event handler
@@ -36,7 +36,7 @@ export default function Menu() {
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
     handleDelete(idProductToEdit);
-    handleBasketCardDeleted(idProductToEdit);
+    handleDeletedBasketCard(idProductToEdit);
     if (productSelected.id === idProductToEdit) {
       setProductSelected(false);
     }
@@ -69,7 +69,7 @@ export default function Menu() {
               currentTabSelected === "edit" &&
               productSelected === product
             }
-            onAdded={(event) => handleBasketCardSubmit(event, product)}
+            onAdded={(event) => handleAddToBasket(event, product)}
           />
         ))
       ) : isModeAdmin ? (
