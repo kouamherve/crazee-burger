@@ -5,8 +5,7 @@ import OrderContext from "../../../../../../context/OrderContext";
 import { formatPrice } from "../../../../../../utils/maths";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
-
-const DEFAULT_IMAGE = "/images/coming-soon.png";
+import { DEFAULT_IMAGE } from "../../../../../../enum/product";
 
 export default function Menu() {
   // state
@@ -21,6 +20,8 @@ export default function Menu() {
     setCurrentTabSelected,
     setIsCollapse,
     titleInputRef,
+    handleAddToBasket,
+    handleDeletedBasketCard,
   } = useContext(OrderContext);
 
   // event handler
@@ -35,9 +36,15 @@ export default function Menu() {
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
     handleDelete(idProductToEdit);
+    handleDeletedBasketCard(idProductToEdit);
     if (productSelected.id === idProductToEdit) {
       setProductSelected(false);
     }
+  };
+
+  const handleAddButton = (event, product) => {
+    event.stopPropagation();
+    handleAddToBasket(product);
   };
 
   // css
@@ -67,6 +74,7 @@ export default function Menu() {
               currentTabSelected === "edit" &&
               productSelected === product
             }
+            onAdded={(event) => handleAddButton(event, product)}
           />
         ))
       ) : isModeAdmin ? (

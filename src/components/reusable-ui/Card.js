@@ -13,6 +13,7 @@ export default function Card({
   onClick,
   isHoverable,
   isSelected,
+  onAdded,
 }) {
   // css
   const classNames = {
@@ -60,7 +61,7 @@ export default function Card({
             label={"Ajouter"}
             version="card"
             isSelected={isSelected}
-            onClick={(event) => event.stopPropagation()}
+            onClick={onAdded}
           />
         </div>
       </div>

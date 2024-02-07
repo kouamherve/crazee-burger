@@ -7,6 +7,8 @@ import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
 import { DEFAULT_PRODUCT } from "../../../enum/product";
 import { useMenu } from "../../../hooks/useMenu";
+import { useBasketMenu } from "../../../hooks/useBasketMenu";
+import { findTotal } from "../../../utils/array";
 
 export default function OrderPage() {
   // state
@@ -19,6 +21,10 @@ export default function OrderPage() {
 
   const titleInputRef = useRef();
   const { menu, handleAdd, handleEdit, handleDelete, handleReset } = useMenu();
+  const { basketMenu, handleAddToBasket, handleDeletedBasketCard } =
+    useBasketMenu();
+
+  const total = findTotal(basketMenu);
 
   const orderContextValue = {
     isModeAdmin,
@@ -38,6 +44,10 @@ export default function OrderPage() {
     productSelected,
     setProductSelected,
     titleInputRef,
+    basketMenu,
+    total,
+    handleAddToBasket,
+    handleDeletedBasketCard,
   };
 
   // css

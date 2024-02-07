@@ -4,3 +4,5 @@ export const DEFAULT_PRODUCT = {
   imageSource: "",
   price: 0,
 };
+
+export const DEFAULT_IMAGE = "/images/coming-soon.png";

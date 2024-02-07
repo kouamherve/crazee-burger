@@ -46,6 +46,7 @@ module.exports = {
         strong: "0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset",
         orangeHightLight: "0px 0px 8px 0px rgba(255, 154, 35, 1)",
         basket: "0px 0px 20px 0px rgba(0, 0, 0, 0.2) inset",
+        basketCard: "-4px 4px 15px 0px rgba(0, 0, 0, 0.2)",
       },
       gridTemplateColumns: {
         container: "repeat(auto-fit, minmax(250px, 1fr))", // Sans Basket

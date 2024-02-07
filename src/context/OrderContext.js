@@ -26,4 +26,12 @@ export default createContext({
 
   productSelected: {},
   setProductSelected: () => {},
+
+  basketMenu: [],
+  setBasketMenu: () => {},
+
+  handleAddToBasket: () => {},
+  handleDeletedBasketCard: () => {},
+
+  total: () => {},
 });
