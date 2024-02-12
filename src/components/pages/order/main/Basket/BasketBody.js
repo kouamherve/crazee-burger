@@ -7,6 +7,7 @@ export default function BasketBody({
   basketMenu,
   handleDeletedBasketCard,
   isClickable,
+  menu,
 }) {
   const isEmptyBasket = isEmpty(basketMenu);
   return (
@@ -23,6 +24,7 @@ export default function BasketBody({
           basketMenu={basketMenu}
           handleDeletedBasketCard={handleDeletedBasketCard}
           isClickable={isClickable}
+          menu={menu}
         />
       )}
     </div>

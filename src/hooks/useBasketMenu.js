@@ -4,15 +4,15 @@ import { findIndexById, removedObjetById } from "../utils/array";
 export const useBasketMenu = () => {
   const [basketMenu, setBasketMenu] = useState([]);
 
-  const handleAddToBasket = (product) => {
-    const existingProductIndex = findIndexById(basketMenu, product.id);
+  const handleAddToBasket = (productToAdd) => {
+    const existingProductIndex = findIndexById(basketMenu, productToAdd.id);
     if (existingProductIndex !== -1) {
       const nextBasketMenu = [...basketMenu];
       nextBasketMenu[existingProductIndex].quantity += 1;
       setBasketMenu(nextBasketMenu);
     } else {
       const newProductToAdd = {
-        ...product,
+        id: productToAdd.id,
         quantity: 1,
       };
       setBasketMenu([newProductToAdd, ...basketMenu]);

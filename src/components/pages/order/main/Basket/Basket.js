@@ -5,7 +5,7 @@ import BasketBody from "./BasketBody";
 import OrderContext from "../../../../../context/OrderContext";
 
 export default function Basket() {
-  const { basketMenu, handleDeletedBasketCard, total, isModeAdmin } =
+  const { basketMenu, handleDeletedBasketCard, total, isModeAdmin, menu } =
     useContext(OrderContext);
 
   return (
@@ -16,6 +16,7 @@ export default function Basket() {
           basketMenu={basketMenu}
           handleDeletedBasketCard={handleDeletedBasketCard}
           isClickable={isModeAdmin}
+          menu={menu}
         />
         <Footer />
       </div>

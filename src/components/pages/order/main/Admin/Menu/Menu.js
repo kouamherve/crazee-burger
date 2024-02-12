@@ -43,9 +43,9 @@ export default function Menu() {
     }
   };
 
-  const handleAddButton = (event, product) => {
+  const handleAddButton = (event, productToAdd) => {
     event.stopPropagation();
-    handleAddToBasket(product);
+    handleAddToBasket(productToAdd);
   };
 
   // css

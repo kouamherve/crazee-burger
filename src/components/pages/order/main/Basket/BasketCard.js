@@ -3,9 +3,15 @@ import { formatPrice } from "../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
 import { DEFAULT_IMAGE } from "../../../../../enum/product";
 
-export default function BasketCard({ product, onDeleted, isClickable }) {
+export default function BasketCard({
+  product,
+  onDeleted,
+  isClickable,
+  onClick,
+}) {
   return (
     <div
+      onClick={onClick}
       className={`${
         isClickable ? "cursor-pointer" : "cursor-default"
       } h-[86px] mx-5 my-5 shadow-basketCard bg-white flex items-center group overflow-hidden rounded-md`}
