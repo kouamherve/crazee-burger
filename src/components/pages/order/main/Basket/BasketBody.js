@@ -1,13 +1,14 @@
 import React from "react";
 import EmptyBasket from "./EmptyBasket";
 import BasketProducts from "./BasketProducts";
+import { isEmpty } from "../../../../../utils/array";
 
 export default function BasketBody({
   basketMenu,
   handleDeletedBasketCard,
-  isHoverable,
+  isClickable,
 }) {
-  const isEmptyBasket = basketMenu.length === 0;
+  const isEmptyBasket = isEmpty(basketMenu);
   return (
     <div
       className={`h-[84%]  bg-background_white text-greyBlue shadow-basket overflow-y-auto ${
@@ -21,7 +22,7 @@ export default function BasketBody({
         <BasketProducts
           basketMenu={basketMenu}
           handleDeletedBasketCard={handleDeletedBasketCard}
-          isHoverable={isHoverable}
+          isClickable={isClickable}
         />
       )}
     </div>

@@ -4,7 +4,7 @@ export const deepClone = (array) => {
   return JSON.parse(JSON.stringify(array));
 };
 
-export const findTotal = (array) => {
+export const findAmountToPay = (array) => {
   let t = 0;
   // eslint-disable-next-line array-callback-return
   array.map(({ price, quantity }) => {
@@ -15,10 +15,14 @@ export const findTotal = (array) => {
   return formatPrice(t);
 };
 
-export const findIndex = (array, productId) => {
+export const findIndexById = (array, productId) => {
   return array.findIndex((item) => item.id === productId);
 };
 
-export const filter = (array, productId) => {
+export const removedObjetById = (array, productId) => {
   return array.filter((prod) => prod.id !== productId);
+};
+
+export const isEmpty = (array) => {
+  return array.length === 0;
 };

@@ -6,6 +6,7 @@ import { formatPrice } from "../../../../../../utils/maths";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
+import { isEmpty } from "../../../../../../utils/array";
 
 export default function Menu() {
   // state
@@ -56,7 +57,13 @@ export default function Menu() {
 
   return (
     <div className={menuClassName}>
-      {menu.length !== 0 ? (
+      {isEmpty(menu) ? (
+        isModeAdmin ? (
+          <EmptyMenuAdmin onReset={handleReset} />
+        ) : (
+          <EmptyMenuClient />
+        )
+      ) : (
         menu.map((product) => (
           <Card
             key={product.id}
@@ -77,10 +84,6 @@ export default function Menu() {
             onAdded={(event) => handleAddButton(event, product)}
           />
         ))
-      ) : isModeAdmin ? (
-        <EmptyMenuAdmin onReset={handleReset} />
-      ) : (
-        <EmptyMenuClient />
       )}
     </div>
   );
