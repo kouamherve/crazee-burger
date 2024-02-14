@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import BasketCard from "./BasketCard";
+import OrderContext from "../../../../../context/OrderContext";
 
 export default function BasketProducts({
   handleDeletedBasketCard,
@@ -7,6 +8,8 @@ export default function BasketProducts({
   isClickable,
   menu,
 }) {
+  const { isModeAdmin, currentTabSelected, productSelected, handleClick } =
+    useContext(OrderContext);
   return basketMenu.map((product) => {
     const menuProduct = menu.find((item) => item.id === product.id);
     const updatedMenuProduct = { ...menuProduct, quantity: product.quantity };
@@ -17,6 +20,12 @@ export default function BasketProducts({
           key={product.id}
           onDeleted={() => handleDeletedBasketCard(product.id)}
           isClickable={isClickable}
+          isSelected={
+            isModeAdmin &&
+            currentTabSelected === "edit" &&
+            productSelected === product
+          }
+          onClick={() => handleClick(product)}
         />
       );
     }

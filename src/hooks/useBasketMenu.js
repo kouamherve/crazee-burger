@@ -12,6 +12,7 @@ export const useBasketMenu = () => {
       setBasketMenu(nextBasketMenu);
     } else {
       const newProductToAdd = {
+        ...productToAdd,
         id: productToAdd.id,
         quantity: 1,
       };

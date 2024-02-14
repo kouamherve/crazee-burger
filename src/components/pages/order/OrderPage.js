@@ -26,6 +26,14 @@ export default function OrderPage() {
 
   const total = findAmountToPay(basketMenu);
 
+  const handleClick = async (product) => {
+    if (!isModeAdmin) return;
+    await setCurrentTabSelected("edit");
+    await setIsCollapse(false);
+    await setProductSelected(product);
+    titleInputRef.current.focus();
+  };
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -48,6 +56,7 @@ export default function OrderPage() {
     total,
     handleAddToBasket,
     handleDeletedBasketCard,
+    handleClick,
   };
 
   // css

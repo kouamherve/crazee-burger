@@ -8,13 +8,16 @@ export default function BasketCard({
   onDeleted,
   isClickable,
   onClick,
+  isSelected,
 }) {
   return (
     <div
       onClick={onClick}
       className={`${
         isClickable ? "cursor-pointer" : "cursor-default"
-      } h-[86px] mx-5 my-5 shadow-basketCard bg-white flex items-center group overflow-hidden rounded-md`}
+      } h-[86px] mx-5 my-5 shadow-basketCard ${
+        isSelected ? "bg-primary" : "bg-white"
+      } flex items-center group overflow-hidden rounded-md`}
     >
       <div className="w-1/3 h-[70px] my-2 ml-5 flex items-center justify-center">
         <img

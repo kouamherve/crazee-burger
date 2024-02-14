@@ -18,22 +18,12 @@ export default function Menu() {
     productSelected,
     setProductSelected,
     currentTabSelected,
-    setCurrentTabSelected,
-    setIsCollapse,
-    titleInputRef,
+    handleClick,
     handleAddToBasket,
     handleDeletedBasketCard,
   } = useContext(OrderContext);
 
   // event handler
-  const handleClick = async (product) => {
-    if (!isModeAdmin) return;
-    await setProductSelected(product);
-    await setCurrentTabSelected("edit");
-    await setIsCollapse(false);
-    titleInputRef.current.focus();
-  };
-
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
     handleDelete(idProductToEdit);
