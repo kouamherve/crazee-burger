@@ -18,7 +18,7 @@ export default function Menu() {
     productSelected,
     setProductSelected,
     currentTabSelected,
-    handleClick,
+    handleProductSelected,
     handleAddToBasket,
     handleDeletedBasketCard,
   } = useContext(OrderContext);
@@ -64,7 +64,7 @@ export default function Menu() {
             price={formatPrice(product.price)}
             onDelete={(event) => handleCardDeleted(event, product.id)}
             hasDeleted={isModeAdmin}
-            onClick={() => handleClick(product)}
+            onClick={isModeAdmin ? () => handleProductSelected(product) : null}
             isHoverable={isModeAdmin}
             isSelected={
               isModeAdmin &&

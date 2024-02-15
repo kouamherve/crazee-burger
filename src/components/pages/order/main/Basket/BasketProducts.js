@@ -8,8 +8,12 @@ export default function BasketProducts({
   isClickable,
   menu,
 }) {
-  const { isModeAdmin, currentTabSelected, productSelected, handleClick } =
-    useContext(OrderContext);
+  const {
+    isModeAdmin,
+    currentTabSelected,
+    productSelected,
+    handleProductSelected,
+  } = useContext(OrderContext);
   return basketMenu.map((product) => {
     const menuProduct = menu.find((item) => item.id === product.id);
     const updatedMenuProduct = { ...menuProduct, quantity: product.quantity };
@@ -25,7 +29,7 @@ export default function BasketProducts({
             currentTabSelected === "edit" &&
             productSelected === product
           }
-          onClick={() => handleClick(product)}
+          onClick={isModeAdmin ? () => handleProductSelected(product) : null}
         />
       );
     }

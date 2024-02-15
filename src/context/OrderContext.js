@@ -33,6 +33,5 @@ export default createContext({
   handleAddToBasket: () => {},
   handleDeletedBasketCard: () => {},
 
-  total: () => {},
-  handleClick: () => {},
+  handleProductSelected: () => {},
 });
