@@ -1,10 +1,14 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext } from "react";
 import ImagePreview from "./ImagePreview";
 import { TextInput } from "../../../../../reusable-ui/TextInput";
 import { getTextInputsConfig } from "./textInputsConfig";
+import OrderContext from "../../../../../../context/OrderContext";
+import { findObjectById } from "../../../../../../utils/array";
 
 const Form = forwardRef(({ onSubmit, onChange, product, children }, ref) => {
-  const textInputs = getTextInputsConfig(product);
+  const { menu } = useContext(OrderContext);
+  const menuProduct = findObjectById(product.id, menu);
+  const textInputs = getTextInputsConfig(menuProduct);
 
   return (
     <div className="h-[160px] w-[880px]">

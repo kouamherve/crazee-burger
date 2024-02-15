@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import BasketCard from "./BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
+import { findObjectById } from "../../../../../utils/array";
 
 export default function BasketProducts({
   handleDeletedBasketCard,
@@ -16,7 +17,7 @@ export default function BasketProducts({
   } = useContext(OrderContext);
 
   return basketMenu.map((product) => {
-    const menuProduct = menu.find((item) => item.id === product.id);
+    const menuProduct = findObjectById(product.id, menu);
     const updatedMenuProduct = { ...menuProduct, quantity: product.quantity };
     if (menuProduct) {
       return (
