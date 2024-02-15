@@ -5,7 +5,7 @@ export const useBasketMenu = () => {
   const [basketMenu, setBasketMenu] = useState([]);
 
   const handleAddToBasket = (productToAdd) => {
-    const existingProductIndex = findIndexById(basketMenu, productToAdd.id);
+    const existingProductIndex = findIndexById(productToAdd.id, basketMenu);
     if (existingProductIndex !== -1) {
       const nextBasketMenu = [...basketMenu];
       nextBasketMenu[existingProductIndex].quantity += 1;
@@ -21,7 +21,7 @@ export const useBasketMenu = () => {
   };
 
   const handleDeletedBasketCard = (productId) => {
-    const nextBasketMenu = removedObjetById(basketMenu, productId);
+    const nextBasketMenu = removedObjetById(productId, basketMenu);
     setBasketMenu(nextBasketMenu);
   };
 

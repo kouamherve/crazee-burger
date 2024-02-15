@@ -2,15 +2,15 @@ export const deepClone = (array) => {
   return JSON.parse(JSON.stringify(array));
 };
 
-export const findIndexById = (array, productId) => {
+export const findIndexById = (productId, array) => {
   return array.findIndex((item) => item.id === productId);
 };
 
-export const findObjectById = (array, productId) => {
+export const findObjectById = (productId, array) => {
   return array.find((item) => item.id === productId);
 };
 
-export const removedObjetById = (array, productId) => {
+export const removedObjetById = (productId, array) => {
   return array.filter((prod) => prod.id !== productId);
 };
 

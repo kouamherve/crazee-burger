@@ -13,7 +13,7 @@ export default function Basket() {
   const sumToPay = (basketMenu) => {
     let total = 0;
     basketMenu.map((basketProduct) => {
-      const menuProduct = findObjectById(menu, basketProduct.id);
+      const menuProduct = findObjectById(basketProduct.id, menu);
       if (!isNaN(menuProduct.price)) {
         total = total + menuProduct.price * basketProduct.quantity;
       }

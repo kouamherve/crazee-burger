@@ -14,6 +14,7 @@ export default function BasketProducts({
     productSelected,
     handleProductSelected,
   } = useContext(OrderContext);
+
   return basketMenu.map((product) => {
     const menuProduct = menu.find((item) => item.id === product.id);
     const updatedMenuProduct = { ...menuProduct, quantity: product.quantity };
