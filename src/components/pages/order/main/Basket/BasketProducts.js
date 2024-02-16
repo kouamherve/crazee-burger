@@ -18,7 +18,10 @@ export default function BasketProducts({
 
   return basketMenu.map((product) => {
     const menuProduct = findObjectById(product.id, menu);
-    const updatedMenuProduct = { ...menuProduct, quantity: product.quantity };
+    const updatedMenuProduct = {
+      ...menuProduct,
+      quantity: product.quantity,
+    };
     if (menuProduct) {
       return (
         <BasketCard
@@ -29,9 +32,11 @@ export default function BasketProducts({
           isSelected={
             isModeAdmin &&
             currentTabSelected === "edit" &&
-            productSelected === product
+            productSelected === updatedMenuProduct
           }
-          onClick={isModeAdmin ? () => handleProductSelected(product) : null}
+          onClick={
+            isModeAdmin ? () => handleProductSelected(updatedMenuProduct) : null
+          }
         />
       );
     }
