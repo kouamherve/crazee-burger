@@ -32,7 +32,7 @@ export default function BasketProducts({
           isSelected={
             isModeAdmin &&
             currentTabSelected === "edit" &&
-            productSelected === updatedMenuProduct
+            productSelected === menuProduct
           }
           onClick={
             isModeAdmin ? () => handleProductSelected(updatedMenuProduct) : null

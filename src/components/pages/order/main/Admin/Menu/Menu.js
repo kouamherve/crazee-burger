@@ -54,26 +54,32 @@ export default function Menu() {
           <EmptyMenuClient />
         )
       ) : (
-        menu.map((product) => (
-          <Card
-            key={product.id}
-            imageSource={
-              product.imageSource ? product.imageSource : DEFAULT_IMAGE
-            }
-            title={product.title}
-            price={formatPrice(product.price)}
-            onDelete={(event) => handleCardDeleted(event, product.id)}
-            hasDeleted={isModeAdmin}
-            onClick={isModeAdmin ? () => handleProductSelected(product) : null}
-            isHoverable={isModeAdmin}
-            isSelected={
-              isModeAdmin &&
-              currentTabSelected === "edit" &&
-              productSelected === product
-            }
-            onAdded={(event) => handleAddButton(event, product)}
-          />
-        ))
+        menu.map((product) => {
+          // const basketProduct = findObjectById(product.id, basketMenu);
+
+          return (
+            <Card
+              key={product.id}
+              imageSource={
+                product.imageSource ? product.imageSource : DEFAULT_IMAGE
+              }
+              title={product.title}
+              price={formatPrice(product.price)}
+              onDelete={(event) => handleCardDeleted(event, product.id)}
+              hasDeleted={isModeAdmin}
+              onClick={
+                isModeAdmin ? () => handleProductSelected(product) : null
+              }
+              isHoverable={isModeAdmin}
+              isSelected={
+                isModeAdmin &&
+                currentTabSelected === "edit" &&
+                productSelected === product
+              }
+              onAdded={(event) => handleAddButton(event, product)}
+            />
+          );
+        })
       )}
     </div>
   );
