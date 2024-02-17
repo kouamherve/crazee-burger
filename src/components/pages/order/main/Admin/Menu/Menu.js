@@ -6,7 +6,7 @@ import { formatPrice } from "../../../../../../utils/maths";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
-import { isEmpty } from "../../../../../../utils/array";
+import { findObjectById, isEmpty } from "../../../../../../utils/array";
 
 export default function Menu() {
   // state
@@ -21,6 +21,7 @@ export default function Menu() {
     handleProductSelected,
     handleAddToBasket,
     handleDeletedBasketCard,
+    basketMenu,
   } = useContext(OrderContext);
 
   // event handler
@@ -55,7 +56,7 @@ export default function Menu() {
         )
       ) : (
         menu.map((product) => {
-          // const basketProduct = findObjectById(product.id, basketMenu);
+          const basketProduct = findObjectById(product.id, basketMenu);
 
           return (
             <Card
@@ -68,13 +69,17 @@ export default function Menu() {
               onDelete={(event) => handleCardDeleted(event, product.id)}
               hasDeleted={isModeAdmin}
               onClick={
-                isModeAdmin ? () => handleProductSelected(product) : null
+                isModeAdmin && basketProduct
+                  ? () => handleProductSelected(basketProduct)
+                  : isModeAdmin && product
+                  ? () => handleProductSelected(product)
+                  : null
               }
               isHoverable={isModeAdmin}
               isSelected={
                 isModeAdmin &&
                 currentTabSelected === "edit" &&
-                productSelected === product
+                productSelected === (basketProduct || product)
               }
               onAdded={(event) => handleAddButton(event, product)}
             />

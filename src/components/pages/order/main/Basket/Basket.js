@@ -7,8 +7,7 @@ import { formatPrice } from "../../../../../utils/maths";
 import { findObjectById } from "../../../../../utils/array";
 
 export default function Basket() {
-  const { basketMenu, handleDeletedBasketCard, isModeAdmin, menu } =
-    useContext(OrderContext);
+  const { basketMenu, menu } = useContext(OrderContext);
 
   const sumToPay = (basketMenu) => {
     let total = 0;
@@ -28,12 +27,7 @@ export default function Basket() {
     <div className="w-1/4 shadow-strong">
       <div className=" text-background_white flex flex-col h-[100%] font-amatic ">
         <Total amountToPay={amountToPay} />
-        <BasketBody
-          basketMenu={basketMenu}
-          handleDeletedBasketCard={handleDeletedBasketCard}
-          isClickable={isModeAdmin}
-          menu={menu}
-        />
+        <BasketBody basketMenu={basketMenu} />
         <Footer />
       </div>
     </div>

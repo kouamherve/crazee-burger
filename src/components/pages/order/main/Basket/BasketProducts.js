@@ -3,17 +3,15 @@ import BasketCard from "./BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
 import { findObjectById } from "../../../../../utils/array";
 
-export default function BasketProducts({
-  handleDeletedBasketCard,
-  basketMenu,
-  isClickable,
-  menu,
-}) {
+export default function BasketProducts() {
   const {
     isModeAdmin,
     currentTabSelected,
     productSelected,
     handleProductSelected,
+    handleDeletedBasketCard,
+    basketMenu,
+    menu,
   } = useContext(OrderContext);
 
   return basketMenu.map((product) => {
@@ -28,15 +26,13 @@ export default function BasketProducts({
           product={updatedMenuProduct}
           key={product.id}
           onDeleted={() => handleDeletedBasketCard(product.id)}
-          isClickable={isClickable}
+          isClickable={isModeAdmin}
           isSelected={
             isModeAdmin &&
             currentTabSelected === "edit" &&
-            productSelected === menuProduct
+            productSelected === product
           }
-          onClick={
-            isModeAdmin ? () => handleProductSelected(updatedMenuProduct) : null
-          }
+          onClick={isModeAdmin ? () => handleProductSelected(product) : null}
         />
       );
     }
