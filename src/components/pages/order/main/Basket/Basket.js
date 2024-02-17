@@ -3,24 +3,12 @@ import Total from "./Total";
 import Footer from "./Footer";
 import BasketBody from "./BasketBody";
 import OrderContext from "../../../../../context/OrderContext";
-import { formatPrice } from "../../../../../utils/maths";
-import { findObjectById } from "../../../../../utils/array";
+import { calculateTotal } from "../../../../../utils/array";
 
 export default function Basket() {
   const { basketMenu, menu } = useContext(OrderContext);
 
-  const sumToPay = (basketMenu) => {
-    let total = 0;
-    basketMenu.map((basketProduct) => {
-      const menuProduct = findObjectById(basketProduct.id, menu);
-      if (!isNaN(menuProduct.price)) {
-        total = total + menuProduct.price * basketProduct.quantity;
-      }
-      return null;
-    });
-    return formatPrice(total);
-  };
-
+  const sumToPay = calculateTotal(menu);
   const amountToPay = sumToPay(basketMenu);
 
   return (

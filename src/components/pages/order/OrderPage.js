@@ -23,11 +23,7 @@ export default function OrderPage() {
   const { basketMenu, handleAddToBasket, handleDeletedBasketCard } =
     useBasketMenu();
 
-  // const total = findAmountToPay(basketMenu);
-
   const handleProductSelected = async (product) => {
-    // const finalProduct = findObjectById(product.id, basketMenu);
-
     await setCurrentTabSelected("edit");
     await setIsCollapse(false);
     await setProductSelected(product);
