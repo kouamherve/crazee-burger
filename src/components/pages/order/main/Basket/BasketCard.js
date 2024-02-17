@@ -34,12 +34,20 @@ export default function BasketCard({
                 {product.title}
               </span>
             </div>
-            <span className="font-openSans text-sm text-primary/80 mt-1">
+            <span
+              className={`${
+                isSelected ? "text-white/80" : "text-primary/80"
+              } font-openSans text-sm mt-1`}
+            >
               {formatPrice(product.price)}
             </span>
           </div>
-          <div className="w-[70px] h-full flex items-center justify-center">
-            <span className="group-hover:hidden ml-2 font-openSans text-sm text-primary/70 leading-5 grid grid-cols-2 space-x-[5px]">
+          <div className="w-[80px] h-full flex items-center justify-center">
+            <span
+              className={`${
+                isSelected ? "text-white/70" : "text-primary/70"
+              } group-hover:hidden ml-5 font-openSans text-sm leading-5 grid grid-cols-2 space-x-[5px]`}
+            >
               <span>x</span>
               <span className="flex items-center justify-center">
                 {product.quantity}
