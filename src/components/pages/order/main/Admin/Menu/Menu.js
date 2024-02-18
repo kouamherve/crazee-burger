@@ -6,7 +6,7 @@ import { formatPrice } from "../../../../../../utils/maths";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
-import { findObjectById, isEmpty } from "../../../../../../utils/array";
+import { isEmpty } from "../../../../../../utils/array";
 
 export default function Menu() {
   // state
@@ -21,7 +21,6 @@ export default function Menu() {
     handleProductSelected,
     handleAddToBasket,
     handleDeletedBasketCard,
-    basketMenu,
   } = useContext(OrderContext);
 
   // event handler
@@ -56,8 +55,6 @@ export default function Menu() {
         )
       ) : (
         menu.map((product) => {
-          const basketProduct = findObjectById(product.id, basketMenu);
-
           return (
             <Card
               key={product.id}
@@ -69,9 +66,7 @@ export default function Menu() {
               onDelete={(event) => handleCardDeleted(event, product.id)}
               hasDeleted={isModeAdmin}
               onClick={
-                isModeAdmin && basketProduct
-                  ? () => handleProductSelected(basketProduct)
-                  : isModeAdmin && product
+                isModeAdmin && product
                   ? () => handleProductSelected(product)
                   : null
               }
@@ -79,7 +74,7 @@ export default function Menu() {
               isSelected={
                 isModeAdmin &&
                 currentTabSelected === "edit" &&
-                productSelected === (basketProduct || product)
+                productSelected === product
               }
               onAdded={(event) => handleAddButton(event, product)}
             />

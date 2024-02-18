@@ -20,6 +20,7 @@ export default function BasketProducts() {
       ...menuProduct,
       quantity: product.quantity,
     };
+
     if (menuProduct) {
       return (
         <BasketCard
@@ -30,9 +31,11 @@ export default function BasketProducts() {
           isSelected={
             isModeAdmin &&
             currentTabSelected === "edit" &&
-            productSelected === product
+            productSelected === menuProduct
           }
-          onClick={isModeAdmin ? () => handleProductSelected(product) : null}
+          onClick={
+            isModeAdmin ? () => handleProductSelected(menuProduct) : null
+          }
         />
       );
     }
