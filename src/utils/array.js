@@ -33,3 +33,14 @@ export const calculateTotal = (menu) => {
     return formatPrice(total);
   };
 };
+
+export const productIsSelected = (
+  isModeAdmin,
+  currentTabSelected,
+  productSelected,
+  product
+) => {
+  return (
+    isModeAdmin && currentTabSelected === "edit" && productSelected === product
+  );
+};

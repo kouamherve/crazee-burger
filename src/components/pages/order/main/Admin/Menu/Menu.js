@@ -6,7 +6,7 @@ import { formatPrice } from "../../../../../../utils/maths";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
-import { isEmpty } from "../../../../../../utils/array";
+import { isEmpty, productIsSelected } from "../../../../../../utils/array";
 
 export default function Menu() {
   // state
@@ -71,11 +71,12 @@ export default function Menu() {
                   : null
               }
               isHoverable={isModeAdmin}
-              isSelected={
-                isModeAdmin &&
-                currentTabSelected === "edit" &&
-                productSelected === product
-              }
+              isSelected={productIsSelected(
+                isModeAdmin,
+                currentTabSelected,
+                productSelected,
+                product
+              )}
               onAdded={(event) => handleAddButton(event, product)}
             />
           );

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import BasketCard from "./BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
-import { findObjectById } from "../../../../../utils/array";
+import { findObjectById, productIsSelected } from "../../../../../utils/array";
 
 export default function BasketProducts() {
   const {
@@ -28,11 +28,12 @@ export default function BasketProducts() {
           key={product.id}
           onDeleted={() => handleDeletedBasketCard(product.id)}
           isClickable={isModeAdmin}
-          isSelected={
-            isModeAdmin &&
-            currentTabSelected === "edit" &&
-            productSelected === menuProduct
-          }
+          isSelected={productIsSelected(
+            isModeAdmin,
+            currentTabSelected,
+            productSelected,
+            menuProduct
+          )}
           onClick={
             isModeAdmin ? () => handleProductSelected(menuProduct) : null
           }
