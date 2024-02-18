@@ -17,14 +17,3 @@ export const removedObjetById = (productId, array) => {
 export const isEmpty = (array) => {
   return array.length === 0;
 };
-
-export const productIsSelected = (
-  isModeAdmin,
-  currentTabSelected,
-  productSelected,
-  product
-) => {
-  return (
-    isModeAdmin && currentTabSelected === "edit" && productSelected === product
-  );
-};

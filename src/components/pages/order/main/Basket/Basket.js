@@ -3,12 +3,12 @@ import Total from "./Total";
 import Footer from "./Footer";
 import BasketBody from "./BasketBody";
 import OrderContext from "../../../../../context/OrderContext";
-import { calculateTotal } from "../../../../../utils/maths";
+import { calculateSumToPay } from "./helper";
 
 export default function Basket() {
   const { basketMenu, menu } = useContext(OrderContext);
 
-  const sumToPay = calculateTotal(menu);
+  const sumToPay = calculateSumToPay(menu);
   const amountToPay = sumToPay(basketMenu);
 
   return (

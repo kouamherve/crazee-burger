@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import BasketCard from "./BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
-import { findObjectById, productIsSelected } from "../../../../../utils/array";
+import { findObjectById } from "../../../../../utils/array";
+import { productIsSelected } from "./helper";
 
 export default function BasketProducts() {
   const {

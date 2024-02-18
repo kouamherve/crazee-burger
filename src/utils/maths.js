@@ -1,5 +1,3 @@
-import { findObjectById } from "./array";
-
 export function formatPrice(priceToFormat) {
   let price = priceToFormat;
 
@@ -18,17 +16,3 @@ export function replaceFrenchCommaWithDot(price) {
   if (typeof price === "string") price = parseFloat(price.replace(",", "."));
   return price;
 }
-
-export const calculateTotal = (menu) => {
-  return (basketMenu) => {
-    let total = 0;
-    basketMenu.map((basketProduct) => {
-      const menuProduct = findObjectById(basketProduct.id, menu);
-      if (!isNaN(menuProduct.price)) {
-        total = total + menuProduct.price * basketProduct.quantity;
-      }
-      return null;
-    });
-    return formatPrice(total);
-  };
-};
