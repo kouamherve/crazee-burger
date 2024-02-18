@@ -1,5 +1,3 @@
-import { formatPrice } from "./maths";
-
 export const deepClone = (array) => {
   return JSON.parse(JSON.stringify(array));
 };
@@ -18,20 +16,6 @@ export const removedObjetById = (productId, array) => {
 
 export const isEmpty = (array) => {
   return array.length === 0;
-};
-
-export const calculateTotal = (menu) => {
-  return (basketMenu) => {
-    let total = 0;
-    basketMenu.map((basketProduct) => {
-      const menuProduct = findObjectById(basketProduct.id, menu);
-      if (!isNaN(menuProduct.price)) {
-        total = total + menuProduct.price * basketProduct.quantity;
-      }
-      return null;
-    });
-    return formatPrice(total);
-  };
 };
 
 export const productIsSelected = (

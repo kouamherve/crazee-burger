@@ -3,7 +3,7 @@ import Total from "./Total";
 import Footer from "./Footer";
 import BasketBody from "./BasketBody";
 import OrderContext from "../../../../../context/OrderContext";
-import { calculateTotal } from "../../../../../utils/array";
+import { calculateTotal } from "../../../../../utils/maths";
 
 export default function Basket() {
   const { basketMenu, menu } = useContext(OrderContext);
