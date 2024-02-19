@@ -6,6 +6,8 @@ import { formatPrice } from "../../../../../../utils/maths";
 import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
+import { isEmpty } from "../../../../../../utils/array";
+import { productIsSelected } from "../../Basket/helper";
 
 export default function Menu() {
   // state
@@ -17,22 +19,12 @@ export default function Menu() {
     productSelected,
     setProductSelected,
     currentTabSelected,
-    setCurrentTabSelected,
-    setIsCollapse,
-    titleInputRef,
+    handleProductSelected,
     handleAddToBasket,
     handleDeletedBasketCard,
   } = useContext(OrderContext);
 
   // event handler
-  const handleClick = async (product) => {
-    if (!isModeAdmin) return;
-    await setProductSelected(product);
-    await setCurrentTabSelected("edit");
-    await setIsCollapse(false);
-    titleInputRef.current.focus();
-  };
-
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
     handleDelete(idProductToEdit);
@@ -42,9 +34,9 @@ export default function Menu() {
     }
   };
 
-  const handleAddButton = (event, product) => {
+  const handleAddButton = (event, productToAdd) => {
     event.stopPropagation();
-    handleAddToBasket(product);
+    handleAddToBasket(productToAdd);
   };
 
   // css
@@ -56,31 +48,40 @@ export default function Menu() {
 
   return (
     <div className={menuClassName}>
-      {menu.length !== 0 ? (
-        menu.map((product) => (
-          <Card
-            key={product.id}
-            imageSource={
-              product.imageSource ? product.imageSource : DEFAULT_IMAGE
-            }
-            title={product.title}
-            price={formatPrice(product.price)}
-            onDelete={(event) => handleCardDeleted(event, product.id)}
-            hasDeleted={isModeAdmin}
-            onClick={() => handleClick(product)}
-            isHoverable={isModeAdmin}
-            isSelected={
-              isModeAdmin &&
-              currentTabSelected === "edit" &&
-              productSelected === product
-            }
-            onAdded={(event) => handleAddButton(event, product)}
-          />
-        ))
-      ) : isModeAdmin ? (
-        <EmptyMenuAdmin onReset={handleReset} />
+      {isEmpty(menu) ? (
+        isModeAdmin ? (
+          <EmptyMenuAdmin onReset={handleReset} />
+        ) : (
+          <EmptyMenuClient />
+        )
       ) : (
-        <EmptyMenuClient />
+        menu.map((product) => {
+          return (
+            <Card
+              key={product.id}
+              imageSource={
+                product.imageSource ? product.imageSource : DEFAULT_IMAGE
+              }
+              title={product.title}
+              price={formatPrice(product.price)}
+              onDelete={(event) => handleCardDeleted(event, product.id)}
+              hasDeleted={isModeAdmin}
+              onClick={
+                isModeAdmin && product
+                  ? () => handleProductSelected(product)
+                  : null
+              }
+              isHoverable={isModeAdmin}
+              isSelected={productIsSelected(
+                isModeAdmin,
+                currentTabSelected,
+                productSelected,
+                product
+              )}
+              onAdded={(event) => handleAddButton(event, product)}
+            />
+          );
+        })
       )}
     </div>
   );

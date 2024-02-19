@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { filter, findIndex } from "../utils/array";
+import { findIndexById, removedObjetById } from "../utils/array";
 
 export const useBasketMenu = () => {
   const [basketMenu, setBasketMenu] = useState([]);
 
-  const handleAddToBasket = (product) => {
-    const existingProductIndex = findIndex(basketMenu, product.id);
+  const handleAddToBasket = (productToAdd) => {
+    const existingProductIndex = findIndexById(productToAdd.id, basketMenu);
     if (existingProductIndex !== -1) {
       const nextBasketMenu = [...basketMenu];
       nextBasketMenu[existingProductIndex].quantity += 1;
       setBasketMenu(nextBasketMenu);
     } else {
       const newProductToAdd = {
-        ...product,
+        ...productToAdd,
+        id: productToAdd.id,
         quantity: 1,
       };
       setBasketMenu([newProductToAdd, ...basketMenu]);
@@ -20,7 +21,7 @@ export const useBasketMenu = () => {
   };
 
   const handleDeletedBasketCard = (productId) => {
-    const nextBasketMenu = filter(basketMenu, productId);
+    const nextBasketMenu = removedObjetById(productId, basketMenu);
     setBasketMenu(nextBasketMenu);
   };
 

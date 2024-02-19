@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom";
 import { DEFAULT_PRODUCT } from "../../../enum/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasketMenu } from "../../../hooks/useBasketMenu";
-import { findTotal } from "../../../utils/array";
 
 export default function OrderPage() {
   // state
@@ -24,7 +23,12 @@ export default function OrderPage() {
   const { basketMenu, handleAddToBasket, handleDeletedBasketCard } =
     useBasketMenu();
 
-  const total = findTotal(basketMenu);
+  const handleProductSelected = async (product) => {
+    await setCurrentTabSelected("edit");
+    await setIsCollapse(false);
+    await setProductSelected(product);
+    titleInputRef.current.focus();
+  };
 
   const orderContextValue = {
     isModeAdmin,
@@ -45,9 +49,9 @@ export default function OrderPage() {
     setProductSelected,
     titleInputRef,
     basketMenu,
-    total,
     handleAddToBasket,
     handleDeletedBasketCard,
+    handleProductSelected,
   };
 
   // css

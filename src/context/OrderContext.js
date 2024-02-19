@@ -33,5 +33,5 @@ export default createContext({
   handleAddToBasket: () => {},
   handleDeletedBasketCard: () => {},
 
-  total: () => {},
+  handleProductSelected: () => {},
 });

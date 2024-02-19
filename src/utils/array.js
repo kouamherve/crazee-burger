@@ -1,24 +1,19 @@
-import { formatPrice } from "./maths";
-
 export const deepClone = (array) => {
   return JSON.parse(JSON.stringify(array));
 };
 
-export const findTotal = (array) => {
-  let t = 0;
-  // eslint-disable-next-line array-callback-return
-  array.map(({ price, quantity }) => {
-    if (!isNaN(price)) {
-      t = t + price * quantity;
-    }
-  });
-  return formatPrice(t);
-};
-
-export const findIndex = (array, productId) => {
+export const findIndexById = (productId, array) => {
   return array.findIndex((item) => item.id === productId);
 };
 
-export const filter = (array, productId) => {
+export const findObjectById = (productId, array) => {
+  return array.find((item) => item.id === productId);
+};
+
+export const removedObjetById = (productId, array) => {
   return array.filter((prod) => prod.id !== productId);
+};
+
+export const isEmpty = (array) => {
+  return array.length === 0;
 };
