@@ -54,6 +54,8 @@ export default function OrderPage() {
     handleProductSelected,
   };
 
+  // getUser("Dorette");
+
   // css
   const orderPageClassName = clsx(
     "flex flex-col items-center",

@@ -8,11 +8,12 @@ export const getUser = async (username) => {
 
   if (docSnapshot.exists()) {
     const userReceived = docSnapshot.data();
+    console.log("userReceived:", userReceived);
     return userReceived;
   }
 };
 
-export const addUser = (username) => {
+export const setUser = (username) => {
   const docRef = doc(db, "users", username);
   const newUser = {
     username: username,
@@ -21,4 +22,13 @@ export const addUser = (username) => {
 
   setDoc(docRef, newUser);
   console.log("New user:", newUser);
+};
+
+export const authenticateUser = async (username) => {
+  const existingUser = await getUser(username);
+  console.log("existingUser:", existingUser);
+
+  if (!existingUser) {
+    setUser(username);
+  }
 };

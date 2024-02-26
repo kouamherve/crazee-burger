@@ -5,9 +5,10 @@ import { BsPersonCircle } from "react-icons/bs";
 import clsx from "clsx";
 import Button from "../../reusable-ui/Button";
 import { TextInput } from "../../reusable-ui/TextInput";
+import { authenticateUser } from "../../../api/user";
 
 export default function LoginForm() {
-  const [inputValue, setInputValue] = useState("");
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const classNames = {
@@ -22,14 +23,17 @@ export default function LoginForm() {
     h2: "text-4xl font-amatic font-bold mt-10 leading-11",
   };
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
+  const handleChange = async (e) => {
+    setUsername(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setInputValue("");
-    navigate(`order/${inputValue}`);
+
+    authenticateUser(username);
+
+    setUsername("");
+    navigate(`order/${username}`);
   };
 
   return (
@@ -39,7 +43,7 @@ export default function LoginForm() {
       <h2 className={classNames.h2}>Connectez-vous</h2>
       <form onSubmit={handleSubmit}>
         <TextInput
-          value={inputValue}
+          value={username}
           onChange={handleChange}
           placeholder={"Entrez votre prénom..."}
           required

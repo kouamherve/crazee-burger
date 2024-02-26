@@ -7,7 +7,8 @@ import { useSuccessMessage } from "../../../../../../hooks/useSuccessMessage";
 
 export default function AddPanel() {
   const { isSubmitted, displaySuccessMessage } = useSuccessMessage();
-  const { newProduct, setNewProduct, handleAdd } = useContext(OrderContext);
+  const { username, newProduct, setNewProduct, handleAdd } =
+    useContext(OrderContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,7 +16,7 @@ export default function AddPanel() {
       ...newProduct,
       id: crypto.randomUUID(),
     };
-    handleAdd(newProductToAdd);
+    handleAdd(newProductToAdd, username);
     setNewProduct(DEFAULT_PRODUCT);
     displaySuccessMessage();
   };
