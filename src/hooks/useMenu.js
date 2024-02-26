@@ -28,8 +28,10 @@ export const useMenu = () => {
     syncBothMenus(username, menuUpdated);
   };
 
-  const handleReset = () => {
-    setMenu(fakeMenu.LARGE);
+  const handleReset = (username) => {
+    const menuUpdated = fakeMenu.LARGE;
+    setMenu(menuUpdated);
+    syncBothMenus(username, menuUpdated);
   };
 
   return { menu, setMenu, handleAdd, handleEdit, handleDelete, handleReset };

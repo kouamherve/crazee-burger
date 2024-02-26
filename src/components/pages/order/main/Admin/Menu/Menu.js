@@ -54,7 +54,7 @@ export default function Menu() {
     <div className={menuClassName}>
       {isEmpty(menu) ? (
         isModeAdmin ? (
-          <EmptyMenuAdmin onReset={handleReset} />
+          <EmptyMenuAdmin onReset={() => handleReset(username)} />
         ) : (
           <EmptyMenuClient />
         )
