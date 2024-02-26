@@ -8,6 +8,7 @@ import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
 import { isEmpty } from "../../../../../../utils/array";
 import { productIsSelected } from "../../Basket/helper";
+import Loader from "./Loader";
 
 export default function Menu() {
   // state
@@ -46,6 +47,8 @@ export default function Menu() {
     "shadow-strong bg-background_white overflow-y-auto",
     "grid grid-cols-container justify-items-center"
   );
+
+  if (menu === undefined) return <Loader />;
 
   return (
     <div className={menuClassName}>

@@ -4,7 +4,7 @@ import { fakeMenu } from "../fakeData/fakeMenu";
 import { syncBothMenus } from "../enum/product";
 
 export const useMenu = () => {
-  const [menu, setMenu] = useState(fakeMenu.LARGE);
+  const [menu, setMenu] = useState();
 
   // state handlers
   const handleAdd = (newProduct, username) => {
