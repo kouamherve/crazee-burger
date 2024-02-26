@@ -12,6 +12,7 @@ import { productIsSelected } from "../../Basket/helper";
 export default function Menu() {
   // state
   const {
+    username,
     menu,
     handleDelete,
     isModeAdmin,
@@ -27,7 +28,7 @@ export default function Menu() {
   // event handler
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
-    handleDelete(idProductToEdit);
+    handleDelete(idProductToEdit, username);
     handleDeletedBasketCard(idProductToEdit);
     if (productSelected.id === idProductToEdit) {
       setProductSelected(false);

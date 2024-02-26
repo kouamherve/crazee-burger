@@ -22,8 +22,10 @@ export const useMenu = () => {
     );
   };
 
-  const handleDelete = (productId) => {
-    setMenu(menu.filter((p) => p.id !== productId));
+  const handleDelete = (productIdToDeleted, username) => {
+    const menuUpdated = menu.filter((p) => p.id !== productIdToDeleted);
+    setMenu(menuUpdated);
+    syncBothMenus(username, menuUpdated);
   };
 
   const handleReset = () => {
