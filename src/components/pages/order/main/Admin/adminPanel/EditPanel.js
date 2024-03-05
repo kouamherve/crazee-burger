@@ -6,8 +6,13 @@ import MessageProductToEdit from "./MessageProductToEdit";
 
 export default function EditPanel() {
   // state
-  const { productSelected, setProductSelected, handleEdit, titleInputRef } =
-    useContext(OrderContext);
+  const {
+    username,
+    productSelected,
+    setProductSelected,
+    handleEdit,
+    titleInputRef,
+  } = useContext(OrderContext);
 
   // event handler
   const handleChange = (event) => {
@@ -16,7 +21,7 @@ export default function EditPanel() {
       [event.target.name]: event.target.value,
     };
     setProductSelected(productBeingUpdated);
-    handleEdit(productBeingUpdated);
+    handleEdit(productBeingUpdated, username);
   };
 
   return (

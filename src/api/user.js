@@ -19,14 +19,11 @@ export const setUser = (username) => {
     username: username,
     menu: fakeMenu.LARGE,
   };
-
   setDoc(docRef, newUser);
-  console.log("New user:", newUser);
 };
 
 export const authenticateUser = async (username) => {
   const existingUser = await getUser(username);
-  console.log("existingUser:", existingUser);
 
   if (!existingUser) {
     setUser(username);

@@ -14,12 +14,12 @@ export const useMenu = () => {
     syncBothMenus(username, menuUpdated);
   };
 
-  const handleEdit = (updatedProduct) => {
-    setMenu(
-      menu.map((product) =>
-        product.id === updatedProduct.id ? updatedProduct : product
-      )
+  const handleEdit = (updatedProduct, username) => {
+    const menuUpdated = menu.map((product) =>
+      product.id === updatedProduct.id ? updatedProduct : product
     );
+    setMenu(menuUpdated);
+    syncBothMenus(username, menuUpdated);
   };
 
   const handleDelete = (productIdToDeleted, username) => {

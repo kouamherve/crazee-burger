@@ -16,7 +16,6 @@ export const syncBothMenus = (username, menuUpdated) => {
     username: username,
     menu: menuUpdated,
   };
-
   setDoc(docRef, user);
 };
 
