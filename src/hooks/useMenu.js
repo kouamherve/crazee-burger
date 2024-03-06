@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { deepClone } from "../utils/array";
 import { fakeMenu } from "../fakeData/fakeMenu";
-import { syncBothMenus } from "../enum/product";
+import { syncBothMenus } from "../api/product";
 
 export const useMenu = () => {
   const [menu, setMenu] = useState();

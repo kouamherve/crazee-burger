@@ -38,7 +38,7 @@ export default function Menu() {
 
   const handleAddButton = (event, productToAdd) => {
     event.stopPropagation();
-    handleAddToBasket(productToAdd);
+    handleAddToBasket(productToAdd, username);
   };
 
   // css

@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import Main from "./Main/Main";
 import clsx from "clsx";
-import { refreshPage } from "../../../utils/utils";
 import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
-import { DEFAULT_PRODUCT, getMenu } from "../../../enum/product";
+import { DEFAULT_PRODUCT } from "../../../enum/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasketMenu } from "../../../hooks/useBasketMenu";
+import { refreshPage } from "../../../utils/window";
+import { getMenu } from "../../../api/product";
 
 export default function OrderPage() {
   // state
