@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { DEFAULT_PRODUCT } from "../../../enum/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasketMenu } from "../../../hooks/useBasketMenu";
-import { refreshPage } from "../../../utils/window";
+import { getLocalStorage, refreshPage } from "../../../utils/window";
 import { getMenu } from "../../../api/product";
 
 export default function OrderPage() {
@@ -22,8 +22,12 @@ export default function OrderPage() {
   const titleInputRef = useRef();
   const { menu, setMenu, handleAdd, handleEdit, handleDelete, handleReset } =
     useMenu();
-  const { basketMenu, handleAddToBasket, handleDeletedBasketCard } =
-    useBasketMenu();
+  const {
+    basketMenu,
+    setBasketMenu,
+    handleAddToBasket,
+    handleDeletedBasketCard,
+  } = useBasketMenu();
 
   const handleProductSelected = async (product) => {
     await setCurrentTabSelected("edit");
@@ -37,8 +41,20 @@ export default function OrderPage() {
     setMenu(menuReceived);
   };
 
+  const initBasketMenu = () => {
+    const basketMenuReceived = getLocalStorage(username);
+    if (basketMenuReceived) {
+      setBasketMenu(basketMenuReceived);
+    }
+  };
+
   useEffect(() => {
     initMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    initBasketMenu();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -18,8 +18,9 @@ export const useBasketMenu = () => {
         id: productToAdd.id,
         quantity: 1,
       };
-      setBasketMenu([newProductToAdd, ...basketMenu]);
-      setLocalStorage(username, newProductToAdd);
+      const nextBasketMenu = [newProductToAdd, ...basketMenu];
+      setBasketMenu(nextBasketMenu);
+      setLocalStorage(username, nextBasketMenu);
     }
   };
 
@@ -28,5 +29,10 @@ export const useBasketMenu = () => {
     setBasketMenu(nextBasketMenu);
   };
 
-  return { basketMenu, handleAddToBasket, handleDeletedBasketCard };
+  return {
+    basketMenu,
+    setBasketMenu,
+    handleAddToBasket,
+    handleDeletedBasketCard,
+  };
 };

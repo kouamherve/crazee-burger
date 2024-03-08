@@ -8,7 +8,6 @@ export const getUser = async (username) => {
 
   if (docSnapshot.exists()) {
     const userReceived = docSnapshot.data();
-    console.log("userReceived:", userReceived);
     return userReceived;
   }
 };

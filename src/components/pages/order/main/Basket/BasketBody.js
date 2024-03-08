@@ -1,18 +1,12 @@
 import React from "react";
-import EmptyBasket from "./EmptyBasket";
 import BasketProducts from "./BasketProducts";
-import { isEmpty } from "../../../../../utils/array";
 
-export default function BasketBody({ basketMenu }) {
-  const isEmptyBasket = isEmpty(basketMenu);
+export default function BasketBody() {
   return (
     <div
-      className={`h-[84%]  bg-background_white text-greyBlue shadow-basket overflow-y-auto ${
-        isEmptyBasket &&
-        "flex items-center justify-center text-4xl leading-[72px]"
-      }`}
+      className={`h-[84%] bg-background_white text-greyBlue shadow-basket overflow-y-auto`}
     >
-      {isEmptyBasket ? <EmptyBasket /> : <BasketProducts />}
+      <BasketProducts />
     </div>
   );
 }
