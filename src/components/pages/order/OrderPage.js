@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom";
 import { DEFAULT_PRODUCT } from "../../../enum/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasketMenu } from "../../../hooks/useBasketMenu";
-import { getLocalStorage, refreshPage } from "../../../utils/window";
-import { getMenu } from "../../../api/product";
+import { refreshPage } from "../../../utils/window";
+import { initUserSession } from "./helpers/initUserSession";
 
 export default function OrderPage() {
   // state
@@ -36,25 +36,8 @@ export default function OrderPage() {
     titleInputRef.current.focus();
   };
 
-  const initMenu = async () => {
-    const menuReceived = await getMenu(username);
-    setMenu(menuReceived);
-  };
-
-  const initBasketMenu = () => {
-    const basketMenuReceived = getLocalStorage(username);
-    if (basketMenuReceived) {
-      setBasketMenu(basketMenuReceived);
-    }
-  };
-
-  const initUserSession = async () => {
-    await initMenu();
-    initBasketMenu();
-  };
-
   useEffect(() => {
-    initUserSession();
+    initUserSession(setMenu, setBasketMenu, username);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
