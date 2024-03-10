@@ -48,13 +48,13 @@ export default function OrderPage() {
     }
   };
 
-  useEffect(() => {
-    initMenu();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const initUserSession = async () => {
+    await initMenu();
+    initBasketMenu();
+  };
 
   useEffect(() => {
-    initBasketMenu();
+    initUserSession();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
