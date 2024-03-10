@@ -30,7 +30,7 @@ export default function Menu() {
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
     handleDelete(idProductToEdit, username);
-    handleDeletedBasketCard(idProductToEdit);
+    handleDeletedBasketCard(idProductToEdit, username);
     if (productSelected.id === idProductToEdit) {
       setProductSelected(false);
     }

@@ -24,9 +24,10 @@ export const useBasketMenu = () => {
     }
   };
 
-  const handleDeletedBasketCard = (productId) => {
+  const handleDeletedBasketCard = (productId, username) => {
     const nextBasketMenu = removedObjetById(productId, basketMenu);
     setBasketMenu(nextBasketMenu);
+    setLocalStorage(username, nextBasketMenu);
   };
 
   return {
