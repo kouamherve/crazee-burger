@@ -16,6 +16,9 @@ export const getMenu = async (username) => {
 
   if (docSnapshot.exists()) {
     const { menu } = docSnapshot.data();
+    console.log("Document data:", docSnapshot.data());
     return menu;
+  } else {
+    console.log("Aucun document de ce type!!");
   }
 };

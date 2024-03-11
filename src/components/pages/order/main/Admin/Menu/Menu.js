@@ -43,7 +43,7 @@ export default function Menu() {
 
   // css
   const menuClassName = clsx(
-    "w-full p-13 gap-x-21 gap-y-15",
+    "w-full py-13 px-21 gap-x-21 gap-y-15",
     "shadow-strong bg-background_white overflow-y-auto",
     "grid grid-cols-container justify-items-center"
   );

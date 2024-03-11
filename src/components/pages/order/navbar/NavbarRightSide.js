@@ -29,13 +29,13 @@ export default function NavbarRightSide() {
   };
 
   const rightSideClassName = clsx(
-    "text-greyBlue",
-    "gap-2.5 mr-13 pl-13",
+    "text-greyBlue -translate-x-4",
+    "gap-2 mr-8 pl-10 h-full",
     "flex items-center justify-center"
   );
 
   return (
-    <div className="flex items-center ">
+    <div className="flex items-center justify-center ">
       <ToggleButton
         isChecked={isModeAdmin}
         onClick={displayToastNotification}

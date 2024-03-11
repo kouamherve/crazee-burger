@@ -11,9 +11,11 @@ export default function Total() {
 
   return (
     <Header>
-      <div className="text-4xl px-4 w-full flex justify-between">
-        <span className="text-primary/90">total</span>
-        <span className="text-primary font-bold">{formatPrice(sumToPay)}</span>
+      <div className="text-4xl text-primary  tracking-wider px-4 w-full h-full flex items-center justify-between">
+        <span className="font-thin">
+          <span className="text-[41px]">t</span>otal
+        </span>
+        <span className="font-bold">{formatPrice(sumToPay)}</span>
       </div>
     </Header>
   );

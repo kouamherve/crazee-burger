@@ -9,10 +9,12 @@ module.exports = {
       },
       padding: {
         13: "50px",
+        21: "90px",
         50: "200px",
       },
       margin: {
         13: "50px",
+        29: "116px",
         50: "200px",
       },
       width: {
@@ -28,6 +30,9 @@ module.exports = {
         5.5: "1.375",
         11: "2.875", //46px
         12: "3rem", //50px
+      },
+      letterSpacing: {
+        hightest: "0.125em",
       },
       gap: {
         15: "3.75rem",
@@ -49,7 +54,7 @@ module.exports = {
         basketCard: "-4px 4px 15px 0px rgba(0, 0, 0, 0.2)",
       },
       gridTemplateColumns: {
-        container: "repeat(auto-fit, minmax(250px, 1fr))", // Sans Basket
+        container: "repeat(auto-fit, minmax(200px, 1fr))", // Sans Basket
       },
       colors: {
         dark: "#17161a",
