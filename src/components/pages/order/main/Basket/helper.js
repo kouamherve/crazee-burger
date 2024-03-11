@@ -1,18 +1,13 @@
 import { findObjectById } from "../../../../../utils/array";
-import { formatPrice } from "../../../../../utils/maths";
 
-export const calculateSumToPay = (menu) => {
-  return (basketMenu) => {
-    let total = 0;
-    basketMenu.map((basketProduct) => {
-      const menuProduct = findObjectById(basketProduct.id, menu);
-      if (!isNaN(menuProduct.price)) {
-        total = total + menuProduct.price * basketProduct.quantity;
-      }
-      return null;
-    });
-    return formatPrice(total);
-  };
+export const calculateTotalPrice = (basketMenu, menu) => {
+  return basketMenu.reduce((total, basketProduct) => {
+    const menuProduct = findObjectById(basketProduct.id, menu);
+    if (menuProduct && !isNaN(menuProduct.price)) {
+      return total + menuProduct.price * basketProduct.quantity;
+    }
+    return total;
+  }, 0);
 };
 
 export const productIsSelected = (

@@ -6,6 +6,7 @@ import { productIsSelected } from "./helper";
 
 export default function BasketProducts() {
   const {
+    username,
     isModeAdmin,
     currentTabSelected,
     productSelected,
@@ -27,7 +28,7 @@ export default function BasketProducts() {
         <BasketCard
           product={updatedMenuProduct}
           key={product.id}
-          onDeleted={() => handleDeletedBasketCard(product.id)}
+          onDeleted={() => handleDeletedBasketCard(product.id, username)}
           isClickable={isModeAdmin}
           isSelected={productIsSelected(
             isModeAdmin,

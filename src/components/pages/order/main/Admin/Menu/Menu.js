@@ -8,10 +8,12 @@ import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
 import { isEmpty } from "../../../../../../utils/array";
 import { productIsSelected } from "../../Basket/helper";
+import Loader from "./Loader";
 
 export default function Menu() {
   // state
   const {
+    username,
     menu,
     handleDelete,
     isModeAdmin,
@@ -27,8 +29,8 @@ export default function Menu() {
   // event handler
   const handleCardDeleted = (event, idProductToEdit) => {
     event.stopPropagation();
-    handleDelete(idProductToEdit);
-    handleDeletedBasketCard(idProductToEdit);
+    handleDelete(idProductToEdit, username);
+    handleDeletedBasketCard(idProductToEdit, username);
     if (productSelected.id === idProductToEdit) {
       setProductSelected(false);
     }
@@ -36,21 +38,23 @@ export default function Menu() {
 
   const handleAddButton = (event, productToAdd) => {
     event.stopPropagation();
-    handleAddToBasket(productToAdd);
+    handleAddToBasket(productToAdd, username);
   };
 
   // css
   const menuClassName = clsx(
-    "w-full p-13 gap-x-21 gap-y-15",
+    "w-full py-13 px-21 gap-x-21 gap-y-15",
     "shadow-strong bg-background_white overflow-y-auto",
     "grid grid-cols-container justify-items-center"
   );
+
+  if (menu === undefined) return <Loader />;
 
   return (
     <div className={menuClassName}>
       {isEmpty(menu) ? (
         isModeAdmin ? (
-          <EmptyMenuAdmin onReset={handleReset} />
+          <EmptyMenuAdmin onReset={() => handleReset(username)} />
         ) : (
           <EmptyMenuClient />
         )

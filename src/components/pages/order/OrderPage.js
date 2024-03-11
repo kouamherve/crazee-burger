@@ -1,13 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Main from "./Main/Main";
 import clsx from "clsx";
-import { refreshPage } from "../../../utils/utils";
 import Navbar from "./navbar/Navbar";
 import OrderContext from "../../../context/OrderContext";
 import { useParams } from "react-router-dom";
 import { DEFAULT_PRODUCT } from "../../../enum/product";
 import { useMenu } from "../../../hooks/useMenu";
 import { useBasketMenu } from "../../../hooks/useBasketMenu";
+import { refreshPage } from "../../../utils/window";
+import { initUserSession } from "./helpers/initUserSession";
 
 export default function OrderPage() {
   // state
@@ -19,9 +20,14 @@ export default function OrderPage() {
   const [newProduct, setNewProduct] = useState(DEFAULT_PRODUCT);
 
   const titleInputRef = useRef();
-  const { menu, handleAdd, handleEdit, handleDelete, handleReset } = useMenu();
-  const { basketMenu, handleAddToBasket, handleDeletedBasketCard } =
-    useBasketMenu();
+  const { menu, setMenu, handleAdd, handleEdit, handleDelete, handleReset } =
+    useMenu();
+  const {
+    basketMenu,
+    setBasketMenu,
+    handleAddToBasket,
+    handleDeletedBasketCard,
+  } = useBasketMenu();
 
   const handleProductSelected = async (product) => {
     await setCurrentTabSelected("edit");
@@ -29,6 +35,11 @@ export default function OrderPage() {
     await setProductSelected(product);
     titleInputRef.current.focus();
   };
+
+  useEffect(() => {
+    initUserSession(setMenu, setBasketMenu, username);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const orderContextValue = {
     isModeAdmin,
@@ -57,7 +68,7 @@ export default function OrderPage() {
   // css
   const orderPageClassName = clsx(
     "flex flex-col items-center",
-    "h-screen p-6 mx-14 font-openSans"
+    "h-screen p-6 mx-29 font-openSans"
   );
 
   return (
