@@ -2,6 +2,7 @@ import React from "react";
 import { formatPrice } from "../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
 import { DEFAULT_IMAGE } from "../../../../../enum/product";
+import { motion } from "framer-motion";
 
 export default function BasketCard({
   product,
@@ -11,7 +12,11 @@ export default function BasketCard({
   isSelected,
 }) {
   return (
-    <div
+    <motion.div
+      initial={{ x: "100%", opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.2 }}
+      // exit={{ x: -100, opacity: 0, transition: { duration: 0.5 } }}
       onClick={onClick}
       className={`${
         isClickable ? "cursor-pointer" : "cursor-default"
@@ -62,6 +67,6 @@ export default function BasketCard({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

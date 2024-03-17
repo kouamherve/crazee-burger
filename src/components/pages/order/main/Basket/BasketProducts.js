@@ -3,6 +3,7 @@ import BasketCard from "./BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
 import { findObjectById } from "../../../../../utils/array";
 import { productIsSelected } from "./helper";
+// import { AnimatePresence } from "framer-motion";
 
 export default function BasketProducts() {
   const {
