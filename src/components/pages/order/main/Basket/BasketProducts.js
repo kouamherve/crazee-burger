@@ -3,7 +3,7 @@ import BasketCard from "./BasketCard";
 import OrderContext from "../../../../../context/OrderContext";
 import { findObjectById } from "../../../../../utils/array";
 import { productIsSelected } from "./helper";
-// import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function BasketProducts() {
   const {
@@ -17,32 +17,40 @@ export default function BasketProducts() {
     menu,
   } = useContext(OrderContext);
 
-  return basketMenu.map((product) => {
-    const menuProduct = findObjectById(product.id, menu);
-    const updatedMenuProduct = {
-      ...menuProduct,
-      quantity: product.quantity,
-    };
-
-    if (menuProduct) {
-      return (
-        <BasketCard
-          product={updatedMenuProduct}
-          key={product.id}
-          onDeleted={() => handleDeletedBasketCard(product.id, username)}
-          isClickable={isModeAdmin}
-          isSelected={productIsSelected(
-            isModeAdmin,
-            currentTabSelected,
-            productSelected,
-            menuProduct
-          )}
-          onClick={
-            isModeAdmin ? () => handleProductSelected(menuProduct) : null
-          }
-        />
-      );
-    }
-    return null;
-  });
+  return (
+    <AnimatePresence>
+      {basketMenu.map((product) => {
+        const menuProduct = findObjectById(product.id, menu);
+        const updatedMenuProduct = {
+          ...menuProduct,
+          quantity: product.quantity,
+        };
+        if (!menuProduct) return null;
+        return (
+          <motion.div
+            key={product.id}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, x: -100, transition: { duration: 0.2 } }}
+          >
+            <BasketCard
+              product={updatedMenuProduct}
+              onDeleted={() => handleDeletedBasketCard(product.id, username)}
+              isClickable={isModeAdmin}
+              isSelected={productIsSelected(
+                isModeAdmin,
+                currentTabSelected,
+                productSelected,
+                menuProduct
+              )}
+              onClick={
+                isModeAdmin ? () => handleProductSelected(menuProduct) : null
+              }
+            />
+          </motion.div>
+        );
+      })}
+    </AnimatePresence>
+  );
 }

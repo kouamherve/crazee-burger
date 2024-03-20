@@ -2,7 +2,6 @@ import React from "react";
 import { formatPrice } from "../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
 import { DEFAULT_IMAGE } from "../../../../../enum/product";
-import { motion } from "framer-motion";
 
 export default function BasketCard({
   product,
@@ -12,11 +11,7 @@ export default function BasketCard({
   isSelected,
 }) {
   return (
-    <motion.div
-      initial={{ x: "100%", opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.2 }}
-      // exit={{ x: -100, opacity: 0, transition: { duration: 0.5 } }}
+    <div
       onClick={onClick}
       className={`${
         isClickable ? "cursor-pointer" : "cursor-default"
@@ -58,15 +53,17 @@ export default function BasketCard({
                 {product.quantity}
               </span>
             </span>
-            <button
-              onClick={onDeleted}
-              className="w-full h-full bg-red text-white active:text-white hover:text-black invisible group-hover:visible flex items-center justify-center"
-            >
-              <MdDeleteForever className=" w-8 h-6 font-bold fill-current" />
-            </button>
+            <div className="w-full h-full">
+              <button
+                onClick={onDeleted}
+                className="w-full h-full bg-red text-white active:text-white hover:text-black invisible group-hover:visible flex items-center justify-center"
+              >
+                <MdDeleteForever className=" w-8 h-6 font-bold fill-current" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
