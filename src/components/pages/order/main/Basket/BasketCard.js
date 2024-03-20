@@ -42,11 +42,11 @@ export default function BasketCard({
               {formatPrice(product.price)}
             </span>
           </div>
-          <div className="w-[80px] h-full flex items-center justify-center">
+          <div className="w-[70px] h-full flex items-center justify-center">
             <span
               className={`${
                 isSelected ? "text-white/70" : "text-primary/70"
-              } group-hover:hidden ml-5 font-openSans text-sm leading-5 grid grid-cols-2 space-x-[5px]`}
+              } group-hover:hidden ml-3 font-openSans text-sm leading-5 grid grid-cols-2 space-x-2`}
             >
               <span>x</span>
               <span className="flex items-center justify-center">
@@ -56,9 +56,9 @@ export default function BasketCard({
             <div className="w-full h-full">
               <button
                 onClick={onDeleted}
-                className="w-full h-full bg-red text-white active:text-white hover:text-black invisible group-hover:visible flex items-center justify-center"
+                className=" -translate-x-3 w-full h-full bg-red text-white active:text-white hover:text-black invisible group-hover:visible flex items-center justify-center"
               >
-                <MdDeleteForever className=" w-8 h-6 font-bold fill-current" />
+                <MdDeleteForever className=" w-7 h-7 font-bold fill-current" />
               </button>
             </div>
           </div>

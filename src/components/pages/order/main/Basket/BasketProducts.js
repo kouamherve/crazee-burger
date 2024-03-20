@@ -29,10 +29,10 @@ export default function BasketProducts() {
         return (
           <motion.div
             key={product.id}
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: "100px" }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.2 }}
-            exit={{ opacity: 0, x: -100, transition: { duration: 0.2 } }}
+            transition={{ duration: 0.5 }}
+            exit={{ opacity: 0, x: "-100px", transition: { duration: 0.5 } }}
           >
             <BasketCard
               product={updatedMenuProduct}
