@@ -16,19 +16,17 @@ export default function Total() {
         <span className="font-thin">
           <span className="text-[41px]">t</span>otal
         </span>
-        <div className="flex flex-col overflow-y-hidden">
-          <AnimatePresence mode="popLayout">
+        <div className="flex flex-col overflow-y-hidden text-3xl">
+          <AnimatePresence mode="popLayout" initial={false}>
             <motion.span
               key={sumToPay}
-              initial={{ y: 40, opacity: 1 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
                 duration: 0.2,
-                type: "spring",
-                stiffness: 100,
               }}
-              exit={{ y: -30, opacity: 0 }}
-              className="font-bold block"
+              exit={{ y: -20, opacity: 0 }}
+              className="font-bold"
             >
               {formatPrice(sumToPay)}
             </motion.span>
