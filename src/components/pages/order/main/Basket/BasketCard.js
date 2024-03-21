@@ -2,6 +2,7 @@ import React from "react";
 import { formatPrice } from "../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
 import { DEFAULT_IMAGE } from "../../../../../enum/product";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function BasketCard({
   product,
@@ -49,9 +50,22 @@ export default function BasketCard({
               } group-hover:hidden ml-3 font-openSans text-sm leading-5 grid grid-cols-2 space-x-2`}
             >
               <span>x</span>
-              <span className="flex items-center justify-center">
-                {product.quantity}
-              </span>
+              <div>
+                <AnimatePresence mode="popLayout">
+                  <motion.span
+                    key={product.quantity}
+                    initial={{ y: 15, opacity: 1 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{
+                      duration: 0.2,
+                    }}
+                    exit={{ y: -15, opacity: 0 }}
+                    className="flex items-center justify-center"
+                  >
+                    {product.quantity}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
             </span>
             <div className="w-full h-full">
               <button

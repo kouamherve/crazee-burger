@@ -21,7 +21,7 @@ export default function Total() {
             <motion.span
               key={sumToPay}
               initial={{ y: 40, opacity: 1 }}
-              animate={{ y: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{
                 duration: 0.2,
                 type: "spring",
