@@ -54,12 +54,12 @@ export default function BasketCard({
                 <AnimatePresence mode="popLayout">
                   <motion.span
                     key={product.quantity}
-                    initial={{ y: 15, opacity: 0 }}
+                    initial={{ y: 15 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{
-                      duration: 0.2,
+                      duration: 0.3,
                     }}
-                    exit={{ y: -15, opacity: 0 }}
+                    exit={{ y: -15, opacity: 0.01 }}
                     className="flex items-center justify-center"
                   >
                     {product.quantity}

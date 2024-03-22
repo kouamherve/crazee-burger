@@ -6,10 +6,10 @@ export default function DeleteButton({ onDelete, isSelected }) {
   return (
     <motion.button
       key={isSelected}
-      initial={{ x: 12, opacity: 0.5 }}
+      initial={{ x: 20, opacity: 0.01 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.2 }}
-      exit={{ x: 12, opacity: 0.5 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0.1 }}
       className="absolute top-0 right-0 mr-[15px] mt-[15px] "
     >
       <TiDelete

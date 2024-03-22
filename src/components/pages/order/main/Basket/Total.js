@@ -20,12 +20,12 @@ export default function Total() {
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span
               key={sumToPay}
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: 30, opacity: 1 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
                 duration: 0.2,
               }}
-              exit={{ y: -20, opacity: 0 }}
+              exit={{ y: -30, opacity: 0 }}
               className="font-bold"
             >
               {formatPrice(sumToPay)}
