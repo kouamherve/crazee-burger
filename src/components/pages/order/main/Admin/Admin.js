@@ -10,10 +10,10 @@ export default function Admin() {
   return (
     <motion.div
       key={isCollapse}
-      initial={{ y: "100%", opacity: 0.5 }}
+      initial={{ y: "100%", opacity: 0.8 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      exit={{ opacity: 0.5, y: "100%", transition: { duration: 0.2 } }}
+      transition={{ duration: 0.2 }}
+      exit={{ opacity: 0.5, y: "100%" }}
       className="absolute bottom-0 left-0 right-0 rounded-b-2xl"
     >
       <AdminTabs isCollapse={isCollapse} setIsCollapse={setIsCollapse} />

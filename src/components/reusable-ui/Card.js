@@ -3,6 +3,7 @@ import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
 import DeleteButton from "../pages/order/Main/Admin/AdminPanel/DeleteButton";
 import Button from "./Button";
+import { AnimatePresence } from "framer-motion";
 
 export default function Card({
   imageSource,
@@ -47,9 +48,11 @@ export default function Card({
 
   return (
     <div className={classNames.card} onClick={onClick}>
-      {hasDeleted && (
-        <DeleteButton onDelete={onDelete} isSelected={isSelected} />
-      )}
+      <AnimatePresence mode="wait">
+        {hasDeleted && (
+          <DeleteButton onDelete={onDelete} isSelected={isSelected} />
+        )}
+      </AnimatePresence>
       <div className={classNames.imageContainer}>
         <img src={imageSource} alt={title} className={classNames.image} />
       </div>
