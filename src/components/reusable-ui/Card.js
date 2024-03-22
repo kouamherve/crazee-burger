@@ -15,6 +15,7 @@ export default function Card({
   isHoverable,
   isSelected,
   onAdded,
+  isAdmin,
 }) {
   // css
   const classNames = {
@@ -48,9 +49,9 @@ export default function Card({
 
   return (
     <motion.div
-      initial={{ x: -100 }}
-      animate={{ x: 0, ease: "easeOut" }}
-      transition={{ duration: 0.2 }}
+      initial={isAdmin ? { x: -100 } : ""}
+      animate={isAdmin ? { x: 0, ease: "easeOut" } : ""}
+      transition={isAdmin ? { duration: 0.2 } : ""}
       className={classNames.card}
       onClick={onClick}
     >

@@ -83,6 +83,7 @@ export default function Menu() {
                 product
               )}
               onAdded={(event) => handleAddButton(event, product)}
+              isAdmin={isModeAdmin}
             />
           );
         })
