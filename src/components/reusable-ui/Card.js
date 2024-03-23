@@ -24,7 +24,7 @@ export default function Card({
       "rounded-2xl shadow-medium",
       `${
         isHoverable
-          ? "hover:shadow-orangeHightLight hover:!scale-105 hover:!cursor-pointer transition duration-400 ease-in-out"
+          ? "hover:shadow-orangeHightLight hover:!scale-105 hover:!cursor-pointer transition duration-300 ease-in-out"
           : ""
       }`,
       `${isSelected ? "bg-primary" : "bg-white"}`

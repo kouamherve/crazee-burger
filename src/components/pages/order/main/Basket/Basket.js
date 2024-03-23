@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "./Footer";
 
 import BasketBody from "./BasketBody/BasketBody";
 import BasketHeader from "./BasketHeader/BasketHeader";
+import BasketFooter from "./BasketFooter";
 
 export default function Basket() {
   return (
@@ -10,7 +10,7 @@ export default function Basket() {
       <div className=" text-background_white flex flex-col h-[100%] font-amatic ">
         <BasketHeader />
         <BasketBody />
-        <Footer />
+        <BasketFooter />
       </div>
     </div>
   );

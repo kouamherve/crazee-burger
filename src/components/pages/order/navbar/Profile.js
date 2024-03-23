@@ -16,7 +16,7 @@ export default function Profile() {
       <span className=" text-right">
         Hey, <b className=" text-primary">{username}</b>
       </span>
-      <Link to="/" className="text-start text-base">
+      <Link to="/" className="text-end text-base">
         <span className={btnClassName}>Se déconnecter</span>
       </Link>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../../../reusable-ui/Header";
 
-export default function Footer() {
+export default function BasketFooter() {
   return (
     <Header>
       <div className="font-bold text-xl text-white/80">
