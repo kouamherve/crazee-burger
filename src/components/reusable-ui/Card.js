@@ -3,7 +3,7 @@ import { formatPrice } from "../../utils/maths";
 import clsx from "clsx";
 import DeleteButton from "../pages/order/Main/Admin/AdminPanel/DeleteButton";
 import Button from "./Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 export default function Card({
   imageSource,
@@ -15,7 +15,6 @@ export default function Card({
   isHoverable,
   isSelected,
   onAdded,
-  isAdmin,
 }) {
   // css
   const classNames = {
@@ -25,7 +24,7 @@ export default function Card({
       "rounded-2xl shadow-medium",
       `${
         isHoverable
-          ? "hover:shadow-orangeHightLight hover:scale-105 hover:cursor-pointer transition duration-150 ease-out"
+          ? "hover:shadow-orangeHightLight hover:!scale-105 hover:!cursor-pointer transition duration-400 ease-in-out"
           : ""
       }`,
       `${isSelected ? "bg-primary" : "bg-white"}`
@@ -48,13 +47,7 @@ export default function Card({
   };
 
   return (
-    <motion.div
-      initial={isAdmin ? { x: -100 } : ""}
-      animate={isAdmin ? { x: 0, ease: "easeOut" } : ""}
-      transition={isAdmin ? { duration: 0.2 } : ""}
-      className={classNames.card}
-      onClick={onClick}
-    >
+    <div className={classNames.card} onClick={onClick}>
       <AnimatePresence mode="wait">
         {hasDeleted && (
           <DeleteButton onDelete={onDelete} isSelected={isSelected} />
@@ -75,6 +68,6 @@ export default function Card({
           />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

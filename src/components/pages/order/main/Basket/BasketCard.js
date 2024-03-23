@@ -2,7 +2,7 @@ import React from "react";
 import { formatPrice } from "../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
 import { DEFAULT_IMAGE } from "../../../../../enum/product";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeOut } from "framer-motion";
 
 export default function BasketCard({
   product,
@@ -54,12 +54,12 @@ export default function BasketCard({
                 <AnimatePresence mode="popLayout">
                   <motion.span
                     key={product.quantity}
-                    initial={{ y: 15 }}
-                    animate={{ y: 0, opacity: 1 }}
+                    initial={{ y: 15, opacity: 0.01 }}
+                    animate={{ y: 0, opacity: 1, ease: easeOut }}
                     transition={{
                       duration: 0.3,
                     }}
-                    exit={{ y: -15, opacity: 0.01 }}
+                    exit={{ y: -15, opacity: 0.01, ease: easeOut }}
                     className="flex items-center justify-center"
                   >
                     {product.quantity}

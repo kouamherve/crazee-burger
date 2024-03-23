@@ -1,6 +1,6 @@
 import React from "react";
 import { TiDelete } from "react-icons/ti";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 
 export default function DeleteButton({ onDelete, isSelected }) {
   return (
@@ -8,8 +8,8 @@ export default function DeleteButton({ onDelete, isSelected }) {
       key={isSelected}
       initial={{ x: 20, opacity: 0.01 }}
       animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0.1 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      exit={{ opacity: 0, ease: easeOut, transition: { duration: 0.2 } }}
       className="absolute top-0 right-0 mr-[15px] mt-[15px] "
     >
       <TiDelete
