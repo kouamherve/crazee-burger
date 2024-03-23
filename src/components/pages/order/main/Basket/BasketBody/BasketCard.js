@@ -1,7 +1,7 @@
 import React from "react";
-import { formatPrice } from "../../../../../utils/maths";
+import { formatPrice } from "../../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
-import { DEFAULT_IMAGE } from "../../../../../enum/product";
+import { DEFAULT_IMAGE } from "../../../../../../enum/product";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 
 export default function BasketCard({

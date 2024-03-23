@@ -1,5 +1,5 @@
 import React from "react";
-import { BASKET_MESSAGE } from "../../../../../enum/product";
+import { BASKET_MESSAGE } from "../../../../../../enum/product";
 
 export default function EmptyBasket({ isLoading }) {
   return (

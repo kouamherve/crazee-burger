@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import BasketCard from "./BasketCard";
-import OrderContext from "../../../../../context/OrderContext";
-import { findObjectById } from "../../../../../utils/array";
-import { productIsSelected } from "./BasketHeader/helper";
+import OrderContext from "../../../../../../context/OrderContext";
+import { findObjectById } from "../../../../../../utils/array";
+import { productIsSelected } from "../BasketHeader/helper";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function BasketProducts() {
