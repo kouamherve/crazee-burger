@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import Header from "../../../../reusable-ui/Header";
+import Header from "../../../../../reusable-ui/Header";
 import { calculateTotalPrice } from "./helper";
-import OrderContext from "../../../../../context/OrderContext";
-import { formatPrice } from "../../../../../utils/maths";
+import OrderContext from "../../../../../../context/OrderContext";
+import { formatPrice } from "../../../../../../utils/maths";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Total() {
+export default function BasketHeader() {
   const { basketMenu, menu } = useContext(OrderContext);
 
   const sumToPay = calculateTotalPrice(basketMenu, menu);

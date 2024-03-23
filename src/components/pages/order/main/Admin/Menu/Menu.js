@@ -7,7 +7,7 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
 import { isEmpty } from "../../../../../../utils/array";
-import { productIsSelected } from "../../Basket/helper";
+import { productIsSelected } from "../../Basket/BasketHeader/helper";
 import Loader from "./Loader";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 
