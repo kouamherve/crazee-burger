@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Logo from "../../reusable-ui/Logo";
 import LoginForm from "./LoginForm";
+import { motion } from "framer-motion";
 
 export default function LoginPage() {
   const loginPageClassName = clsx(
@@ -10,9 +11,14 @@ export default function LoginPage() {
   );
 
   return (
-    <div className={loginPageClassName}>
+    <motion.div
+      initial={{}}
+      animate={{}}
+      transition={{}}
+      className={loginPageClassName}
+    >
       <Logo size={"scale-250"} />
       <LoginForm />
-    </div>
+    </motion.div>
   );
 }

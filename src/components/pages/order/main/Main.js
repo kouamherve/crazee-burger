@@ -3,6 +3,7 @@ import Menu from "./Admin/Menu/Menu";
 import Admin from "./Admin/Admin";
 import OrderContext from "../../../../context/OrderContext";
 import Basket from "./Basket/Basket";
+import { AnimatePresence } from "framer-motion";
 
 export default function Main() {
   const { isModeAdmin } = useContext(OrderContext);
@@ -13,7 +14,9 @@ export default function Main() {
         <Basket />
         <div className="relative w-3/4 grid">
           <Menu />
-          {isModeAdmin && <Admin />}
+          <AnimatePresence mode="wait">
+            {isModeAdmin && <Admin />}
+          </AnimatePresence>
         </div>
       </div>
     </div>

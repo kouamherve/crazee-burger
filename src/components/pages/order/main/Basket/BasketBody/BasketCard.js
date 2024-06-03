@@ -1,7 +1,8 @@
 import React from "react";
-import { formatPrice } from "../../../../../utils/maths";
+import { formatPrice } from "../../../../../../utils/maths";
 import { MdDeleteForever } from "react-icons/md";
-import { DEFAULT_IMAGE } from "../../../../../enum/product";
+import { DEFAULT_IMAGE } from "../../../../../../enum/product";
+import { motion, AnimatePresence, easeOut } from "framer-motion";
 
 export default function BasketCard({
   product,
@@ -42,23 +43,38 @@ export default function BasketCard({
               {formatPrice(product.price)}
             </span>
           </div>
-          <div className="w-[80px] h-full flex items-center justify-center">
+          <div className="w-[70px] h-full flex items-center justify-center">
             <span
               className={`${
                 isSelected ? "text-white/70" : "text-primary/70"
-              } group-hover:hidden ml-5 font-openSans text-sm leading-5 grid grid-cols-2 space-x-[5px]`}
+              } group-hover:hidden ml-3 font-openSans text-sm leading-5 grid grid-cols-2 space-x-2`}
             >
               <span>x</span>
-              <span className="flex items-center justify-center">
-                {product.quantity}
-              </span>
+              <div>
+                <AnimatePresence mode="popLayout">
+                  <motion.span
+                    key={product.quantity}
+                    initial={{ y: 15, opacity: 0.01 }}
+                    animate={{ y: 0, opacity: 1, ease: easeOut }}
+                    transition={{
+                      duration: 0.3,
+                    }}
+                    exit={{ y: -15, opacity: 0.01, ease: easeOut }}
+                    className="flex items-center justify-center"
+                  >
+                    {product.quantity}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
             </span>
-            <button
-              onClick={onDeleted}
-              className="w-full h-full bg-red text-white active:text-white hover:text-black invisible group-hover:visible flex items-center justify-center"
-            >
-              <MdDeleteForever className=" w-8 h-6 font-bold fill-current" />
-            </button>
+            <div className="w-full h-full">
+              <button
+                onClick={onDeleted}
+                className=" -translate-x-3 w-full h-full bg-red text-white active:text-white hover:text-black invisible group-hover:visible flex items-center justify-center"
+              >
+                <MdDeleteForever className=" w-7 h-7 font-bold fill-current" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

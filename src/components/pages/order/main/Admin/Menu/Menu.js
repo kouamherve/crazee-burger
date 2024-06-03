@@ -7,8 +7,9 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin";
 import EmptyMenuClient from "./EmptyMenuClient";
 import { DEFAULT_IMAGE } from "../../../../../../enum/product";
 import { isEmpty } from "../../../../../../utils/array";
-import { productIsSelected } from "../../Basket/helper";
+import { productIsSelected } from "../../Basket/BasketHeader/helper";
 import Loader from "./Loader";
+import { motion, AnimatePresence, easeOut } from "framer-motion";
 
 export default function Menu() {
   // state
@@ -59,33 +60,57 @@ export default function Menu() {
           <EmptyMenuClient />
         )
       ) : (
-        menu.map((product) => {
-          return (
-            <Card
-              key={product.id}
-              imageSource={
-                product.imageSource ? product.imageSource : DEFAULT_IMAGE
-              }
-              title={product.title}
-              price={formatPrice(product.price)}
-              onDelete={(event) => handleCardDeleted(event, product.id)}
-              hasDeleted={isModeAdmin}
-              onClick={
-                isModeAdmin && product
-                  ? () => handleProductSelected(product)
-                  : null
-              }
-              isHoverable={isModeAdmin}
-              isSelected={productIsSelected(
-                isModeAdmin,
-                currentTabSelected,
-                productSelected,
-                product
-              )}
-              onAdded={(event) => handleAddButton(event, product)}
-            />
-          );
-        })
+        <AnimatePresence>
+          {menu.map((product) => {
+            return (
+              <motion.div
+                key={product.id}
+                initial={isModeAdmin ? { x: "-50%", opacity: 0.1 } : ""}
+                animate={isModeAdmin ? { x: 0, opacity: 1 } : ""}
+                transition={
+                  isModeAdmin
+                    ? {
+                        duration: 0.3,
+                        ease: easeOut,
+                      }
+                    : ""
+                }
+                exit={
+                  isModeAdmin
+                    ? {
+                        opacity: 0,
+                        transition: { ease: easeOut, duration: 0.3 },
+                      }
+                    : ""
+                }
+              >
+                <Card
+                  imageSource={
+                    product.imageSource ? product.imageSource : DEFAULT_IMAGE
+                  }
+                  title={product.title}
+                  price={formatPrice(product.price)}
+                  onDelete={(event) => handleCardDeleted(event, product.id)}
+                  hasDeleted={isModeAdmin}
+                  onClick={
+                    isModeAdmin && product
+                      ? () => handleProductSelected(product)
+                      : null
+                  }
+                  isHoverable={isModeAdmin}
+                  isSelected={productIsSelected(
+                    isModeAdmin,
+                    currentTabSelected,
+                    productSelected,
+                    product
+                  )}
+                  onAdded={(event) => handleAddButton(event, product)}
+                  isAdmin={isModeAdmin}
+                />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       )}
     </div>
   );
